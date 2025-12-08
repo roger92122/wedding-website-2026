@@ -41,7 +41,7 @@ body {
 /* HERO BANNER */
 .hero {
     height: 80vh;
-    background: url("images/hero.jpg") center/cover no-repeat;
+    background: url("hero.jpg") center/cover no-repeat; /* UPDATED */
     display: flex;
     align-items: center;
     justify-content: center;
