@@ -1,59 +1,39 @@
 /* ============================================================
-   ENSURE SCRIPT RUNS AFTER DOM IS READY
+   Custom Slow Smooth Scroll (adjustable speed)
    ============================================================ */
-document.addEventListener("DOMContentLoaded", () => {
+function smoothScrollTo(target, duration = 1200) {   // 1200ms = slower scroll
+    const start = window.pageYOffset;
+    const end = target.getBoundingClientRect().top + start;
+    const distance = end - start;
+    let startTime = null;
 
-    /* ============================================================
-       Apple-style Smooth Scroll for Navigation
-       ============================================================ */
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            
-            const target = document.querySelector(this.getAttribute("href"));
-            if (!target) return;
+    function animation(currentTime) {
+        if (!startTime) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
 
-            target.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
-        });
-    });
+        // ease animation curve (Apple-like)
+        const progress = Math.min(timeElapsed / duration, 1);
+        const ease = progress < 0.5
+            ? 2 * progress * progress
+            : 1 - Math.pow(-2 * progress + 2, 2) / 2;
 
-    /* ============================================================
-       Fade-in on Scroll (Apple-style)
-       ============================================================ */
-    const faders = document.querySelectorAll('.fade-in');
+        window.scrollTo(0, start + distance * ease);
 
-    const appearOptions = {
-        threshold: 0.15,      // element becomes visible sooner
-        rootMargin: "0px 0px -10% 0px"
-    };
-
-    const appearOnScroll = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (!entry.isIntersecting) return;
-            entry.target.classList.add("visible");
-            observer.unobserve(entry.target);
-        });
-    }, appearOptions);
-
-    faders.forEach(el => {
-        appearOnScroll.observe(el);
-    });
-
-
-    /* ============================================================
-       Soft Blur Navbar on Scroll (Apple-style)
-       ============================================================ */
-    const navbar = document.querySelector(".navbar");
-
-    window.addEventListener("scroll", () => {
-        if (window.scrollY > 30) {
-            navbar.classList.add("blur");
-        } else {
-            navbar.classList.remove("blur");
+        if (timeElapsed < duration) {
+            requestAnimationFrame(animation);
         }
-    });
+    }
 
+    requestAnimationFrame(animation);
+}
+
+/* ============================================================
+   Attach to all nav links
+   ============================================================ */
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute("href"));
+        if (target) smoothScrollTo(target, 1500);  // <-- ADJUST SPEED HERE
+    });
 });
