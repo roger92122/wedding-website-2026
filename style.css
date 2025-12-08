@@ -152,3 +152,100 @@ body {
     padding: 40px;
     color: #777;
 }
+
+/* ============================================
+   MOBILE RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 768px) {
+
+    /* NAVIGATION */
+    .logo {
+        font-size: 26px;
+    }
+
+    .nav-menu {
+        gap: 20px;
+    }
+
+    .nav-menu a {
+        font-size: 14px;
+    }
+
+    /* HERO SECTION */
+    .hero {
+        height: 70vh;
+        padding-left: 20px;
+        padding-right: 20px;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .hero-content h1 {
+        font-size: 40px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+    }
+
+    .rsvp-button {
+        padding: 12px 35px;
+        font-size: 16px;
+    }
+
+    /* SECTIONS */
+    .section {
+        margin: 20px;
+        padding: 30px 20px;
+    }
+
+    .section h2 {
+        font-size: 28px;
+    }
+
+    /* EVENT IMAGES */
+    .event-image {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .event-time {
+        font-size: 18px;
+    }
+
+    .event-location {
+        font-size: 16px;
+    }
+
+    .event-address {
+        font-size: 14px;
+    }
+
+    /* RSVP FORM */
+    #rsvp-form input,
+    #rsvp-form select,
+    #rsvp-form button {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+/* TINY MOBILE (iPhone SE, older Androids) */
+@media (max-width: 480px) {
+
+    .hero-content h1 {
+        font-size: 32px;
+    }
+
+    .logo {
+        font-size: 22px;
+    }
+
+    .nav-menu {
+        gap: 12px;
+    }
+
+    .nav-menu a {
+        font-size: 12px;
+    }
+}
