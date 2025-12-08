@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RSVP - Haoran & Chi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">Haoran & Chi</div>
+    <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="our-story.html">Our Story</a></li>
+        <li><a href="accommodations.html">Accommodations</a></li>
+        <li><a href="registry.html">The Registry</a></li>
+        <li><a href="rsvp.html">RSVP</a></li>
+    </ul>
+</nav>
+
+<div class="page-content">
+    <h2>RSVP</h2>
+
+    <form id="rsvp-form">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="email" id="email" placeholder="Your Email" required>
+
+        <select id="attendance">
+            <option value="yes">Will attend</option>
+            <option value="no">Cannot attend</option>
+        </select>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <p id="confirmation"></p>
+</div>
+
+<footer class="footer">© 2026 Haoran & Chi</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

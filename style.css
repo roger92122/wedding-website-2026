@@ -1,0 +1,110 @@
+body {
+    margin: 0;
+    font-family: "Georgia", serif;
+    background-color: #f3f3f7;
+}
+
+/* NAVIGATION */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 40px;
+    background: white;
+    border-bottom: 1px solid #ddd;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+}
+
+.nav-menu a.active {
+    border-bottom: 2px solid #0066cc;
+    padding-bottom: 3px;
+}
+
+/* HERO BANNER */
+.hero {
+    height: 80vh;
+    background: url("images/hero.jpg") center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    color: white;
+}
+
+.hero-content p {
+    font-size: 20px;
+    color: white;
+}
+
+.rsvp-button {
+    margin-top: 20px;
+    padding: 12px 30px;
+    background: #0066cc;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* PAGE SECTIONS */
+.page-content {
+    padding: 60px 40px;
+    background: white;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+.page-content h2 {
+    font-size: 32px;
+}
+
+/* RSVP FORM */
+#rsvp-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 300px;
+}
+
+#rsvp-form input,
+#rsvp-form select {
+    padding: 10px;
+    font-size: 16px;
+}
+
+#rsvp-form button {
+    padding: 12px;
+    background: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* FOOTER */
+.footer {
+    text-align: center;
+    padding: 30px;
+    color: #777;
+}
