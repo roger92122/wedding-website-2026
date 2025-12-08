@@ -1,28 +1,16 @@
-// Highlight the active menu item based on URL
-document.querySelectorAll('.nav-menu a').forEach(link => {
-    if (link.href === window.location.href) {
-        link.classList.add('active');
-    }
-});
+// Handle RSVP form
+document.getElementById("rsvp-form").addEventListener("submit", function (e) {
+    e.preventDefault();
 
-// Smooth scroll for RSVP button on homepage
-function goToRSVP() {
-    window.location.href = "rsvp.html";
-}
+    const name = document.getElementById("name").value;
+    const attendance = document.getElementById("attendance").value;
 
-// RSVP form submission handler
-if (document.getElementById("rsvp-form")) {
-    document.getElementById("rsvp-form").addEventListener("submit", function(e) {
-        e.preventDefault();
-
-        const name = document.getElementById("name").value;
-        const attendance = document.getElementById("attendance").value;
-        const message = attendance === "yes"
-            ? `Thank you, ${name}! We look forward to celebrating with you!`
+    const msg =
+        attendance === "yes"
+            ? `Thank you, ${name}! We are excited to see you!`
             : `Thank you for letting us know, ${name}.`;
 
-        document.getElementById("confirmation").textContent = message;
+    document.getElementById("confirmation").textContent = msg;
 
-        this.reset();
-    });
-}
+    this.reset();
+});
