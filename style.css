@@ -180,7 +180,7 @@ body {
         padding: 0 15px;
 
         /* shift focus to the RIGHT side of the image */
-        background-position: 65% 40%;;
+        background-position: 60% 35%;;
 
         display: flex;
         justify-content: center;
@@ -189,7 +189,7 @@ body {
 
     /* move the hero text upward */
     .hero-content {
-        margin-top: -100px; /* adjust to -60 / -100 based on your preference */
+        margin-top: -110px; /* adjust to -60 / -100 based on your preference */
     }
 
     .hero-content h1 {
@@ -285,6 +285,7 @@ body {
         height: 300px;
     }
 }
+
 
 
 
