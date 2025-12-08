@@ -91,13 +91,16 @@ body {
 }
 
 /* CEREMONY & RECEPTION */
+/* EVENT IMAGES — FORCE PERFECT SQUARE */
 .event-image {
-    width: 480px;
-    max-width: 90%;
+    width: 320px;          /* size of the square */
+    height: 320px;         /* same as width → square */
+    object-fit: cover;     /* crop image evenly */
     display: block;
     margin: 0 auto 40px auto;
     border-radius: 4px;
 }
+
 
 .event-time {
     font-size: 20px;
@@ -236,3 +239,4 @@ body {
     font-size: 32px;
   }
 }
+
