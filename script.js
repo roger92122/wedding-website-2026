@@ -26,33 +26,31 @@ function smoothScrollTo(target, duration = 1500, offset = 80) {
             requestAnimationFrame(animation);
         }
     }
-   
-   /* ============================================================
-   LANGUAGE SWITCHER
-   ============================================================ */
-
-const btnEN = document.getElementById("lang-en");
-const btnZH = document.getElementById("lang-zh");
-
-btnEN.addEventListener("click", () => {
-    btnEN.classList.add("active");
-    btnZH.classList.remove("active");
-
-    document.querySelectorAll(".lang-en").forEach(el => el.style.display = "block");
-    document.querySelectorAll(".lang-zh").forEach(el => el.style.display = "none");
-});
-
-btnZH.addEventListener("click", () => {
-    btnZH.classList.add("active");
-    btnEN.classList.remove("active");
-
-    document.querySelectorAll(".lang-en").forEach(el => el.style.display = "none");
-    document.querySelectorAll(".lang-zh").forEach(el => el.style.display = "block");
-});
-
 
     requestAnimationFrame(animation);
 }
+
+/* ============================================================
+   LANGUAGE SWITCHER  (MUST BE OUTSIDE smoothScrollTo)
+   ============================================================ */
+document.addEventListener("DOMContentLoaded", () => {
+    const btnEN = document.getElementById("lang-en");
+    const btnZH = document.getElementById("lang-zh");
+
+    btnEN.addEventListener("click", () => {
+        btnEN.classList.add("active");
+        btnZH.classList.remove("active");
+        document.querySelectorAll(".lang-en").forEach(el => el.style.display = "block");
+        document.querySelectorAll(".lang-zh").forEach(el => el.style.display = "none");
+    });
+
+    btnZH.addEventListener("click", () => {
+        btnZH.classList.add("active");
+        btnEN.classList.remove("active");
+        document.querySelectorAll(".lang-en").forEach(el => el.style.display = "none");
+        document.querySelectorAll(".lang-zh").forEach(el => el.style.display = "block");
+    });
+});
 
 /* ============================================================
    Attach to nav links (with mobile/desktop offsets)
@@ -64,15 +62,9 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         const target = document.querySelector(this.getAttribute("href"));
         if (!target) return;
 
-        // Detect mobile based on screen width
         const isMobile = window.innerWidth < 768;
-
-        // Desktop uses 40 offset (your current value)
-        // Mobile needs more to avoid title being blocked
-        const offset = isMobile ? 80 : 40;
-        // adjust 120 → 110 or 130 based on your preference
+        const offset = isMobile ? 80 : 40; // adjust to your preference
 
         smoothScrollTo(target, 1700, offset);
     });
 });
-
