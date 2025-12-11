@@ -194,25 +194,34 @@ body {
     gap: 8px;
 }
 
-/* Force equal button size */
+/* Base language buttons */
 .lang-btn {
-    width: 52px;          /* NEW: fixed width ensures perfect symmetry */
-    height: 36px;         /* optional but helps equalize height */
-    padding: 0;           /* remove uneven padding */
+    width: 52px;            /* Ensures EN and 中文 match */
+    height: 34px;           /* Keeps height consistent */
+    padding: 0;             /* Removes uneven padding */
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 14px;        /* EN default */
+    border: 1px solid #999;
+    background: white;
+    color: black;
+    cursor: pointer;
+    border-radius: 4px;
 }
 
-/* Slightly reduce Chinese font size */
+/* Active button (KEEPING YOUR ORIGINAL LOOK) */
+.lang-btn.active {
+    background: #333;
+    color: white;
+    border-color: #333;
+}
+
+/* Make Chinese characters slightly smaller so they're visually equal */
 #lang-zh {
-    font-size: 13px;      /* Chinese characters run larger */
+    font-size: 13px;
 }
 
-/* English button stays as is */
-#lang-en {
-    font-size: 14px;
-}
 
 
 /* ============================================
@@ -333,4 +342,5 @@ body {
         height: 300px;
     }
 }
+
 
