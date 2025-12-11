@@ -148,6 +148,38 @@
             <button type="submit" class="lang lang-zh" style="display:none;">提交</button>
 
         </form>
+        <!-- PLUS ONE SECTION -->
+        <div class="plus-one">
+        
+            <!-- English -->
+            <label class="lang lang-en plus-one-label">
+                <input type="checkbox" id="plus-one-checkbox">
+                I will bring a guest
+            </label>
+        
+            <!-- Chinese -->
+            <label class="lang lang-zh plus-one-label" style="display:none;">
+                <input type="checkbox" id="plus-one-checkbox-zh">
+                我会携带一位同行嘉宾
+            </label>
+        
+            <!-- Guest name input (hidden until checked) -->
+            <input 
+                type="text" 
+                id="plus-one-name" 
+                class="plus-one-input lang lang-en" 
+                placeholder="Guest Name" 
+                style="display:none;"
+            >
+        
+            <input 
+                type="text" 
+                id="plus-one-name-zh" 
+                class="plus-one-input lang lang-zh" 
+                placeholder="嘉宾姓名" 
+                style="display:none;"
+            >
+        </div>
 
         <p id="confirmation"></p>
     </section>
@@ -161,6 +193,7 @@
     <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
