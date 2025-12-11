@@ -165,11 +165,13 @@ body {
 }
 
 .plus-one-input {
-    width: 100%;
-    padding: 10px;
-    font-size: 15px;
+    width: 100%;              /* same width */
+    padding: 12px;            /* same padding */
+    font-size: 16px;          /* same text size */
     margin-top: 10px;
+    box-sizing: border-box;   /* ensures exact match */
 }
+
 
 /* FOOTER */
 .footer {
@@ -332,6 +334,7 @@ body {
         height: 300px;
     }
 }
+
 
 
 
