@@ -46,6 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
         btnEN.addEventListener("click", () => {
             btnEN.classList.add("active");
             btnZH.classList.remove("active");
+
             document.querySelectorAll(".lang-en").forEach(el => el.style.display = "block");
             document.querySelectorAll(".lang-zh").forEach(el => el.style.display = "none");
         });
@@ -53,6 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
         btnZH.addEventListener("click", () => {
             btnZH.classList.add("active");
             btnEN.classList.remove("active");
+
             document.querySelectorAll(".lang-en").forEach(el => el.style.display = "none");
             document.querySelectorAll(".lang-zh").forEach(el => el.style.display = "block");
         });
@@ -60,10 +62,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* ============================================================
-       PLUS ONE LOGIC
+       PLUS ONE CHECKBOX (EN + ZH)
        ============================================================ */
     const checkboxEN = document.getElementById("plus-one-checkbox");
+    const checkboxZH = document.getElementById("plus-one-checkbox-zh");
+
     const guestInputEN = document.getElementById("plus-one-name");
+    const guestInputZH = document.getElementById("plus-one-name-zh");
 
     if (checkboxEN) {
         checkboxEN.addEventListener("change", () => {
@@ -71,12 +76,20 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-   
+    if (checkboxZH) {
+        checkboxZH.addEventListener("change", () => {
+            guestInputZH.style.display = checkboxZH.checked ? "block" : "none";
+        });
+    }
+
+
     /* ============================================================
-       SUCCESS MESSAGE HANDLER (FORMSPREE)
+       RSVP FORM SUBMISSION (FORMSPREE)
+       Handles BOTH languages in ONE form
        ============================================================ */
     const rsvpForm = document.getElementById("rsvp-form");
-    const successMsg = document.getElementById("form-success");
+    const successEN = document.getElementById("form-success");
+    const successZH = document.getElementById("form-success-zh");
 
     if (rsvpForm) {
         rsvpForm.addEventListener("submit", async function (e) {
@@ -91,56 +104,30 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
             if (res.ok) {
-                successMsg.style.display = "block";
                 rsvpForm.reset();
+
+                // Hide plus-one fields
                 guestInputEN.style.display = "none";
+                guestInputZH.style.display = "none";
+
+                // Show correct language success message
+                if (btnZH.classList.contains("active")) {
+                    successZH.style.display = "block";
+                    successEN.style.display = "none";
+                } else {
+                    successEN.style.display = "block";
+                    successZH.style.display = "none";
+                }
+
             } else {
-                alert("Something went wrong. Please try again.");
+                if (btnZH.classList.contains("active")) {
+                    alert("提交失败，请稍后再试。");
+                } else {
+                    alert("Something went wrong. Please try again.");
+                }
             }
         });
     }
-
-
-   /* ============================================================
-      PLUS ONE LOGIC - CHINESE FORM
-      ============================================================ */
-   const checkboxZH = document.getElementById("plus-one-checkbox-zh");
-   const guestInputZH = document.getElementById("plus-one-name-zh");
-   
-   if (checkboxZH) {
-       checkboxZH.addEventListener("change", () => {
-           guestInputZH.style.display = checkboxZH.checked ? "block" : "none";
-       });
-   }
-   
-   
-   /* ============================================================
-      SUCCESS MESSAGE HANDLER FORMSPREE - CHINESE
-      ============================================================ */
-   const rsvpFormZH = document.getElementById("rsvp-form-zh");
-   const successMsgZH = document.getElementById("form-success-zh");
-   
-   if (rsvpFormZH) {
-       rsvpFormZH.addEventListener("submit", async function (e) {
-           e.preventDefault();
-   
-           const formData = new FormData(this);
-   
-           const res = await fetch(this.action, {
-               method: "POST",
-               body: formData,
-               headers: { "Accept": "application/json" }
-           });
-   
-           if (res.ok) {
-               successMsgZH.style.display = "block";
-               rsvpFormZH.reset();
-               guestInputZH.style.display = "none";
-           } else {
-               alert("提交失败，请稍后再试。");
-           }
-       });
-   }
 
 
     /* ============================================================
@@ -161,4 +148,3 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
-
