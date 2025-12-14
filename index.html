@@ -123,47 +123,91 @@
 
     <!-- RSVP SECTION -->
     <section id="rsvp" class="section rsvp-section">
+        <!-- Titles -->
         <h2 class="lang lang-en">RSVP</h2>
         <h2 class="lang lang-zh" style="display:none;">敬请回复</h2>
-
-        <form id="rsvp-form" action="https://formspree.io/f/mblnbpgq" method="POST">
-
+    
+        <!-- ============================= -->
+        <!-- ENGLISH FORM                  -->
+        <!-- ============================= -->
+        <form id="rsvp-form" class="lang lang-en" action="https://formspree.io/f/mblnbpgq" method="POST">
+    
             <!-- NAME -->
             <input type="text" name="name" placeholder="Your Name" required>
-        
+    
             <!-- EMAIL -->
             <input type="email" name="email" placeholder="Your Email" required>
-        
+    
             <!-- ATTENDANCE -->
             <select name="attendance" required>
                 <option value="">— Will you attend? —</option>
                 <option value="Yes">Yes, I will attend</option>
                 <option value="No">No, I cannot attend</option>
             </select>
-        
+    
             <!-- PLUS ONE -->
             <label class="plus-one-label">
                 <input type="checkbox" id="plus-one-checkbox">
                 Bringing a guest?
             </label>
-        
+    
             <input type="text" id="plus-one-name" name="guestName"
-                   placeholder="Guest Name"
-                   class="plus-one-input"
-                   style="display:none;">
-        
+                    placeholder="Guest Name"
+                    class="plus-one-input"
+                    style="display:none;">
+    
             <!-- SUBMIT -->
             <button type="submit">Submit</button>
-        
-            <!-- Success Message -->
+    
+            <!-- SUCCESS MSG -->
             <p id="form-success" style="display:none; margin-top:15px; color:green;">
                 ✔ Thank you! Your RSVP has been sent.
             </p>
+    
         </form>
-
-        
-        <p id="confirmation"></p>
+    
+    
+        <!-- ============================= -->
+        <!-- CHINESE FORM                  -->
+        <!-- ============================= -->
+        <form id="rsvp-form-zh" class="lang lang-zh" action="https://formspree.io/f/mblnbpgq" method="POST" style="display:none;">
+    
+            <!-- NAME -->
+            <input type="text" name="name" placeholder="您的姓名" required>
+    
+            <!-- EMAIL -->
+            <input type="email" name="email" placeholder="您的邮箱" required>
+    
+            <!-- ATTENDANCE -->
+            <select name="attendance" required>
+                <option value="">— 您会参加吗？—</option>
+                <option value="Yes">是的，我会参加</option>
+                <option value="No">抱歉，我无法出席</option>
+            </select>
+    
+            <!-- PLUS ONE -->
+            <label class="plus-one-label">
+                <input type="checkbox" id="plus-one-checkbox-zh">
+                是否携带一位嘉宾？
+            </label>
+    
+            <input type="text" id="plus-one-name-zh" name="guestName"
+                    placeholder="嘉宾姓名"
+                    class="plus-one-input"
+                    style="display:none;">
+    
+            <!-- SUBMIT -->
+            <button type="submit">提交</button>
+    
+            <!-- SUCCESS MSG -->
+            <p id="form-success-zh" style="display:none; margin-top:15px; color:green;">
+                ✔ 感谢您的回复！我们已收到您的 RSVP。
+            </p>
+    
+        </form>
+    
     </section>
+
 
 
 
@@ -174,6 +218,7 @@
     <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
