@@ -1,5 +1,5 @@
 export const config = {
-  runtime: "edge"
+  runtime: "nodejs"
 };
 
 import { Resend } from "resend";
@@ -27,10 +27,10 @@ export default async function handler(req, res) {
             `
         });
 
-        res.status(200).json({ message: "RSVP sent successfully!" });
+        return res.status(200).json({ message: "RSVP sent successfully!" });
 
     } catch (error) {
         console.error("Resend Error:", error);
-        res.status(500).json({ error: "Failed to send RSVP" });
+        return res.status(500).json({ error: "Failed to send RSVP" });
     }
 }
