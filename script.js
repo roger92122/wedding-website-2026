@@ -87,3 +87,27 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+document.getElementById("rsvp-form").addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const formData = {
+        name: this.querySelector("[name='name']").value,
+        email: this.querySelector("[name='email']").value,
+        attendance: this.querySelector("[name='attendance']").value,
+        guestName: document.getElementById("plus-one-checkbox").checked
+            ? document.getElementById("plus-one-name").value
+            : ""
+    };
+
+    const res = await fetch("/send-rsvp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData)
+    });
+
+    const data = await res.json();
+    alert(data.message);
+});
+
+
+
