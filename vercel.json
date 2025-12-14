@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "functions": {
-    "api/send-rsvp.js": {
-      "runtime": "nodejs24.x"
-    }
-  }
+  "builds": [
+    { "src": "index.html", "use": "@vercel/static" },
+    { "src": "api/send-rsvp.js", "use": "@vercel/node" }
+  ],
+  "routes": [
+    { "src": "/api/send-rsvp", "dest": "/api/send-rsvp.js" }
+  ]
 }
