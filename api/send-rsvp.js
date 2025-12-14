@@ -12,7 +12,7 @@ export default async function handler(req, res) {
 
         await resend.emails.send({
             from: "RSVP <onboarding@resend.dev>",
-            to: "haoranchi0105@outlook.com",  // your receiving email
+            to: "haoranchi0105@outlook.com",
             subject: "New Wedding RSVP",
             html: `
                 <h2>New RSVP Submission</h2>
@@ -30,4 +30,3 @@ export default async function handler(req, res) {
         res.status(500).json({ error: "Failed to send RSVP" });
     }
 }
-
