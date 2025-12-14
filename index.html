@@ -119,62 +119,69 @@
     <!-- RSVP SECTION -->
    <section id="rsvp" class="section rsvp-section">
 
-    <h2 class="lang lang-en">RSVP</h2>
-    <h2 class="lang lang-zh" style="display:none;">敬请回复</h2>
+        <h2 class="lang lang-en">RSVP</h2>
+        <h2 class="lang lang-zh" style="display:none;">敬请回复</h2>
+    
+        <form id="rsvp-form" action="https://formspree.io/f/mblnbpgq" method="POST">
+    
+            <!-- NAME -->
+            <input type="text" name="name_en" placeholder="Your Name"
+                   class="lang lang-en" required>
+            <input type="text" name="name_zh" placeholder="您的姓名"
+                   class="lang lang-zh" style="display:none;" required>
+    
+            <!-- EMAIL -->
+            <input type="email" name="email_en" placeholder="Your Email"
+                   class="lang lang-en" required>
+            <input type="email" name="email_zh" placeholder="您的邮箱"
+                   class="lang lang-zh" style="display:none;" required>
+    
+            <!-- ATTENDANCE -->
+            <select name="attendance_en" class="lang lang-en" required>
+                <option value="">— Will you attend? —</option>
+                <option value="Yes">Yes, I will attend</option>
+                <option value="No">No, I cannot attend</option>
+            </select>
+    
+            <select name="attendance_zh" class="lang lang-zh" style="display:none;" required>
+                <option value="">— 您会参加吗？ —</option>
+                <option value="Yes">会参加</option>
+                <option value="No">不参加</option>
+            </select>
+    
+            <!-- GUEST -->
+            <label class="plus-one-label lang lang-en">
+                <input type="checkbox" id="plus-one-checkbox"> Bringing a guest?
+            </label>
+    
+            <input type="text" name="guest_en" id="plus-one-name"
+                   placeholder="Guest Name" class="plus-one-input lang lang-en"
+                   style="display:none;">
+    
+            <label class="plus-one-label lang lang-zh" style="display:none;">
+                <input type="checkbox" id="plus-one-checkbox-zh"> 是否携带一位嘉宾？
+            </label>
+    
+            <input type="text" name="guest_zh" id="plus-one-name-zh"
+                   placeholder="嘉宾姓名" class="plus-one-input lang lang-zh"
+                   style="display:none;">
+    
+            <!-- ONE SUBMIT BUTTON ONLY -->
+            <button type="submit" id="submit-btn">
+                <span class="lang lang-en">Submit</span>
+                <span class="lang lang-zh" style="display:none;">提交</span>
+            </button>
+    
+            <!-- SUCCESS MESSAGES -->
+            <p id="form-success" class="lang lang-en"
+               style="display:none; color:green;">✔ Thank you! Your RSVP has been sent.</p>
+            <p id="form-success-zh" class="lang lang-zh"
+               style="display:none; color:green;">✔ 感谢您的回复！</p>
+    
+        </form>
+    
+    </section>
 
-    <form id="rsvp-form" class="rsvp-form" action="https://formspree.io/f/mblnbpgq" method="POST">
-
-        <!-- NAME -->
-        <input type="text" name="name_en" placeholder="Your Name" class="lang lang-en" required>
-        <input type="text" name="name_zh" placeholder="您的姓名" class="lang lang-zh" style="display:none;" required>
-
-        <!-- EMAIL -->
-        <input type="email" name="email_en" placeholder="Your Email" class="lang lang-en" required>
-        <input type="email" name="email_zh" placeholder="您的邮箱" class="lang lang-zh" style="display:none;" required>
-
-        <!-- ATTENDANCE -->
-        <select name="attendance_en" class="lang lang-en" required>
-            <option value="">— Will you attend? —</option>
-            <option value="Yes">Yes, I will attend</option>
-            <option value="No">No, I cannot attend</option>
-        </select>
-
-        <select name="attendance_zh" class="lang lang-zh" style="display:none;" required>
-            <option value="">— 您会参加吗？ —</option>
-            <option value="Yes">会参加</option>
-            <option value="No">不参加</option>
-        </select>
-
-        <!-- PLUS ONE -->
-        <label class="plus-one-label lang lang-en">
-            <input type="checkbox" id="plus-one-checkbox"> Bringing a guest?
-        </label>
-
-        <input type="text" name="guest_en" id="plus-one-name"
-               placeholder="Guest Name"
-               class="plus-one-input lang lang-en"
-               style="display:none;">
-
-        <label class="plus-one-label lang lang-zh" style="display:none;">
-            <input type="checkbox" id="plus-one-checkbox-zh"> 是否携带一位嘉宾？
-        </label>
-
-        <input type="text" name="guest_zh" id="plus-one-name-zh"
-               placeholder="嘉宾姓名"
-               class="plus-one-input lang lang-zh"
-               style="display:none;">
-
-        <!-- SUBMIT BUTTONS -->
-        <button type="submit" class="lang lang-en">Submit</button>
-        <button type="submit" class="lang lang-zh" style="display:none;">提交</button>
-
-        <!-- SUCCESS MESSAGES -->
-        <p id="form-success" class="success-msg lang lang-en">✔ Thank you! Your RSVP has been sent.</p>
-        <p id="form-success-zh" class="success-msg lang lang-zh">✔ 感谢您的回复！</p>
-
-    </form>
-
-</section>
 
 
 
@@ -188,6 +195,7 @@
     <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
