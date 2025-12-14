@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-
+   
     /* ============================================================
        SUCCESS MESSAGE HANDLER (FORMSPREE)
        ============================================================ */
@@ -101,6 +101,48 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
+   /* ============================================================
+      PLUS ONE LOGIC - CHINESE FORM
+      ============================================================ */
+   const checkboxZH = document.getElementById("plus-one-checkbox-zh");
+   const guestInputZH = document.getElementById("plus-one-name-zh");
+   
+   if (checkboxZH) {
+       checkboxZH.addEventListener("change", () => {
+           guestInputZH.style.display = checkboxZH.checked ? "block" : "none";
+       });
+   }
+   
+   
+   /* ============================================================
+      SUCCESS MESSAGE HANDLER FORMSPREE - CHINESE
+      ============================================================ */
+   const rsvpFormZH = document.getElementById("rsvp-form-zh");
+   const successMsgZH = document.getElementById("form-success-zh");
+   
+   if (rsvpFormZH) {
+       rsvpFormZH.addEventListener("submit", async function (e) {
+           e.preventDefault();
+   
+           const formData = new FormData(this);
+   
+           const res = await fetch(this.action, {
+               method: "POST",
+               body: formData,
+               headers: { "Accept": "application/json" }
+           });
+   
+           if (res.ok) {
+               successMsgZH.style.display = "block";
+               rsvpFormZH.reset();
+               guestInputZH.style.display = "none";
+           } else {
+               alert("提交失败，请稍后再试。");
+           }
+       });
+   }
+
+
     /* ============================================================
        NAV LINK SMOOTH SCROLL
        ============================================================ */
@@ -119,3 +161,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+
