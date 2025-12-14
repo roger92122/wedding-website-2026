@@ -91,7 +91,6 @@ body {
 }
 
 /* CEREMONY & RECEPTION */
-/* EVENT IMAGES — FORCE PERFECT SQUARE */
 .event-image {
     width: 400px;
     height: 400px;
@@ -125,57 +124,70 @@ body {
     text-decoration: underline;
 }
 
-/* RSVP FORM */
-#rsvp-form {
+/* ============================================================
+   RSVP FORM — FIXED & PERFECTED (EN + ZH unified layout)
+   ============================================================ */
+
+/* FORM WRAPPER — applies to both EN & ZH forms */
+.rsvp-form {
     display: flex;
     flex-direction: column;
     gap: 12px;
-    max-width: 300px;
+    max-width: 320px;
     margin: 0 auto;
 }
 
-#rsvp-form input,
-#rsvp-form select {
+/* Inputs + Selects */
+.rsvp-form input,
+.rsvp-form select {
+    width: 100%;
     padding: 12px;
     font-size: 16px;
     border: 1px solid #ccc;
-    box-sizing: border-box;
     border-radius: 3px;
+    box-sizing: border-box;
+    display: block;
 }
 
-#rsvp-form button {
+/* Submit Button */
+.rsvp-form button {
     padding: 14px;
+    font-size: 16px;
     background: #333;
     color: white;
     border: none;
     cursor: pointer;
+    width: 100%;
 }
 
-/* ============================================
-   FIXED PLUS-ONE SECTION (FINAL VERSION)
-   ============================================ */
-.plus-one {
-    margin-top: 10px;
-    text-align: left;
-    width: 100%; /* FIXED — aligns with RSVP form */
+.rsvp-form button:hover {
+    opacity: 0.9;
 }
 
+/* PLUS ONE SECTION */
 .plus-one-label {
     display: flex;
     align-items: center;
     gap: 8px;
-    font-size: 16px; /* match input text size */
-    padding-left: 0; /* FIXED — remove unwanted indent */
+    font-size: 16px;
 }
 
 .plus-one-input {
-    width: 100%; /* EXACT match with RSVP input */
+    width: 100%;
     padding: 12px;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 3px;
-    margin-top: 8px;
     box-sizing: border-box;
+    margin-top: 5px;
+}
+
+/* SUCCESS MESSAGE */
+.success-msg {
+    display: none;
+    color: green;
+    margin-top: 10px;
+    text-align: center;
 }
 
 /* FOOTER */
@@ -185,7 +197,7 @@ body {
     color: #777;
 }
 
-/* Language Switcher */
+/* LANGUAGE SWITCHER */
 .language-switcher {
     position: absolute;
     top: 20px;
@@ -194,15 +206,14 @@ body {
     gap: 8px;
 }
 
-/* Base language buttons */
 .lang-btn {
-    width: 52px;            /* Ensures EN and 中文 match */
-    height: 34px;           /* Keeps height consistent */
-    padding: 0;             /* Removes uneven padding */
+    width: 52px;
+    height: 34px;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 14px;        /* EN default */
+    font-size: 14px;
     border: 1px solid #999;
     background: white;
     color: black;
@@ -210,22 +221,18 @@ body {
     border-radius: 4px;
 }
 
-/* Active button (KEEPING YOUR ORIGINAL LOOK) */
 .lang-btn.active {
     background: #333;
     color: white;
     border-color: #333;
 }
 
-/* Make Chinese characters slightly smaller so they're visually equal */
 #lang-zh {
     font-size: 13px;
 }
 
-
-
 /* ============================================
-   MOBILE RESPONSIVE DESIGN
+   RESPONSIVE DESIGN
    ============================================ */
 @media (max-width: 900px) {
 
@@ -241,7 +248,6 @@ body {
         font-size: 14px;
     }
 
-    /* HERO — shift image & adjust text on mobile */
     .hero {
         height: 70vh;
         padding: 0 15px;
@@ -283,33 +289,10 @@ body {
         width: 240px;
         height: 240px;
     }
-
-    .event-time {
-        font-size: 18px;
-    }
-
-    .event-location {
-        font-size: 16px;
-    }
-
-    .event-address {
-        font-size: 14px;
-    }
-
-    .map-link {
-        font-size: 16px;
-    }
-
-    #rsvp-form input,
-    #rsvp-form select,
-    #rsvp-form button {
-        font-size: 14px;
-        padding: 10px;
-    }
 }
 
 /* ============================================
-   EXTRA SMALL DEVICES (iPhone SE)
+   EXTRA SMALL DEVICES
    ============================================ */
 @media (max-width: 480px) {
 
@@ -342,5 +325,3 @@ body {
         height: 300px;
     }
 }
-
-
