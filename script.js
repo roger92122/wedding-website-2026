@@ -1,8 +1,7 @@
 /* ============================================================
-   Custom Slow Smooth Scroll WITH NAVBAR OFFSET
+   Smooth Scroll with Offset
    ============================================================ */
 function smoothScrollTo(target, duration = 1500, offset = 80) {
-
     const start = window.pageYOffset;
     const targetTop = target.getBoundingClientRect().top + window.pageYOffset;
     const end = targetTop - offset;
@@ -14,7 +13,6 @@ function smoothScrollTo(target, duration = 1500, offset = 80) {
         if (!startTime) startTime = currentTime;
         const timeElapsed = currentTime - startTime;
 
-        // Apple-like ease-in-out
         const progress = Math.min(timeElapsed / duration, 1);
         const ease = progress < 0.5
             ? 2 * progress * progress
@@ -22,9 +20,7 @@ function smoothScrollTo(target, duration = 1500, offset = 80) {
 
         window.scrollTo(0, start + distance * ease);
 
-        if (timeElapsed < duration) {
-            requestAnimationFrame(animation);
-        }
+        if (timeElapsed < duration) requestAnimationFrame(animation);
     }
 
     requestAnimationFrame(animation);
@@ -32,7 +28,7 @@ function smoothScrollTo(target, duration = 1500, offset = 80) {
 
 
 /* ============================================================
-   RUN EVERYTHING AFTER PAGE LOAD
+   MAIN SCRIPT
    ============================================================ */
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -42,96 +38,82 @@ document.addEventListener("DOMContentLoaded", () => {
     const btnEN = document.getElementById("lang-en");
     const btnZH = document.getElementById("lang-zh");
 
-    if (btnEN && btnZH) {
-        btnEN.addEventListener("click", () => {
-            btnEN.classList.add("active");
-            btnZH.classList.remove("active");
+    btnEN.addEventListener("click", () => {
+        document.querySelectorAll(".lang-en").forEach(el => el.style.display = "block");
+        document.querySelectorAll(".lang-zh").forEach(el => el.style.display = "none");
+        btnEN.classList.add("active");
+        btnZH.classList.remove("active");
+    });
 
-            document.querySelectorAll(".lang-en").forEach(el => el.style.display = "block");
-            document.querySelectorAll(".lang-zh").forEach(el => el.style.display = "none");
-        });
-
-        btnZH.addEventListener("click", () => {
-            btnZH.classList.add("active");
-            btnEN.classList.remove("active");
-
-            document.querySelectorAll(".lang-en").forEach(el => el.style.display = "none");
-            document.querySelectorAll(".lang-zh").forEach(el => el.style.display = "block");
-        });
-    }
+    btnZH.addEventListener("click", () => {
+        document.querySelectorAll(".lang-en").forEach(el => el.style.display = "none");
+        document.querySelectorAll(".lang-zh").forEach(el => el.style.display = "block");
+        btnZH.classList.add("active");
+        btnEN.classList.remove("active");
+    });
 
 
     /* ============================================================
-       PLUS ONE CHECKBOX (EN + ZH)
+       PLUS ONE (EN)
        ============================================================ */
     const checkboxEN = document.getElementById("plus-one-checkbox");
-    const checkboxZH = document.getElementById("plus-one-checkbox-zh");
-
     const guestInputEN = document.getElementById("plus-one-name");
+
+    checkboxEN.addEventListener("change", () => {
+        guestInputEN.style.display = checkboxEN.checked ? "block" : "none";
+    });
+
+
+    /* ============================================================
+       PLUS ONE (ZH)
+       ============================================================ */
+    const checkboxZH = document.getElementById("plus-one-checkbox-zh");
     const guestInputZH = document.getElementById("plus-one-name-zh");
 
-    if (checkboxEN) {
-        checkboxEN.addEventListener("change", () => {
-            guestInputEN.style.display = checkboxEN.checked ? "block" : "none";
-        });
-    }
-
-    if (checkboxZH) {
-        checkboxZH.addEventListener("change", () => {
-            guestInputZH.style.display = checkboxZH.checked ? "block" : "none";
-        });
-    }
+    checkboxZH.addEventListener("change", () => {
+        guestInputZH.style.display = checkboxZH.checked ? "block" : "none";
+    });
 
 
     /* ============================================================
-       RSVP FORM SUBMISSION (FORMSPREE)
-       Handles BOTH languages in ONE form
+       Formspree Submission (Single Handler)
        ============================================================ */
     const rsvpForm = document.getElementById("rsvp-form");
-    const successEN = document.getElementById("form-success");
-    const successZH = document.getElementById("form-success-zh");
+    const successMsgEN = document.getElementById("form-success");
+    const successMsgZH = document.getElementById("form-success-zh");
 
-    if (rsvpForm) {
-        rsvpForm.addEventListener("submit", async function (e) {
-            e.preventDefault();
+    rsvpForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
 
-            const formData = new FormData(this);
+        const formData = new FormData(rsvpForm);
 
-            const res = await fetch(this.action, {
-                method: "POST",
-                body: formData,
-                headers: { "Accept": "application/json" }
-            });
-
-            if (res.ok) {
-                rsvpForm.reset();
-
-                // Hide plus-one fields
-                guestInputEN.style.display = "none";
-                guestInputZH.style.display = "none";
-
-                // Show correct language success message
-                if (btnZH.classList.contains("active")) {
-                    successZH.style.display = "block";
-                    successEN.style.display = "none";
-                } else {
-                    successEN.style.display = "block";
-                    successZH.style.display = "none";
-                }
-
-            } else {
-                if (btnZH.classList.contains("active")) {
-                    alert("提交失败，请稍后再试。");
-                } else {
-                    alert("Something went wrong. Please try again.");
-                }
-            }
+        const res = await fetch(rsvpForm.action, {
+            method: "POST",
+            body: formData,
+            headers: { "Accept": "application/json" }
         });
-    }
+
+        if (res.ok) {
+            // Show success based on language
+            if (btnEN.classList.contains("active")) {
+                successMsgEN.style.display = "block";
+                successMsgZH.style.display = "none";
+            } else {
+                successMsgZH.style.display = "block";
+                successMsgEN.style.display = "none";
+            }
+
+            rsvpForm.reset();
+            guestInputEN.style.display = "none";
+            guestInputZH.style.display = "none";
+        } else {
+            alert("Error submitting form. Please try again.");
+        }
+    });
 
 
     /* ============================================================
-       NAV LINK SMOOTH SCROLL
+       Smooth Scroll for Nav
        ============================================================ */
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener("click", function (e) {
@@ -146,5 +128,4 @@ document.addEventListener("DOMContentLoaded", () => {
             smoothScrollTo(target, 1700, offset);
         });
     });
-
 });
