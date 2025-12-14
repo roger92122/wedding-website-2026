@@ -14,8 +14,9 @@ function smoothScrollTo(target, duration = 1500, offset = 80) {
         if (!startTime) startTime = currentTime;
         const timeElapsed = currentTime - startTime;
 
-        // Apple-like ease-in-out
         const progress = Math.min(timeElapsed / duration, 1);
+
+        // Apple-like easing
         const ease = progress < 0.5
             ? 2 * progress * progress
             : 1 - Math.pow(-2 * progress + 2, 2) / 2;
@@ -29,6 +30,7 @@ function smoothScrollTo(target, duration = 1500, offset = 80) {
 
     requestAnimationFrame(animation);
 }
+
 
 
 /* ============================================================
@@ -59,8 +61,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
+
     /* ============================================================
-       PLUS ONE LOGIC - ENGLISH
+       PLUS ONE LOGIC — ENGLISH
        ============================================================ */
     const checkboxEN = document.getElementById("plus-one-checkbox-en");
     const guestInputEN = document.getElementById("plus-one-name-en");
@@ -73,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* ============================================================
-       PLUS ONE LOGIC - CHINESE
+       PLUS ONE LOGIC — CHINESE
        ============================================================ */
     const checkboxZH = document.getElementById("plus-one-checkbox-zh");
     const guestInputZH = document.getElementById("plus-one-name-zh");
@@ -85,44 +88,57 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
+
     /* ============================================================
-       GLOBAL FORMSPREE HANDLER (WORKS FOR BOTH FORMS)
+       UNIVERSAL FORMSPREE HANDLER (robust + stable)
        ============================================================ */
-    async function handleForm(formEl, successMsgEl) {
+    function attachFormHandler(formEl, successEl) {
+
+        if (!formEl) return;
+
         formEl.addEventListener("submit", async function (e) {
             e.preventDefault();
 
             const formData = new FormData(formEl);
 
-            const res = await fetch(formEl.action, {
-                method: "POST",
-                body: formData,
-                headers: { "Accept": "application/json" }
-            });
+            try {
+                const res = await fetch(formEl.action, {
+                    method: "POST",
+                    body: formData,
+                    headers: { "Accept": "application/json" }
+                });
 
-            if (res.ok) {
-                successMsgEl.style.display = "block";
-                formEl.reset();
+                if (res.ok) {
+                    successEl.style.display = "block";
+                    formEl.reset();
 
-                // hide plus-one
-                if (guestInputEN) guestInputEN.style.display = "none";
-                if (guestInputZH) guestInputZH.style.display = "none";
+                    // reset plus-one visibility
+                    if (guestInputEN) guestInputEN.style.display = "none";
+                    if (guestInputZH) guestInputZH.style.display = "none";
 
-            } else {
-                alert("Error submitting form. Please try again.");
+                } else {
+                    alert("Error submitting form. Please try again.");
+                }
+
+            } catch (err) {
+                alert("Network error. Please try again.");
             }
+
         });
     }
 
-    /* Hook English form */
-    const formEN = document.getElementById("rsvp-form-en");
-    const msgEN = document.getElementById("form-success-en");
-    if (formEN) handleForm(formEN, msgEN);
+    // English form
+    attachFormHandler(
+        document.getElementById("rsvp-form-en"),
+        document.getElementById("form-success-en")
+    );
 
-    /* Hook Chinese form */
-    const formZH = document.getElementById("rsvp-form-zh");
-    const msgZH = document.getElementById("form-success-zh");
-    if (formZH) handleForm(formZH, msgZH);
+    // Chinese form
+    attachFormHandler(
+        document.getElementById("rsvp-form-zh"),
+        document.getElementById("form-success-zh")
+    );
+
 
 
     /* ============================================================
