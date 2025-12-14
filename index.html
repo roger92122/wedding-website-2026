@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Haoran & Chi - Wedding</title>
+    <title>Chi & Haoran - Wedding</title>
 
     <!-- Font -->
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
@@ -27,19 +27,19 @@
 
             <li><a href="#rsvp" class="lang lang-en">RSVP</a></li>
             <li><a href="#rsvp" class="lang lang-zh" style="display:none;">敬请回复</a></li>
-
         </ul>
-        <div class="language-switcher">
-        <button id="lang-en" class="lang-btn active">EN</button>
-        <button id="lang-zh" class="lang-btn">中文</button>
-</div>
 
+        <div class="language-switcher">
+            <button id="lang-en" class="lang-btn active">EN</button>
+            <button id="lang-zh" class="lang-btn">中文</button>
+        </div>
     </nav>
 
 
     <!-- HERO SECTION -->
     <header id="home" class="hero">
         <div class="hero-content">
+
             <!-- English -->
             <h1 class="lang lang-en">We’re Getting<br>Married</h1>
             <p class="lang lang-en">Tying the knot on April 26, 2026</p>
@@ -61,7 +61,6 @@
         <h2 class="lang lang-en">The Ceremony</h2>
         <h2 class="lang lang-zh" style="display:none;">婚礼仪式</h2>
 
-
         <img src="ceremony.jpg" class="event-image" alt="Ceremony">
 
         <div class="event-details">
@@ -80,10 +79,8 @@
             <p class="event-address lang lang-en">9 Huanling Road, Xuanwu District, Nanjing</p>
             <p class="event-address lang lang-zh" style="display:none;">南京市玄武区环陵路9号</p>
 
-
             <a href="https://maps.apple.com" class="map-link lang lang-en" target="_blank">View Map</a>
             <a href="https://maps.apple.com" class="map-link lang lang-zh" style="display:none;" target="_blank">查看地图</a>
-
         </div>
     </section>
 
@@ -93,7 +90,6 @@
     <section id="reception" class="section event-section">
         <h2 class="lang lang-en">The Reception</h2>
         <h2 class="lang lang-zh" style="display:none;">婚宴</h2>
-
 
         <img src="reception.jpg" class="event-image" alt="Reception">
 
@@ -115,74 +111,78 @@
 
             <a href="https://maps.apple.com" class="map-link lang lang-en" target="_blank">View Map</a>
             <a href="https://maps.apple.com" class="map-link lang lang-zh" style="display:none;" target="_blank">查看地图</a>
-            
         </div>
     </section>
 
 
 
+    <!-- RSVP SECTION -->
     <section id="rsvp" class="section rsvp-section">
 
         <h2 class="lang lang-en">RSVP</h2>
         <h2 class="lang lang-zh" style="display:none;">敬请回复</h2>
-    
+
         <form id="rsvp-form" action="https://formspree.io/f/mblnbpgq" method="POST">
 
             <!-- NAME -->
             <input type="text" name="name" placeholder="Your Name" class="lang lang-en" required>
             <input type="text" name="name" placeholder="您的姓名" class="lang lang-zh" style="display:none;" required>
-        
+
             <!-- EMAIL -->
             <input type="email" name="email" placeholder="Your Email" class="lang lang-en" required>
             <input type="email" name="email" placeholder="您的邮箱" class="lang lang-zh" style="display:none;" required>
-        
+
             <!-- ATTENDANCE -->
             <select name="attendance" class="lang lang-en" required>
                 <option value="">— Will you attend? —</option>
                 <option value="Yes">Yes, I will attend</option>
                 <option value="No">No, I cannot attend</option>
             </select>
-        
+
             <select name="attendance" class="lang lang-zh" style="display:none;" required>
                 <option value="">— 您会参加吗？ —</option>
                 <option value="Yes">会参加</option>
                 <option value="No">不参加</option>
             </select>
-        
+
             <!-- EN PLUS ONE -->
             <label class="plus-one-label lang lang-en">
                 <input type="checkbox" id="plus-one-checkbox"> Bringing a guest?
             </label>
-        
-            <input type="text" id="plus-one-name" name="guestName" placeholder="Guest Name"
-                   class="plus-one-input lang lang-en" style="display:none;">
-        
+
+            <input type="text" id="plus-one-name" name="guestName"
+                   placeholder="Guest Name"
+                   class="plus-one-input lang lang-en"
+                   style="display:none;">
+
             <!-- ZH PLUS ONE -->
             <label class="plus-one-label lang lang-zh" style="display:none;">
                 <input type="checkbox" id="plus-one-checkbox-zh"> 是否携带一位嘉宾？
             </label>
-        
+
             <input type="text" id="plus-one-name-zh" name="guestName"
                    placeholder="嘉宾姓名"
                    class="plus-one-input lang lang-zh"
                    style="display:none;">
-        
-            <!-- SUBMIT BUTTONS (BOTH INSIDE THE FORM) -->
+
+            <!-- SUBMIT BUTTONS -->
             <button type="submit" class="lang lang-en">Submit</button>
             <button type="submit" class="lang lang-zh" style="display:none;">提交</button>
-        
+
             <!-- SUCCESS MESSAGES -->
-            <p id="form-success" class="lang lang-en" style="display:none; color:green; margin-top:15px;">✔ Thank you! Your RSVP has been sent.</p>
-            <p id="form-success-zh" class="lang lang-zh" style="display:none; color:green; margin-top:15px;">✔ 感谢您的回复！</p>
+            <p id="form-success" class="lang lang-en" style="display:none; color:green; margin-top:15px;">
+                ✔ Thank you! Your RSVP has been sent.
+            </p>
+
+            <p id="form-success-zh" class="lang lang-zh" style="display:none; color:green; margin-top:15px;">
+                ✔ 感谢您的回复！
+            </p>
         </form>
 
-    
     </section>
 
 
-
-
-
+    <!-- FOOTER -->
     <p class="footer lang lang-en">© 2026 Haoran & Chi</p>
     <p class="footer lang lang-zh" style="display:none;">© 2026 张浩然 & 张驰</p>
 
@@ -190,12 +190,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
