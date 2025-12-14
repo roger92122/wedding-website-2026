@@ -2,6 +2,7 @@
    Custom Slow Smooth Scroll WITH NAVBAR OFFSET
    ============================================================ */
 function smoothScrollTo(target, duration = 1500, offset = 80) {
+
     const start = window.pageYOffset;
     const targetTop = target.getBoundingClientRect().top + window.pageYOffset;
     const end = targetTop - offset;
@@ -13,6 +14,7 @@ function smoothScrollTo(target, duration = 1500, offset = 80) {
         if (!startTime) startTime = currentTime;
         const timeElapsed = currentTime - startTime;
 
+        // Apple-like ease-in-out
         const progress = Math.min(timeElapsed / duration, 1);
         const ease = progress < 0.5
             ? 2 * progress * progress
@@ -30,7 +32,7 @@ function smoothScrollTo(target, duration = 1500, offset = 80) {
 
 
 /* ============================================================
-   MAIN SCRIPT
+   RUN EVERYTHING AFTER PAGE LOAD
    ============================================================ */
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -58,10 +60,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* ============================================================
-       PLUS ONE LOGIC
+       PLUS ONE LOGIC - ENGLISH
        ============================================================ */
-    const checkboxEN = document.getElementById("plus-one-checkbox");
-    const guestInputEN = document.getElementById("plus-one-name");
+    const checkboxEN = document.getElementById("plus-one-checkbox-en");
+    const guestInputEN = document.getElementById("plus-one-name-en");
 
     if (checkboxEN) {
         checkboxEN.addEventListener("change", () => {
@@ -69,6 +71,10 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+
+    /* ============================================================
+       PLUS ONE LOGIC - CHINESE
+       ============================================================ */
     const checkboxZH = document.getElementById("plus-one-checkbox-zh");
     const guestInputZH = document.getElementById("plus-one-name-zh");
 
@@ -80,53 +86,47 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* ============================================================
-       FORM SUBMISSION (FORMSPREE)
+       GLOBAL FORMSPREE HANDLER (WORKS FOR BOTH FORMS)
        ============================================================ */
-    const rsvpForm = document.getElementById("rsvp-form");
-    const successEN = document.getElementById("form-success");
-    const successZH = document.getElementById("form-success-zh");
-
-    if (rsvpForm) {
-        rsvpForm.addEventListener("submit", async function (e) {
+    async function handleForm(formEl, successMsgEl) {
+        formEl.addEventListener("submit", async function (e) {
             e.preventDefault();
 
-            const formData = new FormData(this);
+            const formData = new FormData(formEl);
 
-            try {
-                const res = await fetch(rsvpForm.action, {
-                    method: "POST",
-                    body: formData,
-                    headers: { "Accept": "application/json" }
-                });
+            const res = await fetch(formEl.action, {
+                method: "POST",
+                body: formData,
+                headers: { "Accept": "application/json" }
+            });
 
-                if (res.ok) {
-                    // Show correct language success message
-                    if (btnEN.classList.contains("active")) {
-                        successEN.style.display = "block";
-                        successZH.style.display = "none";
-                    } else {
-                        successZH.style.display = "block";
-                        successEN.style.display = "none";
-                    }
+            if (res.ok) {
+                successMsgEl.style.display = "block";
+                formEl.reset();
 
-                    rsvpForm.reset();
-                    guestInputEN.style.display = "none";
-                    guestInputZH.style.display = "none";
+                // hide plus-one
+                if (guestInputEN) guestInputEN.style.display = "none";
+                if (guestInputZH) guestInputZH.style.display = "none";
 
-                } else {
-                    alert("Error submitting form. Please try again.");
-                }
-
-            } catch (err) {
-                console.error(err);
+            } else {
                 alert("Error submitting form. Please try again.");
             }
         });
     }
 
+    /* Hook English form */
+    const formEN = document.getElementById("rsvp-form-en");
+    const msgEN = document.getElementById("form-success-en");
+    if (formEN) handleForm(formEN, msgEN);
+
+    /* Hook Chinese form */
+    const formZH = document.getElementById("rsvp-form-zh");
+    const msgZH = document.getElementById("form-success-zh");
+    if (formZH) handleForm(formZH, msgZH);
+
 
     /* ============================================================
-       NAV SMOOTH SCROLL
+       NAV LINK SMOOTH SCROLL
        ============================================================ */
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener("click", function (e) {
