@@ -63,10 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
        PLUS ONE LOGIC
        ============================================================ */
     const checkboxEN = document.getElementById("plus-one-checkbox");
-    const checkboxZH = document.getElementById("plus-one-checkbox-zh");
-
     const guestInputEN = document.getElementById("plus-one-name");
-    const guestInputZH = document.getElementById("plus-one-name-zh");
 
     if (checkboxEN) {
         checkboxEN.addEventListener("change", () => {
@@ -74,9 +71,32 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    if (checkboxZH) {
-        checkboxZH.addEventListener("change", () => {
-            guestInputZH.style.display = checkboxZH.checked ? "block" : "none";
+
+    /* ============================================================
+       SUCCESS MESSAGE HANDLER (FORMSPREE)
+       ============================================================ */
+    const rsvpForm = document.getElementById("rsvp-form");
+    const successMsg = document.getElementById("form-success");
+
+    if (rsvpForm) {
+        rsvpForm.addEventListener("submit", async function (e) {
+            e.preventDefault();
+
+            const formData = new FormData(this);
+
+            const res = await fetch(this.action, {
+                method: "POST",
+                body: formData,
+                headers: { "Accept": "application/json" }
+            });
+
+            if (res.ok) {
+                successMsg.style.display = "block";
+                rsvpForm.reset();
+                guestInputEN.style.display = "none";
+            } else {
+                alert("Something went wrong. Please try again.");
+            }
         });
     }
 
@@ -98,44 +118,4 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-
-/* ============================================================
-      RSVP FORM SUBMISSION → RESEND API
-   ============================================================ */
-   const rsvpForm = document.getElementById("rsvp-form");
-   
-   if (rsvpForm) {
-       rsvpForm.addEventListener("submit", async function (e) {
-           e.preventDefault();
-   
-           const formData = {
-               name: this.querySelector("[name='name']").value,
-               email: this.querySelector("[name='email']").value,
-               attendance: this.querySelector("[name='attendance']").value,
-   
-               // Support BOTH English and Chinese guest fields
-               guestName:
-                   (checkboxEN?.checked ? guestInputEN.value : "") ||
-                   (checkboxZH?.checked ? guestInputZH.value : "")
-           };
-   
-           try {
-               const res = await fetch("/api/send-rsvp", {
-                   method: "POST",
-                   headers: { "Content-Type": "application/json" },
-                   body: JSON.stringify(formData)
-               });
-   
-               const data = await res.json();
-               alert(data.message);
-   
-           } catch (err) {
-               console.error("RSVP Submit Error:", err);
-               alert("There was an error submitting your RSVP.");
-           }
-       });
-   }
-
-
 });
-
