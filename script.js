@@ -1,86 +1,153 @@
-/* Smooth scroll */
+/* ============================================================
+   Custom Slow Smooth Scroll WITH NAVBAR OFFSET
+   ============================================================ */
 function smoothScrollTo(target, duration = 1500, offset = 80) {
+
     const start = window.pageYOffset;
-    const end = target.getBoundingClientRect().top + window.pageYOffset - offset;
+    const targetTop = target.getBoundingClientRect().top + window.pageYOffset;
+    const end = targetTop - offset;
+
     const distance = end - start;
     let startTime = null;
 
-    function animation(current) {
-        if (!startTime) startTime = current;
-        const elapsed = current - startTime;
-        const progress = Math.min(elapsed / duration, 1);
+    function animation(currentTime) {
+        if (!startTime) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
 
+        // Apple-like ease-in-out
+        const progress = Math.min(timeElapsed / duration, 1);
         const ease = progress < 0.5
             ? 2 * progress * progress
             : 1 - Math.pow(-2 * progress + 2, 2) / 2;
 
         window.scrollTo(0, start + distance * ease);
-        if (elapsed < duration) requestAnimationFrame(animation);
+
+        if (timeElapsed < duration) {
+            requestAnimationFrame(animation);
+        }
     }
 
     requestAnimationFrame(animation);
 }
 
+/* ============================================================
+   ON PAGE LOAD
+   ============================================================ */
 document.addEventListener("DOMContentLoaded", () => {
 
-    /* Language toggle */
-    document.getElementById("lang-en").addEventListener("click", () => {
-        document.querySelectorAll(".lang-en").forEach(e => e.style.display = "block");
-        document.querySelectorAll(".lang-zh").forEach(e => e.style.display = "none");
+    /* ============================================================
+       LANGUAGE SWITCHER
+       ============================================================ */
+    const btnEN = document.getElementById("lang-en");
+    const btnZH = document.getElementById("lang-zh");
 
-        document.getElementById("lang-en").classList.add("active");
-        document.getElementById("lang-zh").classList.remove("active");
+    btnEN.addEventListener("click", () => {
+        btnEN.classList.add("active");
+        btnZH.classList.remove("active");
+
+        document.querySelectorAll(".lang-en").forEach(el => el.style.display = "block");
+        document.querySelectorAll(".lang-zh").forEach(el => el.style.display = "none");
     });
 
-    document.getElementById("lang-zh").addEventListener("click", () => {
-        document.querySelectorAll(".lang-en").forEach(e => e.style.display = "none");
-        document.querySelectorAll(".lang-zh").forEach(e => e.style.display = "block");
+    btnZH.addEventListener("click", () => {
+        btnZH.classList.add("active");
+        btnEN.classList.remove("active");
 
-        document.getElementById("lang-zh").classList.add("active");
-        document.getElementById("lang-en").classList.remove("active");
+        document.querySelectorAll(".lang-en").forEach(el => el.style.display = "none");
+        document.querySelectorAll(".lang-zh").forEach(el => el.style.display = "block");
     });
 
 
-    /* Plus-one EN */
-    const enCheck = document.getElementById("plus-one-checkbox-en");
-    const enName = document.getElementById("plus-one-name-en");
-    enCheck.addEventListener("change", () => enName.style.display = enCheck.checked ? "block" : "none");
+
+    /* ============================================================
+       SMOOTH SCROLL FOR NAV LINKS
+       ============================================================ */
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            const target = document.querySelector(this.getAttribute("href"));
+            if (!target) return;
+
+            const isMobile = window.innerWidth < 768;
+            const offset = isMobile ? 80 : 40;
+
+            smoothScrollTo(target, 1700, offset);
+        });
+    });
 
 
-    /* Plus-one ZH */
-    const zhCheck = document.getElementById("plus-one-checkbox-zh");
-    const zhName = document.getElementById("plus-one-name-zh");
-    zhCheck.addEventListener("change", () => zhName.style.display = zhCheck.checked ? "block" : "none");
+    /* ============================================================
+       SMOOTH SCROLL FOR HERO BUTTONS
+       ============================================================ */
+    document.querySelectorAll(".rsvp-button").forEach(btn => {
+        btn.addEventListener("click", () => {
+            const rsvpSection = document.getElementById("rsvp");
+            const isMobile = window.innerWidth < 768;
+            const offset = isMobile ? 80 : 40;
+
+            smoothScrollTo(rsvpSection, 1700, offset);
+        });
+    });
 
 
-    /* Form handler */
-    function handleForm(idForm, idSuccess) {
-        const form = document.getElementById(idForm);
-        const success = document.getElementById(idSuccess);
+    /* ============================================================
+       PLUS ONE LOGIC (ENGLISH)
+       ============================================================ */
+    const checkboxEN = document.getElementById("plus-one-checkbox-en");
+    const guestInputEN = document.getElementById("plus-one-name-en");
+
+    if (checkboxEN) {
+        checkboxEN.addEventListener("change", () => {
+            guestInputEN.style.display = checkboxEN.checked ? "block" : "none";
+        });
+    }
+
+    /* ============================================================
+       PLUS ONE LOGIC (CHINESE)
+       ============================================================ */
+    const checkboxZH = document.getElementById("plus-one-checkbox-zh");
+    const guestInputZH = document.getElementById("plus-one-name-zh");
+
+    if (checkboxZH) {
+        checkboxZH.addEventListener("change", () => {
+            guestInputZH.style.display = checkboxZH.checked ? "block" : "none";
+        });
+    }
+
+
+    /* ============================================================
+       GENERIC FORMSPREE HANDLER FOR BOTH FORMS
+       ============================================================ */
+    function hookForm(formId, successId, guestInput) {
+        const form = document.getElementById(formId);
+        const successMsg = document.getElementById(successId);
 
         if (!form) return;
 
-        form.addEventListener("submit", async (e) => {
+        form.addEventListener("submit", async function (e) {
             e.preventDefault();
-            const data = new FormData(form);
+
+            const formData = new FormData(form);
 
             const res = await fetch(form.action, {
                 method: "POST",
-                body: data,
+                body: formData,
                 headers: { "Accept": "application/json" }
             });
 
             if (res.ok) {
-                success.style.display = "block";
+                successMsg.style.display = "block";
                 form.reset();
-                enName.style.display = "none";
-                zhName.style.display = "none";
+
+                if (guestInput) guestInput.style.display = "none";
             } else {
-                alert("Submission failed. Try again.");
+                alert("Submission failed. Please try again.");
             }
         });
     }
 
-    handleForm("rsvp-form-en", "form-success-en");
-    handleForm("rsvp-form-zh", "form-success-zh");
+    hookForm("rsvp-form-en", "form-success-en", guestInputEN);
+    hookForm("rsvp-form-zh", "form-success-zh", guestInputZH);
+
 });
