@@ -150,4 +150,14 @@ document.addEventListener("DOMContentLoaded", () => {
     hookForm("rsvp-form-en", "form-success-en", guestInputEN);
     hookForm("rsvp-form-zh", "form-success-zh", guestInputZH);
 
+   // FAQ TOGGLE
+   document.querySelectorAll(".faq-question").forEach(q => {
+       q.addEventListener("click", () => {
+           const answer = q.nextElementSibling;
+           answer.style.display = answer.style.display === "block" ? "none" : "block";
+       });
+   });
+
+
 });
+
