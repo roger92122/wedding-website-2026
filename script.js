@@ -1,62 +1,55 @@
 /* ============================================================
-   Custom Slow Smooth Scroll WITH NAVBAR OFFSET
+   SMOOTH SCROLL
    ============================================================ */
-function smoothScrollTo(target, duration = 1500, offset = 80) {
 
+function smoothScrollTo(target, duration = 1200, offset = 80) {
     const start = window.pageYOffset;
-    const targetTop = target.getBoundingClientRect().top + window.pageYOffset;
-    const end = targetTop - offset;
-
+    const end = target.getBoundingClientRect().top + start - offset;
     const distance = end - start;
     let startTime = null;
 
-    function animation(currentTime) {
-        if (!startTime) startTime = currentTime;
-        const timeElapsed = currentTime - startTime;
-
-        // Apple-like ease-in-out
-        const progress = Math.min(timeElapsed / duration, 1);
+    function animate(time) {
+        if (!startTime) startTime = time;
+        const progress = Math.min((time - startTime) / duration, 1);
         const ease = progress < 0.5
             ? 2 * progress * progress
             : 1 - Math.pow(-2 * progress + 2, 2) / 2;
 
         window.scrollTo(0, start + distance * ease);
 
-        if (timeElapsed < duration) {
-            requestAnimationFrame(animation);
-        }
+        if (progress < 1) requestAnimationFrame(animate);
     }
 
-    requestAnimationFrame(animation);
+    requestAnimationFrame(animate);
 }
 
 /* ============================================================
-   ON PAGE LOAD
+   ON LOAD
    ============================================================ */
+
 document.addEventListener("DOMContentLoaded", () => {
 
-    /* ============================================================
-       HAMBURGER MENU
-       ============================================================ */
+    /* HAMBURGER */
     const hamburger = document.getElementById("hamburger");
     const navMenu = document.getElementById("navMenu");
 
-    if (hamburger && navMenu) {
-        hamburger.addEventListener("click", () => {
-            navMenu.classList.toggle("show");
-        });
-    }
+    hamburger?.addEventListener("click", () => {
+        navMenu.classList.toggle("show");
+    });
 
-    /* Close menu after clicking any nav link (mobile UX) */
     document.querySelectorAll(".nav-menu a").forEach(link => {
         link.addEventListener("click", () => {
-            navMenu?.classList.remove("show");
+            navMenu.classList.remove("show");
         });
     });
 
-    /* ============================================================
-       LANGUAGE SWITCHER
-       ============================================================ */
+    /* NAV BLUR */
+    const navbar = document.querySelector(".navbar");
+    window.addEventListener("scroll", () => {
+        navbar.classList.toggle("scrolled", window.scrollY > 20);
+    });
+
+    /* LANGUAGE SWITCH */
     const btnEN = document.getElementById("lang-en");
     const btnZH = document.getElementById("lang-zh");
 
@@ -67,115 +60,40 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelectorAll(".lang-zh").forEach(el =>
             el.style.display = showEN ? "none" : "block"
         );
-
-        btnEN?.classList.toggle("active", showEN);
-        btnZH?.classList.toggle("active", !showEN);
+        btnEN.classList.toggle("active", showEN);
+        btnZH.classList.toggle("active", !showEN);
     }
 
     btnEN?.addEventListener("click", () => switchLang(true));
     btnZH?.addEventListener("click", () => switchLang(false));
 
-    /* ============================================================
-       SMOOTH SCROLL FOR NAV LINKS
-       ============================================================ */
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-
-            const targetId = this.getAttribute("href");
-            const target = document.querySelector(targetId);
+    /* SMOOTH SCROLL LINKS */
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener("click", e => {
+            const target = document.querySelector(a.getAttribute("href"));
             if (!target) return;
-
             e.preventDefault();
-
-            const isMobile = window.innerWidth < 768;
-            const offset = isMobile ? 80 : 40;
-
-            smoothScrollTo(target, 1200, offset);
+            smoothScrollTo(target, 1200, window.innerWidth < 768 ? 80 : 40);
         });
     });
 
-    /* ============================================================
-       SMOOTH SCROLL FOR HERO BUTTONS
-       ============================================================ */
-    document.querySelectorAll(".rsvp-button").forEach(btn => {
-        btn.addEventListener("click", () => {
-            const rsvpSection = document.getElementById("rsvp");
-            if (!rsvpSection) return;
+    /* FADE IN ON SCROLL */
+    const fadeEls = document.querySelectorAll(
+        ".section, .hero-content, .event-image, .faq-item, .rsvp-form"
+    );
 
-            const isMobile = window.innerWidth < 768;
-            const offset = isMobile ? 80 : 40;
-
-            smoothScrollTo(rsvpSection, 1700, offset);
-        });
-    });
-
-    /* ============================================================
-       PLUS ONE LOGIC (EN)
-       ============================================================ */
-    const checkboxEN = document.getElementById("plus-one-checkbox-en");
-    const guestInputEN = document.getElementById("plus-one-name-en");
-
-    checkboxEN?.addEventListener("change", () => {
-        guestInputEN.style.display = checkboxEN.checked ? "block" : "none";
-    });
-
-    /* ============================================================
-       PLUS ONE LOGIC (ZH)
-       ============================================================ */
-    const checkboxZH = document.getElementById("plus-one-checkbox-zh");
-    const guestInputZH = document.getElementById("plus-one-name-zh");
-
-    checkboxZH?.addEventListener("change", () => {
-        guestInputZH.style.display = checkboxZH.checked ? "block" : "none";
-    });
-
-    /* ============================================================
-       GENERIC FORMSPREE HANDLER
-       ============================================================ */
-    function hookForm(formId, successId, plusOneField) {
-        const form = document.getElementById(formId);
-        const successMsg = document.getElementById(successId);
-        if (!form || !successMsg) return;
-
-        form.addEventListener("submit", async (e) => {
-            e.preventDefault();
-
-            const formData = new FormData(form);
-
-            try {
-                const res = await fetch(form.action, {
-                    method: "POST",
-                    body: formData,
-                    headers: { "Accept": "application/json" }
-                });
-
-                if (res.ok) {
-                    successMsg.style.display = "block";
-                    form.reset();
-                    if (plusOneField) plusOneField.style.display = "none";
-                } else {
-                    alert("Submission failed. Please try again.");
-                }
-            } catch {
-                alert("Network error. Please try again.");
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
             }
         });
-    }
+    }, { threshold: 0.15 });
 
-    hookForm("rsvp-form-en", "form-success-en", guestInputEN);
-    hookForm("rsvp-form-zh", "form-success-zh", guestInputZH);
-
-    /* ============================================================
-       FAQ TOGGLE
-       ============================================================ */
-    document.querySelectorAll(".faq-question").forEach(q => {
-        q.addEventListener("click", () => {
-            const answer = q.nextElementSibling;
-            if (!answer) return;
-
-            answer.style.display =
-                answer.style.display === "block" ? "none" : "block";
-        });
+    fadeEls.forEach(el => {
+        el.classList.add("fade-in");
+        observer.observe(el);
     });
 
 });
