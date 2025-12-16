@@ -226,90 +226,55 @@ body {
     opacity: 0.6;
 }
 /* ============================================================
-   RSVP SECTION
+   RSVP FORM FINAL LAYOUT
    ============================================================ */
 
-.rsvp-section {
-    background-color: #f4f4f6;
-    padding: 100px 24px;
-    text-align: center;
-}
-
-.rsvp-title {
-    font-size: 28px;
-    letter-spacing: 0.3em;
-    margin-bottom: 48px;
-}
-
-/* FORM STACK */
-.rsvp-form {
-    max-width: 420px;
-    margin: 0 auto;
-
+#rsvp form {
     display: flex;
-    flex-direction: column;   /* <-- THIS fixes everything */
-    gap: 18px;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }
 
-/* Inputs */
-.rsvp-form input,
-.rsvp-form select {
-    width: 100%;
-    padding: 12px 14px;
-    font-size: 14px;
-    border: 1px solid #aaa;
+/* Inputs & select — half width, taller */
+#rsvp input[type="text"],
+#rsvp input[type="email"],
+#rsvp select {
+    width: 50%;
+    min-width: 280px;
+    padding: 14px 16px;
+    font-size: 15px;
+    border: 1px solid #777;
     background: #fff;
 }
 
-/* Checkbox row */
-.checkbox-row {
+/* Checkbox row — centered & grouped */
+#rsvp .checkbox-row {
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-size: 14px;
+    gap: 12px;
+    font-size: 16px;
+    width: 50%;
+    min-width: 280px;
     justify-content: flex-start;
 }
 
-/* Button */
-.rsvp-form button {
-    margin-top: 12px;
-    padding: 12px;
-    font-size: 14px;
-    background: none;
+/* Guest name field (same size) */
+#rsvp input[name="guestName"] {
+    width: 50%;
+    min-width: 280px;
+}
+
+/* Submit button */
+#rsvp button {
+    margin-top: 10px;
+    padding: 10px 28px;
+    font-size: 15px;
     border: 1px solid #000;
+    background: none;
     cursor: pointer;
 }
-/* ===== FORCE RSVP FORM VERTICAL STACK ===== */
 
-#rsvp form,
-#rsvp .rsvp-form {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: stretch !important;
-    gap: 18px;
-}
-
-/* Force every field onto its own row */
-#rsvp input,
-#rsvp select,
-#rsvp button,
-#rsvp label {
-    display: block !important;
-    width: 100% !important;
-}
-
-/* Checkbox row: keep text next to checkbox, but still its own row */
-#rsvp label {
-    display: flex !important;
-    align-items: center;
-    gap: 10px;
-}
-
-/* Optional: center submit button */
-#rsvp button {
-    width: 140px !important;
-    align-self: center;
-}
 
 /* ============================================================
    MOBILE
@@ -416,6 +381,7 @@ body {
         border-radius: 0;
     }
 }
+
 
 
 
