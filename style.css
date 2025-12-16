@@ -148,7 +148,7 @@ body {
    ============================================================ */
 
 .section {
-    background: white;
+    background: #ececef;
     margin: 60px auto;
     padding: 60px;
     max-width: 900px;
@@ -275,3 +275,4 @@ body {
         border-radius: 0;
     }
 }
+
