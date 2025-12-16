@@ -17,16 +17,15 @@ body {
 }
 
 /* ============================================================
-   NAVBAR
+   NAVBAR (APPLE STYLE)
    ============================================================ */
 
 .navbar {
-    background: transparent;
-    padding: 28px 0 12px;
-    text-align: center;
     position: sticky;
     top: 0;
     z-index: 1000;
+    background: transparent;
+    padding: 16px 0 10px;
     transition: background 0.35s ease, backdrop-filter 0.35s ease;
 }
 
@@ -43,6 +42,9 @@ body {
     position: relative;
 }
 
+/* ============================================================
+   LOGO (CENTERED)
+   ============================================================ */
 
 .logo {
     grid-column: 2;
@@ -52,49 +54,81 @@ body {
     white-space: nowrap;
 }
 
-
-/* NAV MENU */
-
-.nav-menu {
-    list-style: none;
-    padding: 0;
-    margin: 12px 0 0;
-    display: flex;
-    gap: 36px;
-}
-
-.nav-menu a {
-    text-decoration: none;
-    color: black;
-    font-size: 13px;
-    transition: opacity 0.25s ease;
-}
-
-.nav-menu {
-    grid-column: 1 / -1;
-    margin-top: 12px;
-    display: flex;
-    justify-content: center;
-    gap: 36px;
-}
-
-
 /* ============================================================
-   HAMBURGER
+   HAMBURGER (CLEAN, IOS SAFE)
    ============================================================ */
 
 .hamburger {
     grid-column: 1;
     justify-self: start;
-    margin-left: 20px;
+    margin-left: 16px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
 }
 
-
 .hamburger span {
-    width: 26px;
-    height: 3px;
-    background: black;
-    border-radius: 3px;
+    width: 22px;
+    height: 2px;
+    background: #000;
+    border-radius: 2px;
+}
+
+/* ============================================================
+   LANGUAGE SWITCHER (MINIMAL, CONTEXT AWARE)
+   ============================================================ */
+
+.language-switcher {
+    grid-column: 3;
+    justify-self: end;
+    margin-right: 16px;
+}
+
+.lang-btn {
+    font-size: 12px;
+    padding: 4px 8px;
+    border: 1px solid rgba(0,0,0,0.25);
+    background: transparent;
+    color: #000;
+    border-radius: 6px;
+    cursor: pointer;
+    line-height: 1;
+    transition: opacity 0.2s ease;
+}
+
+.lang-btn:hover {
+    opacity: 0.6;
+}
+
+/* ============================================================
+   NAV MENU
+   ============================================================ */
+
+.nav-menu {
+    grid-column: 1 / -1;
+    margin-top: 12px;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 36px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #000;
+    font-size: 13px;
+    transition: opacity 0.25s ease;
+}
+
+.nav-menu a:hover {
+    opacity: 0.6;
 }
 
 /* ============================================================
@@ -107,6 +141,7 @@ body {
     display: flex;
     align-items: center;
     padding-left: 60px;
+    margin-top: -10px;
 }
 
 .hero-content h1 {
@@ -153,101 +188,12 @@ body {
     margin-bottom: 40px;
 }
 
-/* EVENTS */
-
 .event-image {
     width: 360px;
     height: 360px;
     object-fit: cover;
     margin: 0 auto 40px;
     display: block;
-}
-
-.event-time {
-    font-size: 20px;
-    margin-bottom: 25px;
-}
-
-.event-address {
-    color: #999;
-}
-
-/* ============================================================
-   RSVP FORM
-   ============================================================ */
-
-.rsvp-form {
-    max-width: 320px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.rsvp-form input,
-.rsvp-form select {
-    padding: 12px;
-    font-size: 16px;
-}
-
-.rsvp-form button {
-    padding: 14px;
-    background: #333;
-    color: white;
-    border: none;
-}
-
-.success-msg {
-    display: none;
-    color: green;
-    margin-top: 12px;
-}
-
-/* ============================================================
-   FAQ
-   ============================================================ */
-
-.faq-box {
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: left;
-}
-
-.faq-question {
-    width: 100%;
-    padding: 12px;
-    border: none;
-    background: #f1f1f1;
-    cursor: pointer;
-}
-
-.faq-answer {
-    display: none;
-    padding: 10px 5px;
-}
-
-/* ============================================================
-   LANGUAGE SWITCHER
-   ============================================================ */
-
-.language-switcher {
-    grid-column: 3;
-    justify-self: end;
-    margin-right: 20px;
-}
-
-
-.lang-btn {
-    width: 52px;
-    height: 34px;
-    border: 1px solid #999;
-    background: white;
-    cursor: pointer;
-}
-
-.lang-btn.active {
-    background: #333;
-    color: white;
 }
 
 /* ============================================================
@@ -267,29 +213,38 @@ body {
 }
 
 /* ============================================================
-   MOBILE
+   MOBILE NAV
    ============================================================ */
 
 @media (max-width: 768px) {
 
-    .hamburger {
-        display: flex;
-    }
-
     .nav-menu {
-        display: none;
         position: absolute;
-        top: 72px;
+        top: 100%;
         left: 0;
         width: 100%;
-        background: #ececef;
+
+        background: rgba(236,236,239,0.96);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+
+        display: none;
         flex-direction: column;
-        padding: 22px 0;
-        gap: 18px;
+        align-items: center;
+
+        padding: 18px 0;
+        gap: 14px;
+
+        border-top: 1px solid rgba(0,0,0,0.08);
     }
 
     .nav-menu.show {
         display: flex;
+    }
+
+    .nav-menu a {
+        font-size: 17px;
+        padding: 6px 0;
     }
 
     .hero {
@@ -303,5 +258,9 @@ body {
     .hero-content h1 {
         font-size: 40px;
     }
-}
 
+    .lang-btn {
+        font-size: 11px;
+        padding: 3px 7px;
+    }
+}
