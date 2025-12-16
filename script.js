@@ -1,5 +1,5 @@
 /* ============================================================
-   SMOOTH SCROLL
+   SMOOTH SCROLL (APPLE EASING)
    ============================================================ */
 
 function smoothScrollTo(target, duration = 1200, offset = 80) {
@@ -16,7 +16,6 @@ function smoothScrollTo(target, duration = 1200, offset = 80) {
             : 1 - Math.pow(-2 * progress + 2, 2) / 2;
 
         window.scrollTo(0, start + distance * ease);
-
         if (progress < 1) requestAnimationFrame(animate);
     }
 
@@ -43,29 +42,35 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    /* NAV BLUR */
+    /* NAV BAR BLUR */
     const navbar = document.querySelector(".navbar");
     window.addEventListener("scroll", () => {
         navbar.classList.toggle("scrolled", window.scrollY > 20);
     });
 
-    /* LANGUAGE SWITCH */
+    /* LANGUAGE SWITCHER (SHOW ONLY OTHER LANGUAGE) */
     const btnEN = document.getElementById("lang-en");
     const btnZH = document.getElementById("lang-zh");
 
-    function switchLang(showEN) {
-        document.querySelectorAll(".lang-en").forEach(el =>
-            el.style.display = showEN ? "block" : "none"
-        );
-        document.querySelectorAll(".lang-zh").forEach(el =>
-            el.style.display = showEN ? "none" : "block"
-        );
-        btnEN.classList.toggle("active", showEN);
-        btnZH.classList.toggle("active", !showEN);
+    function setLanguage(lang) {
+        const showEN = lang === "en";
+
+        document.querySelectorAll(".lang-en").forEach(el => {
+            el.style.display = showEN ? "block" : "none";
+        });
+
+        document.querySelectorAll(".lang-zh").forEach(el => {
+            el.style.display = showEN ? "none" : "block";
+        });
+
+        btnEN.style.display = showEN ? "none" : "inline-block";
+        btnZH.style.display = showEN ? "inline-block" : "none";
     }
 
-    btnEN?.addEventListener("click", () => switchLang(true));
-    btnZH?.addEventListener("click", () => switchLang(false));
+    setLanguage("en");
+
+    btnEN?.addEventListener("click", () => setLanguage("en"));
+    btnZH?.addEventListener("click", () => setLanguage("zh"));
 
     /* SMOOTH SCROLL LINKS */
     document.querySelectorAll('a[href^="#"]').forEach(a => {
@@ -77,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    /* FADE IN ON SCROLL */
+    /* FADE-IN ON SCROLL */
     const fadeEls = document.querySelectorAll(
         ".section, .hero-content, .event-image, .faq-item, .rsvp-form"
     );
