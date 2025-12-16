@@ -279,6 +279,37 @@ body {
     border: 1px solid #000;
     cursor: pointer;
 }
+/* ===== FORCE RSVP FORM VERTICAL STACK ===== */
+
+#rsvp form,
+#rsvp .rsvp-form {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 18px;
+}
+
+/* Force every field onto its own row */
+#rsvp input,
+#rsvp select,
+#rsvp button,
+#rsvp label {
+    display: block !important;
+    width: 100% !important;
+}
+
+/* Checkbox row: keep text next to checkbox, but still its own row */
+#rsvp label {
+    display: flex !important;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Optional: center submit button */
+#rsvp button {
+    width: 140px !important;
+    align-self: center;
+}
 
 /* ============================================================
    MOBILE
@@ -385,6 +416,7 @@ body {
         border-radius: 0;
     }
 }
+
 
 
 
