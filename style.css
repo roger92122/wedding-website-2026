@@ -157,6 +157,10 @@ body {
     text-align: center;
 }
 
+.section:nth-of-type(even) {
+    background: #ffffff;
+}
+
 .section h2 {
     font-size: 36px;
     margin-bottom: 40px;
@@ -276,6 +280,7 @@ body {
         border-radius: 0;
     }
 }
+
 
 
 
