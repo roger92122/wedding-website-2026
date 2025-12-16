@@ -231,6 +231,39 @@ body {
     font-size: 13px;
 }
 
+/* FAQ styles */
+.faq-box {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.faq-item {
+    margin-bottom: 20px;
+}
+
+.faq-question {
+    width: 100%;
+    text-align: left;
+    background: #f1f1f1;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.faq-question:hover {
+    background: #e4e4e4;
+}
+
+.faq-answer {
+    display: none;
+    padding: 10px 5px;
+    font-size: 15px;
+    color: #444;
+}
+
 /* ============================================
    RESPONSIVE DESIGN
    ============================================ */
@@ -325,3 +358,4 @@ body {
         height: 300px;
     }
 }
+
