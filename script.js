@@ -30,10 +30,13 @@ function smoothScrollTo(target, duration = 1500, offset = 80) {
     requestAnimationFrame(animation);
 }
 
+
+
 /* ============================================================
    ON PAGE LOAD
    ============================================================ */
 document.addEventListener("DOMContentLoaded", () => {
+
 
     /* ============================================================
        LANGUAGE SWITCHER
@@ -41,21 +44,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const btnEN = document.getElementById("lang-en");
     const btnZH = document.getElementById("lang-zh");
 
-    btnEN.addEventListener("click", () => {
-        btnEN.classList.add("active");
-        btnZH.classList.remove("active");
+    function switchLang(showEN) {
+        document.querySelectorAll(".lang-en").forEach(el =>
+            el.style.display = showEN ? "block" : "none"
+        );
+        document.querySelectorAll(".lang-zh").forEach(el =>
+            el.style.display = showEN ? "none" : "block"
+        );
 
-        document.querySelectorAll(".lang-en").forEach(el => el.style.display = "block");
-        document.querySelectorAll(".lang-zh").forEach(el => el.style.display = "none");
-    });
+        btnEN.classList.toggle("active", showEN);
+        btnZH.classList.toggle("active", !showEN);
+    }
 
-    btnZH.addEventListener("click", () => {
-        btnZH.classList.add("active");
-        btnEN.classList.remove("active");
-
-        document.querySelectorAll(".lang-en").forEach(el => el.style.display = "none");
-        document.querySelectorAll(".lang-zh").forEach(el => el.style.display = "block");
-    });
+    btnEN.addEventListener("click", () => switchLang(true));
+    btnZH.addEventListener("click", () => switchLang(false));
 
 
 
@@ -72,9 +74,10 @@ document.addEventListener("DOMContentLoaded", () => {
             const isMobile = window.innerWidth < 768;
             const offset = isMobile ? 80 : 40;
 
-            smoothScrollTo(target, 1700, offset);
+            smoothScrollTo(target, 1200, offset);
         });
     });
+
 
 
     /* ============================================================
@@ -91,8 +94,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
+
     /* ============================================================
-       PLUS ONE LOGIC (ENGLISH)
+       PLUS ONE LOGIC (EN)
        ============================================================ */
     const checkboxEN = document.getElementById("plus-one-checkbox-en");
     const guestInputEN = document.getElementById("plus-one-name-en");
@@ -103,8 +107,10 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+
+
     /* ============================================================
-       PLUS ONE LOGIC (CHINESE)
+       PLUS ONE LOGIC (ZH)
        ============================================================ */
     const checkboxZH = document.getElementById("plus-one-checkbox-zh");
     const guestInputZH = document.getElementById("plus-one-name-zh");
@@ -116,13 +122,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
+
     /* ============================================================
-       GENERIC FORMSPREE HANDLER FOR BOTH FORMS
+       GENERIC FORMSPREE HANDLER (WORKS FOR BOTH FORMS)
        ============================================================ */
-    function hookForm(formId, successId, guestInput) {
+    function hookForm(formId, successId, plusOneField) {
         const form = document.getElementById(formId);
         const successMsg = document.getElementById(successId);
-
         if (!form) return;
 
         form.addEventListener("submit", async function (e) {
@@ -139,8 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (res.ok) {
                 successMsg.style.display = "block";
                 form.reset();
-
-                if (guestInput) guestInput.style.display = "none";
+                if (plusOneField) plusOneField.style.display = "none";
             } else {
                 alert("Submission failed. Please try again.");
             }
@@ -150,14 +155,17 @@ document.addEventListener("DOMContentLoaded", () => {
     hookForm("rsvp-form-en", "form-success-en", guestInputEN);
     hookForm("rsvp-form-zh", "form-success-zh", guestInputZH);
 
-   // FAQ TOGGLE
-   document.querySelectorAll(".faq-question").forEach(q => {
-       q.addEventListener("click", () => {
-           const answer = q.nextElementSibling;
-           answer.style.display = answer.style.display === "block" ? "none" : "block";
-       });
-   });
+
+
+    /* ============================================================
+       FAQ TOGGLE
+       ============================================================ */
+    document.querySelectorAll(".faq-question").forEach(q => {
+        q.addEventListener("click", () => {
+            const answer = q.nextElementSibling;
+            answer.style.display = answer.style.display === "block" ? "none" : "block";
+        });
+    });
 
 
 });
-
