@@ -33,9 +33,9 @@ body {
     width: 100%;
 }
 
-/* ============================================================
-   NAV CONTAINER
-   ============================================================ */
+/* ===========================
+   DESKTOP NAV LAYOUT
+   =========================== */
 
 .nav-container {
     max-width: 1200px;
@@ -45,34 +45,45 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    position: relative; /* ONLY for mobile overlay menu */
+    position: relative;
 }
 
-/* ============================================================
-   LOGO
-   ============================================================ */
-
+/* Logo stays on its own row */
 .logo {
     font-size: 20px;
     font-weight: 700;
-    white-space: nowrap;
     margin-bottom: 12px;
+    white-space: nowrap;
 }
 
-/* ============================================================
-   NAV MENU (DESKTOP)
-   ============================================================ */
-
+/* Menu row */
 .nav-menu {
     list-style: none;
     padding: 0;
     margin: 0;
 
     display: flex;
+    align-items: center;
     gap: 36px;
-    justify-content: center;
 }
+
+/* Language switcher inline with menu */
+.language-switcher {
+    margin-left: 28px;
+    display: flex;
+    align-items: center;
+}
+
+.lang-btn {
+    font-size: 12px;
+    padding: 4px 8px;
+    border: 1px solid rgba(0,0,0,0.25);
+    background: transparent;
+    border-radius: 6px;
+    cursor: pointer;
+    line-height: 1;
+}
+
 
 .nav-menu a {
     text-decoration: none;
@@ -89,10 +100,10 @@ body {
    HAMBURGER + LANGUAGE (HIDDEN ON DESKTOP)
    ============================================================ */
 
-.hamburger,
+/* .hamburger,
 .language-switcher {
     display: none;
-}
+} */
 
 /* ============================================================
    HERO (UNCHANGED / SAFE)
@@ -250,3 +261,4 @@ body {
         font-size: 40px;
     }
 }
+
