@@ -44,7 +44,7 @@ body {
 
     display: flex;
     flex-direction: column;
-    align-items: stretch; /* IMPORTANT for right-aligned EN */
+    align-items: stretch; /* 🔑 allows same-row alignment */
     position: relative;
 }
 
@@ -72,8 +72,8 @@ body {
     display: flex;
     align-items: center;
 
-    width: 100%;
-    justify-content: center;
+    width: 100%;                /* 🔑 critical */
+    justify-content: center;    /* menu stays centered */
     gap: 36px;
 }
 
@@ -85,15 +85,15 @@ body {
 }
 
 .nav-menu a:hover {
-    opacity: 0.6;
+    opacity: 0.8;
 }
 
 /* ============================================================
-   LANGUAGE SWITCHER — FAR RIGHT OF MENU ROW (DESKTOP)
+   LANGUAGE SWITCHER (SAME ROW — RIGHT ALIGNED)
    ============================================================ */
 
 .language-switcher {
-    margin-left: auto;
+    margin-left: auto;          /* 🔑 pushes to far right */
     display: flex;
     align-items: center;
 }
@@ -121,7 +121,7 @@ body {
 }
 
 /* ============================================================
-   HERO (UNCHANGED)
+   HERO (UNCHANGED / SAFE)
    ============================================================ */
 
 .hero {
@@ -175,7 +175,7 @@ body {
 
 @media (max-width: 768px) {
 
-    /* Switch to single-row header */
+    /* Top row layout */
     .nav-container {
         display: grid;
         grid-template-columns: auto 1fr auto;
