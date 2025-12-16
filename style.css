@@ -225,6 +225,60 @@ body {
     font-style: italic;
     opacity: 0.6;
 }
+/* ============================================================
+   RSVP SECTION
+   ============================================================ */
+
+.rsvp-section {
+    background-color: #f4f4f6;
+    padding: 100px 24px;
+    text-align: center;
+}
+
+.rsvp-title {
+    font-size: 28px;
+    letter-spacing: 0.3em;
+    margin-bottom: 48px;
+}
+
+/* FORM STACK */
+.rsvp-form {
+    max-width: 420px;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;   /* <-- THIS fixes everything */
+    gap: 18px;
+}
+
+/* Inputs */
+.rsvp-form input,
+.rsvp-form select {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 14px;
+    border: 1px solid #aaa;
+    background: #fff;
+}
+
+/* Checkbox row */
+.checkbox-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    justify-content: flex-start;
+}
+
+/* Button */
+.rsvp-form button {
+    margin-top: 12px;
+    padding: 12px;
+    font-size: 14px;
+    background: none;
+    border: 1px solid #000;
+    cursor: pointer;
+}
 
 /* ============================================================
    MOBILE
@@ -331,6 +385,7 @@ body {
         border-radius: 0;
     }
 }
+
 
 
 
