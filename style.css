@@ -1,6 +1,6 @@
-/* ================================
+/* ============================================================
    GLOBAL
-================================ */
+   ============================================================ */
 
 *,
 *::before,
@@ -13,77 +13,87 @@ body {
     font-family: "Libre Baskerville", serif;
     background-color: #ececef;
     color: #000;
+    scroll-behavior: smooth;
 }
 
-/* ================================
-   NAVBAR
-================================ */
+/* ============================================================
+   NAVBAR (ISOLATED, SAFE)
+   ============================================================ */
 
 .navbar {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: #ececef;
+
+    background: rgba(236,236,239,0.92);
+    backdrop-filter: saturate(180%) blur(10px);
+    -webkit-backdrop-filter: saturate(180%) blur(10px);
+
     padding: 18px 0 14px;
+    width: 100%;
 }
 
-/* ================================
+/* ============================================================
    NAV CONTAINER
-================================ */
+   ============================================================ */
 
 .nav-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 16px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; /* 🔑 allows same-row alignment */
+    position: relative;
 }
 
-/* ================================
-   LOGO (TOP)
-================================ */
+/* ============================================================
+   LOGO (TOP ROW)
+   ============================================================ */
 
 .logo {
     text-align: center;
     font-size: 20px;
     font-weight: 700;
-    margin-bottom: 12px;
+    white-space: nowrap;
+    margin-bottom: 14px;
 }
 
-/* ================================
-   NAV ROW (MENU + LANGUAGE)
-================================ */
+/* ============================================================
+   MENU ROW (DESKTOP)
+   ============================================================ */
 
 .nav-menu {
-    position: relative;              /* 🔑 anchor point */
     list-style: none;
-    margin: 0;
     padding: 0;
+    margin: 0;
 
     display: flex;
-    justify-content: center;
+    align-items: center;
+
+    width: 100%;                /* 🔑 critical */
+    justify-content: center;    /* menu stays centered */
     gap: 36px;
 }
 
-/* Menu links */
 .nav-menu a {
     text-decoration: none;
     color: #000;
     font-size: 14px;
+    transition: opacity 0.25s ease;
 }
 
 .nav-menu a:hover {
     opacity: 0.6;
 }
 
-/* ================================
-   LANGUAGE SWITCHER — SAME ROW
-================================ */
+/* ============================================================
+   LANGUAGE SWITCHER (SAME ROW — RIGHT ALIGNED)
+   ============================================================ */
 
 .language-switcher {
-    position: absolute;              /* 🔑 this fixes everything */
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-
+    margin-left: auto;          /* 🔑 pushes to far right */
     display: flex;
     align-items: center;
 }
@@ -91,23 +101,28 @@ body {
 .lang-btn {
     font-size: 12px;
     padding: 4px 8px;
-    border: 1px solid rgba(0,0,0,0.3);
+    border: 1px solid rgba(0,0,0,0.25);
     background: transparent;
     border-radius: 6px;
     cursor: pointer;
+    line-height: 1;
 }
 
-/* ================================
-   HAMBURGER (DESKTOP HIDDEN)
-================================ */
+.lang-btn:hover {
+    opacity: 0.6;
+}
+
+/* ============================================================
+   HAMBURGER (HIDDEN ON DESKTOP)
+   ============================================================ */
 
 .hamburger {
     display: none;
 }
 
-/* ================================
-   HERO (UNCHANGED)
-================================ */
+/* ============================================================
+   HERO (UNCHANGED / SAFE)
+   ============================================================ */
 
 .hero {
     height: 90vh;
@@ -117,26 +132,65 @@ body {
     padding-left: 60px;
 }
 
-/* ================================
+.hero-content h1 {
+    font-size: 64px;
+    margin: 0;
+    line-height: 1.1;
+}
+
+.hero-content p {
+    font-size: 20px;
+    margin: 20px 0 30px;
+}
+
+/* ============================================================
+   SECTIONS (UNCHANGED)
+   ============================================================ */
+
+.section {
+    background: white;
+    margin: 60px auto;
+    padding: 60px;
+    max-width: 900px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.section h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+
+.event-image {
+    width: 360px;
+    height: 360px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto 40px;
+}
+
+/* ============================================================
    MOBILE NAV
-================================ */
+   ============================================================ */
 
 @media (max-width: 768px) {
 
-    .logo {
-        margin-bottom: 0;
-    }
-
+    /* Top row layout */
     .nav-container {
         display: grid;
         grid-template-columns: auto 1fr auto;
         align-items: center;
     }
 
+    /* Hamburger (left) */
     .hamburger {
         display: flex;
         flex-direction: column;
+        justify-content: center;
         gap: 4px;
+
+        width: 28px;
+        height: 28px;
         cursor: pointer;
     }
 
@@ -147,12 +201,26 @@ body {
         border-radius: 2px;
     }
 
-    .language-switcher {
-        position: static;
-        transform: none;
-        justify-self: end;
+    /* Logo (center) */
+    .logo {
+        grid-column: 2;
+        margin-bottom: 0;
+        text-align: center;
+        font-size: 20px;
     }
 
+    /* Language switcher (right) */
+    .language-switcher {
+        grid-column: 3;
+        margin-left: 0;
+    }
+
+    .lang-btn {
+        font-size: 11px;
+        padding: 3px 7px;
+    }
+
+    /* Mobile dropdown menu (OVERLAY — does not push content) */
     .nav-menu {
         position: absolute;
         top: 100%;
@@ -163,13 +231,35 @@ body {
         flex-direction: column;
         align-items: center;
 
-        background: rgba(236,236,239,0.96);
-        backdrop-filter: blur(12px);
         padding: 18px 0;
         gap: 14px;
+
+        background: rgba(236,236,239,0.96);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+
+        border-top: 1px solid rgba(0,0,0,0.08);
     }
 
     .nav-menu.show {
         display: flex;
+    }
+
+    .nav-menu a {
+        font-size: 17px;
+        padding: 6px 0;
+    }
+
+    /* Hero mobile */
+    .hero {
+        height: 70vh;
+        padding: 0 16px;
+        justify-content: center;
+        text-align: center;
+        background-position: 60% 55%;
+    }
+
+    .hero-content h1 {
+        font-size: 40px;
     }
 }
