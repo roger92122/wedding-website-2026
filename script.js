@@ -30,13 +30,29 @@ function smoothScrollTo(target, duration = 1500, offset = 80) {
     requestAnimationFrame(animation);
 }
 
-
-
 /* ============================================================
    ON PAGE LOAD
    ============================================================ */
 document.addEventListener("DOMContentLoaded", () => {
 
+    /* ============================================================
+       HAMBURGER MENU
+       ============================================================ */
+    const hamburger = document.getElementById("hamburger");
+    const navMenu = document.getElementById("navMenu");
+
+    if (hamburger && navMenu) {
+        hamburger.addEventListener("click", () => {
+            navMenu.classList.toggle("show");
+        });
+    }
+
+    /* Close menu after clicking any nav link (mobile UX) */
+    document.querySelectorAll(".nav-menu a").forEach(link => {
+        link.addEventListener("click", () => {
+            navMenu?.classList.remove("show");
+        });
+    });
 
     /* ============================================================
        LANGUAGE SWITCHER
@@ -52,24 +68,24 @@ document.addEventListener("DOMContentLoaded", () => {
             el.style.display = showEN ? "none" : "block"
         );
 
-        btnEN.classList.toggle("active", showEN);
-        btnZH.classList.toggle("active", !showEN);
+        btnEN?.classList.toggle("active", showEN);
+        btnZH?.classList.toggle("active", !showEN);
     }
 
-    btnEN.addEventListener("click", () => switchLang(true));
-    btnZH.addEventListener("click", () => switchLang(false));
-
-
+    btnEN?.addEventListener("click", () => switchLang(true));
+    btnZH?.addEventListener("click", () => switchLang(false));
 
     /* ============================================================
        SMOOTH SCROLL FOR NAV LINKS
        ============================================================ */
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener("click", function (e) {
-            e.preventDefault();
 
-            const target = document.querySelector(this.getAttribute("href"));
+            const targetId = this.getAttribute("href");
+            const target = document.querySelector(targetId);
             if (!target) return;
+
+            e.preventDefault();
 
             const isMobile = window.innerWidth < 768;
             const offset = isMobile ? 80 : 40;
@@ -78,14 +94,14 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-
-
     /* ============================================================
        SMOOTH SCROLL FOR HERO BUTTONS
        ============================================================ */
     document.querySelectorAll(".rsvp-button").forEach(btn => {
         btn.addEventListener("click", () => {
             const rsvpSection = document.getElementById("rsvp");
+            if (!rsvpSection) return;
+
             const isMobile = window.innerWidth < 768;
             const offset = isMobile ? 80 : 40;
 
@@ -93,21 +109,15 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-
-
     /* ============================================================
        PLUS ONE LOGIC (EN)
        ============================================================ */
     const checkboxEN = document.getElementById("plus-one-checkbox-en");
     const guestInputEN = document.getElementById("plus-one-name-en");
 
-    if (checkboxEN) {
-        checkboxEN.addEventListener("change", () => {
-            guestInputEN.style.display = checkboxEN.checked ? "block" : "none";
-        });
-    }
-
-
+    checkboxEN?.addEventListener("change", () => {
+        guestInputEN.style.display = checkboxEN.checked ? "block" : "none";
+    });
 
     /* ============================================================
        PLUS ONE LOGIC (ZH)
@@ -115,39 +125,39 @@ document.addEventListener("DOMContentLoaded", () => {
     const checkboxZH = document.getElementById("plus-one-checkbox-zh");
     const guestInputZH = document.getElementById("plus-one-name-zh");
 
-    if (checkboxZH) {
-        checkboxZH.addEventListener("change", () => {
-            guestInputZH.style.display = checkboxZH.checked ? "block" : "none";
-        });
-    }
-
-
+    checkboxZH?.addEventListener("change", () => {
+        guestInputZH.style.display = checkboxZH.checked ? "block" : "none";
+    });
 
     /* ============================================================
-       GENERIC FORMSPREE HANDLER (WORKS FOR BOTH FORMS)
+       GENERIC FORMSPREE HANDLER
        ============================================================ */
     function hookForm(formId, successId, plusOneField) {
         const form = document.getElementById(formId);
         const successMsg = document.getElementById(successId);
-        if (!form) return;
+        if (!form || !successMsg) return;
 
-        form.addEventListener("submit", async function (e) {
+        form.addEventListener("submit", async (e) => {
             e.preventDefault();
 
             const formData = new FormData(form);
 
-            const res = await fetch(form.action, {
-                method: "POST",
-                body: formData,
-                headers: { "Accept": "application/json" }
-            });
+            try {
+                const res = await fetch(form.action, {
+                    method: "POST",
+                    body: formData,
+                    headers: { "Accept": "application/json" }
+                });
 
-            if (res.ok) {
-                successMsg.style.display = "block";
-                form.reset();
-                if (plusOneField) plusOneField.style.display = "none";
-            } else {
-                alert("Submission failed. Please try again.");
+                if (res.ok) {
+                    successMsg.style.display = "block";
+                    form.reset();
+                    if (plusOneField) plusOneField.style.display = "none";
+                } else {
+                    alert("Submission failed. Please try again.");
+                }
+            } catch {
+                alert("Network error. Please try again.");
             }
         });
     }
@@ -155,17 +165,17 @@ document.addEventListener("DOMContentLoaded", () => {
     hookForm("rsvp-form-en", "form-success-en", guestInputEN);
     hookForm("rsvp-form-zh", "form-success-zh", guestInputZH);
 
-
-
     /* ============================================================
        FAQ TOGGLE
        ============================================================ */
     document.querySelectorAll(".faq-question").forEach(q => {
         q.addEventListener("click", () => {
             const answer = q.nextElementSibling;
-            answer.style.display = answer.style.display === "block" ? "none" : "block";
+            if (!answer) return;
+
+            answer.style.display =
+                answer.style.display === "block" ? "none" : "block";
         });
     });
-
 
 });
