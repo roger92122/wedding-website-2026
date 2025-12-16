@@ -21,12 +21,19 @@ body {
    ============================================================ */
 
 .navbar {
-    background: #ececef;
+    background: transparent;
     padding: 28px 0 12px;
     text-align: center;
     position: sticky;
     top: 0;
     z-index: 1000;
+    transition: background 0.35s ease, backdrop-filter 0.35s ease;
+}
+
+.navbar.scrolled {
+    background: rgba(236, 236, 239, 0.78);
+    backdrop-filter: saturate(180%) blur(12px);
+    -webkit-backdrop-filter: saturate(180%) blur(12px);
 }
 
 .nav-container {
@@ -39,15 +46,15 @@ body {
 .logo {
     font-size: 18px;
     font-weight: 700;
-    margin-bottom: 10px;
 }
+
+/* NAV MENU */
 
 .nav-menu {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 12px 0 0;
     display: flex;
-    justify-content: center;
     gap: 36px;
 }
 
@@ -63,7 +70,28 @@ body {
 }
 
 /* ============================================================
-   HERO SECTION
+   HAMBURGER
+   ============================================================ */
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    position: absolute;
+    left: 20px;
+    cursor: pointer;
+    z-index: 1200;
+}
+
+.hamburger span {
+    width: 26px;
+    height: 3px;
+    background: black;
+    border-radius: 3px;
+}
+
+/* ============================================================
+   HERO
    ============================================================ */
 
 .hero {
@@ -101,7 +129,7 @@ body {
 }
 
 /* ============================================================
-   SECTION STYLE
+   SECTIONS
    ============================================================ */
 
 .section {
@@ -118,17 +146,14 @@ body {
     margin-bottom: 40px;
 }
 
-/* ============================================================
-   CEREMONY & RECEPTION
-   ============================================================ */
+/* EVENTS */
 
 .event-image {
     width: 360px;
     height: 360px;
     object-fit: cover;
-    display: block;
     margin: 0 auto 40px;
-    border-radius: 4px;
+    display: block;
 }
 
 .event-time {
@@ -136,23 +161,8 @@ body {
     margin-bottom: 25px;
 }
 
-.event-location {
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
 .event-address {
     color: #999;
-    margin-bottom: 20px;
-}
-
-.map-link {
-    text-decoration: none;
-    color: #1a73e8;
-}
-
-.map-link:hover {
-    text-decoration: underline;
 }
 
 /* ============================================================
@@ -160,102 +170,30 @@ body {
    ============================================================ */
 
 .rsvp-form {
+    max-width: 320px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     gap: 12px;
-    max-width: 320px;
-    margin: 0 auto;
 }
 
 .rsvp-form input,
 .rsvp-form select {
-    width: 100%;
     padding: 12px;
     font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
 }
 
 .rsvp-form button {
     padding: 14px;
-    font-size: 16px;
     background: #333;
     color: white;
     border: none;
-    cursor: pointer;
-    transition: opacity 0.25s ease;
 }
-
-.rsvp-form button:hover {
-    opacity: 0.9;
-}
-
-/* PLUS ONE */
-
-.plus-one-label {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 16px;
-}
-
-.plus-one-input {
-    margin-top: 6px;
-}
-
-/* SUCCESS MESSAGE */
 
 .success-msg {
     display: none;
     color: green;
     margin-top: 12px;
-    text-align: center;
-}
-
-/* ============================================================
-   FOOTER
-   ============================================================ */
-
-.footer {
-    text-align: center;
-    padding: 40px;
-    color: #777;
-    font-size: 14px;
-}
-
-/* ============================================================
-   LANGUAGE SWITCHER
-   ============================================================ */
-
-.language-switcher {
-    position: absolute;
-    top: 18px;
-    right: 20px;
-    display: flex;
-    gap: 8px;
-    z-index: 1100;
-}
-
-.lang-btn {
-    width: 52px;
-    height: 34px;
-    font-size: 14px;
-    border: 1px solid #999;
-    background: white;
-    color: black;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background 0.2s ease, color 0.2s ease;
-}
-
-.lang-btn.active {
-    background: #333;
-    color: white;
-    border-color: #333;
-}
-
-#lang-zh {
-    font-size: 13px;
 }
 
 /* ============================================================
@@ -268,101 +206,58 @@ body {
     text-align: left;
 }
 
-.faq-item {
-    margin-bottom: 20px;
-}
-
 .faq-question {
     width: 100%;
-    text-align: left;
-    background: #f1f1f1;
-    border: none;
     padding: 12px;
-    font-size: 16px;
+    border: none;
+    background: #f1f1f1;
     cursor: pointer;
-    border-radius: 4px;
-}
-
-.faq-question:hover {
-    background: #e4e4e4;
 }
 
 .faq-answer {
     display: none;
     padding: 10px 5px;
-    font-size: 15px;
-    color: #444;
 }
 
 /* ============================================================
-   HAMBURGER MENU
+   LANGUAGE SWITCHER
    ============================================================ */
 
-.hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
+.language-switcher {
     position: absolute;
-    left: 20px;
-    cursor: pointer;
-    z-index: 1200;
+    top: 18px;
+    right: 20px;
+    display: flex;
+    gap: 8px;
 }
 
-.hamburger span {
-    width: 26px;
-    height: 3px;
-    background: black;
-    border-radius: 3px;
+.lang-btn {
+    width: 52px;
+    height: 34px;
+    border: 1px solid #999;
+    background: white;
+    cursor: pointer;
+}
+
+.lang-btn.active {
+    background: #333;
+    color: white;
 }
 
 /* ============================================================
-   RESPONSIVE — TABLET & BELOW
+   APPLE FADE-IN
    ============================================================ */
 
-@media (max-width: 900px) {
+.fade-in {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
 
-    .nav-menu {
-        gap: 22px;
-    }
-
-    .hero {
-        height: 70vh;
-        padding: 0 15px;
-        background-position: 60% 55%;
-        justify-content: center;
-        text-align: center;
-    }
-
-    .hero-content {
-        margin-top: -100px;
-    }
-
-    .hero-content h1 {
-        font-size: 40px;
-    }
-
-    .hero-content p {
-        font-size: 16px;
-    }
-
-    .rsvp-button {
-        padding: 12px 35px;
-        font-size: 16px;
-    }
-
-    .section {
-        margin: 20px;
-        padding: 30px 20px;
-    }
-
-    .section h2 {
-        font-size: 28px;
-    }
-
-    .event-image {
-        width: 260px;
-        height: 260px;
-    }
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* ============================================================
@@ -376,51 +271,30 @@ body {
     }
 
     .nav-menu {
+        display: none;
         position: absolute;
         top: 72px;
         left: 0;
         width: 100%;
         background: #ececef;
-        display: none;
         flex-direction: column;
         padding: 22px 0;
         gap: 18px;
-        border-top: 1px solid #ddd;
     }
 
     .nav-menu.show {
         display: flex;
     }
 
-    .nav-menu a {
-        font-size: 18px;
-    }
-}
-
-/* ============================================================
-   EXTRA SMALL
-   ============================================================ */
-
-@media (max-width: 480px) {
-
     .hero {
-        background-position: 60% 40%;
-    }
-
-    .hero-content {
-        margin-top: -85px;
-    }
-
-    .logo {
-        font-size: 20px;
+        height: 70vh;
+        padding: 0 15px;
+        justify-content: center;
+        text-align: center;
+        background-position: 60% 55%;
     }
 
     .hero-content h1 {
-        font-size: 32px;
-    }
-
-    .event-image {
-        width: 240px;
-        height: 240px;
+        font-size: 40px;
     }
 }
