@@ -1,6 +1,18 @@
 /* ============================================================
    SMOOTH SCROLL (APPLE EASING)
    ============================================================ */
+
+<script>
+    // Force page to load at top, ignoring anchor
+    if (window.location.hash) {
+        history.replaceState(null, '', window.location.pathname);
+    }
+
+    window.addEventListener('load', function () {
+        window.scrollTo(0, 0);
+    });
+</script>
+
 function smoothScrollTo(target, duration = 2200, offset = 80) {
     const start = window.pageYOffset;
     const end = target.getBoundingClientRect().top + start - offset;
@@ -151,6 +163,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setupGuestToggle("bringing-guest-zh", "guest-name-zh");
 
 });
+
 
 
 
