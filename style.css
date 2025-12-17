@@ -193,7 +193,7 @@ body {
 .hero-rsvp {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: left;
     margin-top: 26px;
 }
 
@@ -522,6 +522,7 @@ body {
         border-radius: 0;
     }
 }
+
 
 
 
