@@ -211,7 +211,7 @@ body {
 
 .section {
     background: #ececef;
-    margin: 60px auto;
+    margin: 32px auto;
     padding: 30px;
     max-width: 900px;
     border-radius: 8px;
@@ -526,6 +526,7 @@ body {
         border-radius: 0;
     }
 }
+
 
 
 
