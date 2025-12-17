@@ -103,25 +103,15 @@
 
             <!-- BLUE BUTTON -->
             <div class="hero-rsvp">
-                <a
-                    href="#rsvp"
-                    class="rsvp-button"
-                    id="rsvp-btn"
-                >
+                <a href="#rsvp" class="rsvp-button lang lang-en">
                     − RSVP −
                 </a>
+            
+                <a href="#rsvp" class="rsvp-button lang lang-zh" hidden>
+                    − 敬请回复 −
+                </a>
             </div>
-            
-            <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                const btn = document.getElementById('rsvp-btn');
-                if (!btn) return;
-            
-                const isZh = navigator.language && navigator.language.toLowerCase().startsWith('zh');
-            
-                btn.textContent = isZh ? '− 敬请回复 −' : '− RSVP −';
-            });
-            </script>
+
         </div>
     </header>
 
@@ -514,6 +504,7 @@
     <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
