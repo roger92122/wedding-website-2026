@@ -211,8 +211,8 @@ body {
 
 .section {
     background: #ececef;
-    margin: 32px auto;
-    padding: 30px;
+    margin: 0 auto;
+    padding: 40px 30px;
     max-width: 900px;
     border-radius: 8px;
     text-align: center;
@@ -526,6 +526,7 @@ body {
         border-radius: 0;
     }
 }
+
 
 
 
