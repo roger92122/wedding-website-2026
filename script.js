@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
            smoothScrollTo(
                target,
                isMobile ? 5000 : 3800,   // 🔥 slower on mobile
-               isMobile ? 80 : 40
+               isMobile ? 60 : 40
            );
        });
    });
@@ -152,6 +152,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setupGuestToggle("bringing-guest-zh", "guest-name-zh");
 
 });
+
 
 
 
