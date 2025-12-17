@@ -256,65 +256,81 @@
     </section>
 
     <!-- RSVP -->
+    <!-- RSVP -->
     <section id="rsvp" class="section rsvp-section">
-
+    
         <!-- ENGLISH FORM -->
         <div class="lang lang-en">
             <h2>RSVP</h2>
-
+    
             <form id="rsvp-form-en" action="https://formspree.io/f/mblnbpgq" method="POST">
-
+    
                 <input type="text" name="name" placeholder="Your Name" required>
                 <input type="email" name="email" placeholder="Your Email" required>
-
+    
                 <select name="attendance" required>
                     <option value="">— Will you attend? —</option>
                     <option value="Yes">Yes</option>
                     <option value="No">No</option>
                 </select>
-
+    
                 <label class="checkbox-row">
-                    <input type="checkbox" id="bringing-guest">
+                    <input type="checkbox" id="bringing-guest-en">
                     <span>Bringing a guest?</span>
                 </label>
-
-
-                <input type="text" id="bringing-guest-en" name="guestName" placeholder="Guest Name" style="display:none;">
-
+    
+                <input
+                    type="text"
+                    id="guest-name-en"
+                    name="guestName"
+                    placeholder="Guest Name"
+                    style="display:none;"
+                >
+    
                 <button type="submit">Submit</button>
-                <p id="form-success-en" style="display:none;color:green;margin-top:15px;">✔ Thank you! Your RSVP has been sent.</p>
+                <p id="form-success-en" style="display:none;color:green;margin-top:15px;">
+                    ✔ Thank you! Your RSVP has been sent.
+                </p>
             </form>
         </div>
-
+    
         <!-- CHINESE FORM -->
         <div class="lang lang-zh" style="display:none;">
             <h2>敬请回复</h2>
-
+    
             <form id="rsvp-form-zh" action="https://formspree.io/f/mblnbpgq" method="POST">
-
+    
                 <input type="text" name="name" placeholder="您的姓名" required>
                 <input type="email" name="email" placeholder="您的邮箱" required>
-
+    
                 <select name="attendance" required>
                     <option value="">— 您会参加吗？ —</option>
                     <option value="Yes">会参加</option>
                     <option value="No">不参加</option>
                 </select>
-
+    
                 <label class="checkbox-row">
-                    <input type="checkbox" id="bringing-guest">
+                    <input type="checkbox" id="bringing-guest-zh">
                     <span>携带嘉宾？</span>
-                </label> 
-                
-
-                <input type="text" id="bringing-guest-zh" name="guestName" placeholder="嘉宾姓名" style="display:none;">
-
+                </label>
+    
+                <input
+                    type="text"
+                    id="guest-name-zh"
+                    name="guestName"
+                    placeholder="嘉宾姓名"
+                    style="display:none;"
+                >
+    
                 <button type="submit">提交</button>
-                <p id="form-success-zh" style="display:none;color:green;margin-top:15px;">✔ 感谢您的回复！</p>
+                <p id="form-success-zh" style="display:none;color:green;margin-top:15px;">
+                    ✔ 感谢您的回复！
+                </p>
             </form>
         </div>
-
+    
     </section>
+
 
     <!-- REGISTRY SECTION -->
     <section id="registry" class="section">
@@ -395,6 +411,7 @@
     <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
