@@ -28,7 +28,9 @@ function smoothScrollTo(target, duration = 1200, offset = 80) {
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    /* HAMBURGER */
+    /* --------------------------------------------------------
+       HAMBURGER
+    -------------------------------------------------------- */
     const hamburger = document.getElementById("hamburger");
     const navMenu = document.getElementById("navMenu");
 
@@ -42,13 +44,17 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    /* NAV BAR BLUR */
+    /* --------------------------------------------------------
+       NAV BAR BLUR
+    -------------------------------------------------------- */
     const navbar = document.querySelector(".navbar");
     window.addEventListener("scroll", () => {
-        navbar.classList.toggle("scrolled", window.scrollY > 20);
+        navbar?.classList.toggle("scrolled", window.scrollY > 20);
     });
 
-    /* LANGUAGE SWITCHER (SHOW ONLY OTHER LANGUAGE) */
+    /* --------------------------------------------------------
+       LANGUAGE SWITCHER
+    -------------------------------------------------------- */
     const btnEN = document.getElementById("lang-en");
     const btnZH = document.getElementById("lang-zh");
 
@@ -63,8 +69,10 @@ document.addEventListener("DOMContentLoaded", () => {
             el.style.display = showEN ? "none" : "block";
         });
 
-        btnEN.style.display = showEN ? "none" : "inline-block";
-        btnZH.style.display = showEN ? "inline-block" : "none";
+        if (btnEN && btnZH) {
+            btnEN.style.display = showEN ? "none" : "inline-block";
+            btnZH.style.display = showEN ? "inline-block" : "none";
+        }
     }
 
     setLanguage("en");
@@ -72,17 +80,27 @@ document.addEventListener("DOMContentLoaded", () => {
     btnEN?.addEventListener("click", () => setLanguage("en"));
     btnZH?.addEventListener("click", () => setLanguage("zh"));
 
-    /* SMOOTH SCROLL LINKS */
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-        a.addEventListener("click", e => {
-            const target = document.querySelector(a.getAttribute("href"));
+    /* --------------------------------------------------------
+       SMOOTH SCROLL LINKS
+    -------------------------------------------------------- */
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener("click", e => {
+            const targetId = link.getAttribute("href");
+            const target = document.querySelector(targetId);
             if (!target) return;
+
             e.preventDefault();
-            smoothScrollTo(target, 1200, window.innerWidth < 768 ? 80 : 40);
+            smoothScrollTo(
+                target,
+                1200,
+                window.innerWidth < 768 ? 80 : 40
+            );
         });
     });
 
-    /* FADE-IN ON SCROLL */
+    /* --------------------------------------------------------
+       FADE-IN ON SCROLL
+    -------------------------------------------------------- */
     const fadeEls = document.querySelectorAll(
         ".section, .hero-content, .event-image, .faq-item, .rsvp-form"
     );
@@ -100,5 +118,32 @@ document.addEventListener("DOMContentLoaded", () => {
         el.classList.add("fade-in");
         observer.observe(el);
     });
+
+    /* --------------------------------------------------------
+       RSVP: BRINGING A GUEST TOGGLE (EN + ZH)
+    -------------------------------------------------------- */
+
+    function setupGuestToggle(checkboxId, inputId) {
+        const checkbox = document.getElementById(checkboxId);
+        const input = document.getElementById(inputId);
+
+        if (!checkbox || !input) return;
+
+        checkbox.addEventListener("change", function () {
+            if (this.checked) {
+                input.style.display = "block";
+                input.focus();
+            } else {
+                input.style.display = "none";
+                input.value = "";
+            }
+        });
+    }
+
+    // English
+    setupGuestToggle("bringing-guest-en", "guest-name-en");
+
+    // Chinese
+    setupGuestToggle("bringing-guest-zh", "guest-name-zh");
 
 });
