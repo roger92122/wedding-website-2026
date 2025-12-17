@@ -306,6 +306,19 @@ body {
 .blush      { background: #e7b7c1; }
 .dusty-blue { background: #b9c9d9; }
 .sage       { background: #c9d6b8; }
+/* ============================================================
+   FAQ BODY TEXT ALIGNMENT
+   ============================================================ */
+
+.faq-item p {
+    text-align: left;
+    max-width: 640px;
+    margin: 0 auto 16px;
+    line-height: 1.6;
+}
+.faq-item .lang-zh {
+    letter-spacing: 0.02em;
+}
 
 /* ============================================================
    MOBILE
@@ -412,6 +425,7 @@ body {
         border-radius: 0;
     }
 }
+
 
 
 
