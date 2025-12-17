@@ -144,15 +144,14 @@ body {
     margin: 20px 0 30px;
 }
 /* ============================================================
-   APPLE-STYLE RSVP BUTTON (TEXT-FIT)
+   APPLE RSVP BUTTON — FORCE TEXT WIDTH
    ============================================================ */
 
 .rsvp-button {
-    appearance: none;
-    border: none;
-    outline: none;
+    all: unset;                     /* 🔥 RESET inherited styles */
+    box-sizing: border-box;
 
-    display: inline-flex;
+    display: inline-flex !important;
     align-items: center;
     justify-content: center;
 
@@ -162,27 +161,28 @@ body {
         #1f6feb 100%
     );
 
-    color: #fff;
+    color: #ffffff;
     font-family: -apple-system, BlinkMacSystemFont,
                  "SF Pro Display", "Helvetica Neue",
                  Arial, sans-serif;
 
-    font-size: 16px;              /* BIGGER FONT */
+    font-size: 17px;                /* bigger text */
     font-weight: 500;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
 
-    padding: 16px 44px;           /* FITS TEXT */
+    padding: 14px 28px;             /* 🔥 MUCH SHORTER */
     border-radius: 999px;
+
+    width: fit-content !important;  /* 🔥 KEY FIX */
+    min-width: 0 !important;
+    max-width: none !important;
 
     cursor: pointer;
     text-decoration: none;
 
-    width: auto;                  /* IMPORTANT */
-    max-width: none;
-
     box-shadow:
-        0 8px 24px rgba(31, 111, 235, 0.35),
+        0 8px 22px rgba(31, 111, 235, 0.35),
         inset 0 1px 0 rgba(255,255,255,0.25);
 
     transition:
@@ -190,21 +190,17 @@ body {
         box-shadow 0.25s cubic-bezier(.4,0,.2,1);
 }
 
-/* Hover */
-.rsvp-button:hover {
-    transform: translateY(-1px);
-    box-shadow:
-        0 12px 32px rgba(31, 111, 235, 0.45),
-        inset 0 1px 0 rgba(255,255,255,0.35);
+.hero-rsvp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 26px;
 }
 
-/* Active */
-.rsvp-button:active {
-    transform: translateY(0);
-    box-shadow:
-        0 5px 14px rgba(31, 111, 235, 0.35),
-        inset 0 2px 4px rgba(0,0,0,0.2);
+.hero-rsvp * {
+    flex: 0 0 auto;   /* 🔥 PREVENT flex stretching */
 }
+
 
 /* ============================================================
    SECTIONS
@@ -526,6 +522,7 @@ body {
         border-radius: 0;
     }
 }
+
 
 
 
