@@ -1,8 +1,7 @@
 /* ============================================================
    SMOOTH SCROLL (APPLE EASING)
    ============================================================ */
-
-function smoothScrollTo(target, duration = 1200, offset = 80) {
+function smoothScrollTo(target, duration = 2200, offset = 80) {
     const start = window.pageYOffset;
     const end = target.getBoundingClientRect().top + start - offset;
     const distance = end - start;
@@ -11,9 +10,10 @@ function smoothScrollTo(target, duration = 1200, offset = 80) {
     function animate(time) {
         if (!startTime) startTime = time;
         const progress = Math.min((time - startTime) / duration, 1);
+
         const ease = progress < 0.5
-            ? 2 * progress * progress
-            : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+            ? 4 * progress * progress * progress
+            : 1 - Math.pow(-2 * progress + 2, 3) / 2;
 
         window.scrollTo(0, start + distance * ease);
         if (progress < 1) requestAnimationFrame(animate);
@@ -21,6 +21,7 @@ function smoothScrollTo(target, duration = 1200, offset = 80) {
 
     requestAnimationFrame(animate);
 }
+
 
 /* ============================================================
    ON LOAD
@@ -147,4 +148,5 @@ document.addEventListener("DOMContentLoaded", () => {
     setupGuestToggle("bringing-guest-zh", "guest-name-zh");
 
 });
+
 
