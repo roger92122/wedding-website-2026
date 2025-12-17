@@ -190,15 +190,18 @@ body {
         box-shadow 0.25s cubic-bezier(.4,0,.2,1);
 }
 
+/* ============================================================
+   HERO RSVP ALIGNMENT (LEFT-ALIGNED WITH TEXT)
+   ============================================================ */
+
 .hero-rsvp {
-    display: flex;
-    justify-content: center;
-    align-items: left;
+    display: block;          /* 🔑 REMOVE flex centering */
     margin-top: 26px;
 }
 
+/* Keep safety rule (optional but fine) */
 .hero-rsvp * {
-    flex: 0 0 auto;   /* 🔥 PREVENT flex stretching */
+    flex: 0 0 auto;
 }
 
 
@@ -522,6 +525,7 @@ body {
         border-radius: 0;
     }
 }
+
 
 
 
