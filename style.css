@@ -275,6 +275,37 @@ body {
     cursor: pointer;
 }
 
+/* ============================================================
+   WEDDING ATTIRE COLOR PALETTE
+   ============================================================ */
+
+.attire-colors {
+    margin-top: 28px;
+    display: flex;
+    justify-content: center;
+    gap: 22px;
+}
+
+.color-circle {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    position: relative;
+}
+
+.color-circle::before {
+    content: "";
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.ivory      { background: #f3f0e6; }
+.champagne  { background: #ead9a8; }
+.blush      { background: #e7b7c1; }
+.dusty-blue { background: #b9c9d9; }
+.sage       { background: #c9d6b8; }
 
 /* ============================================================
    MOBILE
@@ -381,6 +412,7 @@ body {
         border-radius: 0;
     }
 }
+
 
 
 
