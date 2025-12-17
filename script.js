@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
             e.preventDefault();
             smoothScrollTo(
                 target,
-                1200,
+                2200,
                 window.innerWidth < 768 ? 80 : 40
             );
         });
@@ -147,3 +147,4 @@ document.addEventListener("DOMContentLoaded", () => {
     setupGuestToggle("bringing-guest-zh", "guest-name-zh");
 
 });
+
