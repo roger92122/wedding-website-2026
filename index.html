@@ -102,9 +102,22 @@
             <p class="lang lang-zh" style="display:none;">2026年4月26日 · 我们将步入婚姻殿堂</p>
 
             <div class="hero-rsvp">
-                <a href="#rsvp" class="rsvp-button lang lang-en">− RSVP −</a>
-                <a href="#rsvp" class="rsvp-button lang lang-zh" style="display:none;">− 敬请回复 −</a>
+                <a
+                    href="#rsvp"
+                    class="rsvp-button"
+                    id="rsvp-btn"
+                >
+                    − RSVP −
+                </a>
             </div>
+            
+            <script>
+                // Simple language switch (HTML-only, inline)
+                const isZh = navigator.language.startsWith('zh');
+                document.getElementById('rsvp-btn').textContent =
+                    isZh ? '− 敬请回复 −' : '− RSVP −';
+            </script>
+
 
 
 
@@ -500,6 +513,7 @@
     <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
