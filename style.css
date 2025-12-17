@@ -152,7 +152,7 @@ body {
     box-sizing: border-box;
 
     display: inline-flex !important;
-    align-items: center;
+    align-items: left;
     justify-content: center;
 
     background: linear-gradient(
@@ -522,6 +522,7 @@ body {
         border-radius: 0;
     }
 }
+
 
 
 
