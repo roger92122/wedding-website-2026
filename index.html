@@ -101,6 +101,7 @@
             <h1 class="lang lang-zh" style="display:none;">我们要结婚了</h1>
             <p class="lang lang-zh" style="display:none;">2026年4月26日 · 我们将步入婚姻殿堂</p>
 
+            <!-- BLUE BUTTON -->
             <div class="hero-rsvp">
                 <a
                     href="#rsvp"
@@ -112,15 +113,15 @@
             </div>
             
             <script>
-                // Simple language switch (HTML-only, inline)
-                const isZh = navigator.language.startsWith('zh');
-                document.getElementById('rsvp-btn').textContent =
-                    isZh ? '− 敬请回复 −' : '− RSVP −';
+            document.addEventListener('DOMContentLoaded', function () {
+                const btn = document.getElementById('rsvp-btn');
+                if (!btn) return;
+            
+                const isZh = navigator.language && navigator.language.toLowerCase().startsWith('zh');
+            
+                btn.textContent = isZh ? '− 敬请回复 −' : '− RSVP −';
+            });
             </script>
-
-
-
-
         </div>
     </header>
 
@@ -513,6 +514,7 @@
     <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
