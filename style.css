@@ -212,7 +212,7 @@ body {
 .section {
     background: #ececef;
     margin: 60px auto;
-    padding: 60px;
+    padding: 30px;
     max-width: 900px;
     border-radius: 8px;
     text-align: center;
@@ -241,7 +241,7 @@ body {
 
 .schedule-section {
     background-color: #ececef;
-    padding: 100px 24px 80px;
+    padding: 56px 24px 80px;
     max-width: 720px;
     margin: 0 auto;
 }
@@ -526,6 +526,7 @@ body {
         border-radius: 0;
     }
 }
+
 
 
 
