@@ -85,19 +85,22 @@ document.addEventListener("DOMContentLoaded", () => {
        SMOOTH SCROLL LINKS
     -------------------------------------------------------- */
     document.querySelectorAll('a[href^="#"]').forEach(link => {
-        link.addEventListener("click", e => {
-            const targetId = link.getAttribute("href");
-            const target = document.querySelector(targetId);
-            if (!target) return;
+       link.addEventListener("click", e => {
+           const target = document.querySelector(link.getAttribute("href"));
+           if (!target) return;
+   
+           e.preventDefault();
+   
+           const isMobile = window.innerWidth < 768;
+   
+           smoothScrollTo(
+               target,
+               isMobile ? 3800 : 2500,   // 🔥 slower on mobile
+               isMobile ? 80 : 40
+           );
+       });
+   });
 
-            e.preventDefault();
-            smoothScrollTo(
-                target,
-                2200,
-                window.innerWidth < 768 ? 80 : 40
-            );
-        });
-    });
 
     /* --------------------------------------------------------
        FADE-IN ON SCROLL
@@ -148,5 +151,6 @@ document.addEventListener("DOMContentLoaded", () => {
     setupGuestToggle("bringing-guest-zh", "guest-name-zh");
 
 });
+
 
 
