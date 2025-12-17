@@ -309,7 +309,11 @@ body {
 /* ============================================================
    FAQ BODY TEXT ALIGNMENT
    ============================================================ */
-
+/* FAQ questions */
+.faq-item h3 {
+    text-align: left;
+    margin-bottom: 10px;
+}
 .faq-item p {
     text-align: left;
     max-width: 640px;
@@ -425,6 +429,7 @@ body {
         border-radius: 0;
     }
 }
+
 
 
 
