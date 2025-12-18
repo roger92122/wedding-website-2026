@@ -627,6 +627,14 @@ body {
     cursor: pointer;
 }
 
+#message-toggle {
+    touch-action: manipulation;
+    z-index: 2000;
+}
+#message-panel {
+    z-index: 3000;
+}
+
 
 
 
