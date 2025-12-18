@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     /* --------------------------------------------------------
-       LANGUAGE SWITCHER
+       LANGUAGE SWITCHER (FIXED FOR MESSAGE FORM)
     -------------------------------------------------------- */
     const btnEN = document.getElementById("lang-en");
     const btnZH = document.getElementById("lang-zh");
@@ -63,6 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function setLanguage(lang) {
         const showEN = lang === "en";
 
+        // Toggle text visibility
         document.querySelectorAll(".lang-en").forEach(el => {
             el.style.display = showEN ? "block" : "none";
         });
@@ -71,12 +72,34 @@ document.addEventListener("DOMContentLoaded", () => {
             el.style.display = showEN ? "none" : "block";
         });
 
+        // Toggle language buttons
         if (btnEN && btnZH) {
             btnEN.style.display = showEN ? "none" : "inline-block";
             btnZH.style.display = showEN ? "inline-block" : "none";
         }
+
+        /* 🔑 FIX: enable / disable message textareas */
+        const enTextarea = document.querySelector(".message-card textarea.lang-en");
+        const zhTextarea = document.querySelector(".message-card textarea.lang-zh");
+
+        if (enTextarea && zhTextarea) {
+            if (showEN) {
+                enTextarea.disabled = false;
+                enTextarea.required = true;
+
+                zhTextarea.disabled = true;
+                zhTextarea.required = false;
+            } else {
+                zhTextarea.disabled = false;
+                zhTextarea.required = true;
+
+                enTextarea.disabled = true;
+                enTextarea.required = false;
+            }
+        }
     }
 
+    // Default language
     setLanguage("en");
 
     btnEN?.addEventListener("click", () => setLanguage("en"));
@@ -86,22 +109,21 @@ document.addEventListener("DOMContentLoaded", () => {
        SMOOTH SCROLL LINKS
     -------------------------------------------------------- */
     document.querySelectorAll('a[href^="#"]').forEach(link => {
-       link.addEventListener("click", e => {
-           const target = document.querySelector(link.getAttribute("href"));
-           if (!target) return;
-   
-           e.preventDefault();
-   
-           const isMobile = window.innerWidth < 768;
-   
-           smoothScrollTo(
-               target,
-               isMobile ? 5000 : 3800,   // 🔥 slower on mobile
-               isMobile ? 30 : 40
-           );
-       });
-   });
+        link.addEventListener("click", e => {
+            const target = document.querySelector(link.getAttribute("href"));
+            if (!target) return;
 
+            e.preventDefault();
+
+            const isMobile = window.innerWidth < 768;
+
+            smoothScrollTo(
+                target,
+                isMobile ? 5000 : 3800,
+                isMobile ? 30 : 40
+            );
+        });
+    });
 
     /* --------------------------------------------------------
        FADE-IN ON SCROLL
@@ -152,13 +174,3 @@ document.addEventListener("DOMContentLoaded", () => {
     setupGuestToggle("bringing-guest-zh", "guest-name-zh");
 
 });
-
-
-
-
-
-
-
-
-
-
