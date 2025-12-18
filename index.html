@@ -11,35 +11,7 @@
     <link rel="stylesheet" href="style.css" />
 </head>
     
-<!-- Floating Leave a Message Button -->
-<button id="message-toggle" aria-label="Leave a message">
-    💌
-</button>
 
-<!-- Message Panel -->
-<div id="message-panel">
-    <div class="message-card">
-        <button class="close-message" aria-label="Close">×</button>
-
-        <h3 class="lang lang-en">Leave a message for us</h3>
-        <h3 class="lang lang-zh" style="display:none;">给我们留言</h3>
-
-        <textarea
-            placeholder="Write your wishes here..."
-            class="lang lang-en"
-        ></textarea>
-
-        <textarea
-            placeholder="写下你的祝福…"
-            class="lang lang-zh"
-            style="display:none;"
-        ></textarea>
-
-        <button class="submit-message">
-            Send 💙
-        </button>
-    </div>
-</div>
 
 
 <body>
@@ -561,10 +533,61 @@
     </section>
 
 
+    <!-- Floating Leave a Message Button -->
+    <button id="message-toggle" aria-label="Leave a message">
+        💌
+    </button>
+    
+    <!-- Message Panel -->
+    <div id="message-panel">
+        <div class="message-card">
+            <button class="close-message" aria-label="Close">×</button>
+    
+            <h3 class="lang lang-en">Leave a message for us</h3>
+            <h3 class="lang lang-zh" style="display:none;">给我们留言</h3>
+    
+            <textarea
+                placeholder="Write your wishes here..."
+                class="lang lang-en"
+            ></textarea>
+    
+            <textarea
+                placeholder="写下你的祝福…"
+                class="lang lang-zh"
+                style="display:none;"
+            ></textarea>
+    
+            <button class="submit-message">
+                Send 💙
+            </button>
+        </div>
+    </div>
 
+    
     <script src="script.js"></script>
+        <script>
+        const toggle = document.getElementById('message-toggle');
+        const panel = document.getElementById('message-panel');
+        const closeBtn = document.querySelector('.close-message');
+
+        toggle.addEventListener('click', () => {
+            panel.classList.add('active');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            panel.classList.remove('active');
+        });
+
+        panel.addEventListener('click', (e) => {
+            if (e.target === panel) {
+                panel.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>
+
+
 
 
 
