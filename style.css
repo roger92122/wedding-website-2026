@@ -242,6 +242,77 @@ body {
         height: 520px;
     }
 }
+/* ============================================================
+   TRAVEL SECTION
+   ============================================================ */
+
+.travel-section {
+    background: #ffffff;
+    padding: 80px 24px;
+}
+
+.travel-card {
+    max-width: 900px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 48px;
+
+    align-items: center;
+}
+
+/* IMAGE */
+.travel-image img {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+}
+
+/* CONTENT */
+.travel-title {
+    font-size: 12px;
+    letter-spacing: 0.28em;
+    font-weight: 500;
+    margin-bottom: 18px;
+}
+
+.travel-info p {
+    margin: 0 0 6px;
+    font-size: 14px;
+}
+
+.travel-phone {
+    margin-top: 10px;
+}
+
+.travel-note {
+    margin-top: 24px;
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 480px;
+}
+
+/* BUTTON */
+.travel-button {
+    display: inline-block;
+    margin-top: 28px;
+
+    padding: 10px 22px;
+    border: 1px solid #000;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-decoration: none;
+    color: #000;
+
+    transition: opacity 0.25s ease;
+}
+
+.travel-button:hover {
+    opacity: 0.6;
+}
 
 /* ============================================================
    SCHEDULE SECTION
@@ -646,6 +717,7 @@ body {
 .proposal-image {
     object-position: center 60%;
 }
+
 
 
 
