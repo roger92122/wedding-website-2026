@@ -313,6 +313,26 @@ body {
 .travel-button:hover {
     opacity: 0.6;
 }
+/* ============================================================
+   TRAVEL — MOBILE
+   ============================================================ */
+
+@media (max-width: 768px) {
+    .travel-card {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        text-align: center;
+    }
+
+    .travel-image img {
+        margin: 0 auto;
+    }
+
+    .travel-note {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
 
 /* ============================================================
    SCHEDULE SECTION
@@ -717,6 +737,7 @@ body {
 .proposal-image {
     object-position: center 60%;
 }
+
 
 
 
