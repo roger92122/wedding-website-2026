@@ -235,6 +235,14 @@ body {
     display: block;
     margin: 0 auto 40px;
 }
+
+@media (min-width: 1024px) {
+    .event-image {
+        width: 520px;
+        height: 520px;
+    }
+}
+
 /* ============================================================
    SCHEDULE SECTION
    ============================================================ */
@@ -634,6 +642,7 @@ body {
 #message-panel {
     z-index: 3000;
 }
+
 
 
 
