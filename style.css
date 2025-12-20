@@ -643,6 +643,11 @@ body {
     z-index: 3000;
 }
 
+.proposal-image {
+    object-position: center 30%;
+}
+
+
 
 
 
