@@ -15,6 +15,9 @@ body {
     color: #000;
     scroll-behavior: smooth;
 }
+main {
+  padding-top: 120px;
+}
 
 /* ============================================================
    NAVBAR (ISOLATED, SAFE)
@@ -904,6 +907,7 @@ body {
   align-items: center;
   justify-self: end;   /* 🔥 KEY FIX */
 }
+
 
 
 
