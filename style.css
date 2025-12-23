@@ -135,9 +135,19 @@ body {
 }
 
 .hero-title {
-  font-size: 64px;
-  margin-bottom: 20px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
 }
+
+.hero-subtitle {
+  letter-spacing: 0.12em;
+}
+
+.hero-nav a {
+  font-family: "Libre Caslon Display", serif;
+  letter-spacing: 0.08em;
+}
+
 
 .hero-subtitle {
   font-size: 18px;
@@ -760,6 +770,7 @@ body {
     letter-spacing: 0.14em;
   }
 }
+
 
 
 
