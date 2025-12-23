@@ -160,7 +160,8 @@ body {
 
 .hero-nav a {
   font-family: "Libre Caslon Display", serif;
-  font-size: 20px;        /* ↑ from 14 */
+  font-size: 24px;        
+  font-weight: 400;
   letter-spacing: 0.1em;
 }
 
@@ -338,6 +339,8 @@ body {
   .hero-nav {
     height: 72px;
     padding: 0 20px;
+    font-size: 20px;        
+    font-weight: 400;
   }
 
   .nav-left {
@@ -380,7 +383,8 @@ body {
   }
 
   .hero-nav a {
-    font-size: 20px;
+    font-size: 24px;        
+    font-weight: 400;
   }
   /* MOBILE EVENT IMAGES — FULL BLEED */
   .event-image {
@@ -517,7 +521,7 @@ body {
 /* Lock nav font size across ALL pages */
 .hero-nav .nav-left a,
 .hero-nav .nav-right a {
-  font-size: 14px;
+  font-size: 24px;
 }
 
 .hero-nav .nav-center {
@@ -531,7 +535,7 @@ body {
    ============================================================ */
 
 @media (max-width: 700px) {
-  .hero-nav a { font-size: 20px; }
+  .hero-nav a { font-size: 22px; font-weight: 400;}
   .nav-center { font-size: 18px; }
   .rsvp-btn { font-size: 13px; }
   .lang-btn { font-size: 12px; }
@@ -806,6 +810,7 @@ body {
     letter-spacing: 0.14em;
   }
 }
+
 
 
 
