@@ -455,6 +455,16 @@ body {
   font-size: 0.9em;
 }
 
+/* Lock nav font size across ALL pages */
+.hero-nav .nav-left a,
+.hero-nav .nav-right a {
+  font-size: 14px;
+}
+
+.hero-nav .nav-center {
+  font-size: 18px;
+}
+
 
 
 
