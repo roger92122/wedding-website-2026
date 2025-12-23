@@ -11,7 +11,7 @@
 body {
   margin: 0;
   padding-top: 68px;                 /* offset for fixed nav */
-  font-family: "Playfair Display", serif;
+  font-family: "Inter", serif;
   background-color: #ececef;
   color: #000;
   scroll-behavior: smooth;
@@ -770,6 +770,7 @@ body {
     letter-spacing: 0.14em;
   }
 }
+
 
 
 
