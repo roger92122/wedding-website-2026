@@ -379,7 +379,7 @@ body {
   }
 
   .hero-nav a {
-    font-size: 14px;
+    font-size: 20px;
   }
   /* MOBILE EVENT IMAGES — FULL BLEED */
   .event-image {
@@ -804,6 +804,7 @@ body {
     letter-spacing: 0.14em;
   }
 }
+
 
 
 
