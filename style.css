@@ -61,7 +61,7 @@ body {
 
 .nav-center {
   justify-self: center;
-  font-size: 18px;
+  font-size: 20px;
   letter-spacing: 0.15em;
 }
 
@@ -104,13 +104,13 @@ body {
 }
 
 /* LOCK NAV FONT SIZE */
-.hero-nav,
+/* .hero-nav,
 .hero-nav * {
   font-size: inherit;
-}
+} */
 
 .hero-nav {
-  font-size: 14px;
+  font-size: 20px;
 }
 
 /* ============================================================
@@ -160,7 +160,7 @@ body {
 
 .hero-nav a {
   font-family: "Libre Caslon Display", serif;
-  font-size: 15px;        /* ↑ from 14 */
+  font-size: 20px;        /* ↑ from 14 */
   letter-spacing: 0.1em;
 }
 
@@ -804,6 +804,7 @@ body {
     letter-spacing: 0.14em;
   }
 }
+
 
 
 
