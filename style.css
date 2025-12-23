@@ -734,7 +734,7 @@ body {
 
   /* Mobile link style */
   .nav-left a {
-    font-size: 18px;
+    font-size: 14px;
     color: #fff;
     text-decoration: none;
   }
@@ -810,6 +810,7 @@ body {
     letter-spacing: 0.14em;
   }
 }
+
 
 
 
