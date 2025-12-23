@@ -456,6 +456,50 @@ body {
   opacity: 0.6;
 }
 
+/* ============================================================
+   THINGS TO DO — HARD RESET & HANGING INDENT (FINAL)
+   ============================================================ */
+
+/* Center the section title ONLY */
+.things-section h2,
+.things-section h3 {
+  text-align: center;
+}
+
+/* Left-align the list container */
+.things-section {
+  text-align: left;
+}
+
+/* Reset UL completely */
+.things-list {
+  list-style-type: disc;
+  list-style-position: outside;
+
+  margin: 0 auto;
+  padding-left: 0;              /* 🔥 reset browser padding */
+  max-width: 680px;
+
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* 🔥 REAL FIX: hanging indent */
+.things-list li {
+  display: list-item;
+
+  margin-left: 1.25em;          /* bullet column */
+  padding-left: 0.25em;         /* text closer to bullet */
+  margin-bottom: 14px;
+}
+
+/* Optional: tighten bullet appearance */
+.things-list li::marker {
+  font-size: 0.9em;
+}
+
+
+
 
 
 
