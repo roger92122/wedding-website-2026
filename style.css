@@ -873,15 +873,33 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 28px 60px;
+  padding: 26px 60px;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
   z-index: 1000;
-
-  background: rgba(0,0,0,0.15);
-  backdrop-filter: blur(10px);
 }
+
+.nav-left {
+  display: flex;
+  gap: 24px;
+  justify-self: start;
+}
+
+.nav-center {
+  font-size: 18px;
+  letter-spacing: 0.15em;
+  justify-self: center;
+}
+
+.nav-right {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-self: end;   /* 🔥 KEY FIX */
+}
+
+
 
 
 
