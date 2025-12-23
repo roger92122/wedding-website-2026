@@ -813,12 +813,12 @@ body {
 
 
 /* ============================================================
-   FOOTER — CLEAN & BALANCED
+   FOOTER — SINGLE ROW, SAME TYPOGRAPHY
    ============================================================ */
 
 .site-footer {
-  background: #ececef;          /* MATCH PAGE */
-  padding: 48px 40px 96px;      /* ↓ top | ↑ bottom */
+  background: #ececef;
+  padding: 48px 40px 120px; /* bottom space for floating RSVP */
 }
 
 .footer-inner {
@@ -827,22 +827,29 @@ body {
 
   display: grid;
   grid-template-columns: 1fr auto 1fr;
-  align-items: center;          /* vertical alignment FIX */
+  align-items: center;        /* 🔑 baseline alignment */
 }
 
-/* LEFT */
-.footer-left {
-  display: flex;
-  align-items: center;
-}
-
-.footer-title {
+/* Shared link style (Questions / Home / Share) */
+.footer-center a,
+.footer-link {
   font-family: "Libre Caslon Display", serif;
-  font-size: 18px;
-  margin: 0;
+  font-size: 16px;
+  letter-spacing: 0.08em;
+  color: #000;
+  text-decoration: underline;
 }
 
-/* CENTER */
+/* Left & right alignment */
+.footer-left {
+  justify-self: start;
+}
+
+.footer-right {
+  justify-self: end;
+}
+
+/* Center column */
 .footer-center {
   text-align: center;
 }
@@ -853,27 +860,6 @@ body {
   gap: 12px;
 }
 
-.footer-center a {
-  font-family: "Libre Caslon Display", serif;
-  font-size: 16px;
-  text-decoration: underline;
-  color: #000;
-}
-
-/* RIGHT */
-.footer-right {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.footer-right a {
-  font-size: 14px;
-  text-decoration: none;
-  color: #000;
-}
-
-
 /* ------------------------------------------------------------
    MOBILE
    ------------------------------------------------------------ */
@@ -881,7 +867,7 @@ body {
 @media (max-width: 768px) {
 
   .site-footer {
-    padding: 40px 24px 120px;   /* EXTRA bottom for RSVP */
+    padding: 40px 24px 140px;
   }
 
   .footer-inner {
@@ -892,9 +878,11 @@ body {
 
   .footer-left,
   .footer-right {
-    justify-content: center;
+    justify-self: center;
   }
 }
+
+
 
 
 
