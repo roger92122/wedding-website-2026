@@ -467,6 +467,28 @@ body {
 
 
 
+/* ============================================================
+   FORCE DESKTOP NAV ABOVE MOBILE BREAKPOINT
+   ============================================================ */
+
+@media (min-width: 769px) {
+  .hero-nav a {
+    font-size: 14px;
+  }
+
+  .nav-center {
+    font-size: 18px;
+  }
+
+  .rsvp-btn {
+    font-size: 13px;
+  }
+
+  .lang-btn {
+    font-size: 12px;
+  }
+}
+
 
 
 
