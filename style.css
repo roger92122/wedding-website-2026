@@ -358,3 +358,93 @@ body {
     padding: 60px 20px;
   }
 }
+
+/* ============================================================
+   THINGS TO DO — FIX BULLETS & ALIGNMENT
+   ============================================================ */
+
+.things-section {
+  text-align: left;               /* override global centering */
+}
+
+.things-group {
+  max-width: 680px;
+  margin: 0 auto 56px;
+}
+
+.things-group h3 {
+  text-align: left;
+  margin-bottom: 16px;
+  font-size: 14px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.things-list {
+  list-style-position: outside;   /* 🔥 bullets on the left */
+  padding-left: 20px;
+  margin: 0;
+
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.things-list li {
+  margin-bottom: 12px;
+}
+
+/* ============================================================
+   SCHEDULE — RESTORE ORIGINAL STYLE
+   ============================================================ */
+
+.schedule-section {
+  background-color: #ececef;
+  padding: 56px 24px 80px;
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.schedule-section h2 {
+  font-size: 22px;
+  letter-spacing: 0.28em;
+  font-weight: 400;
+  margin-bottom: 80px;
+}
+
+.schedule-item {
+  padding: 34px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.schedule-time {
+  font-size: 13px;
+  letter-spacing: 0.25em;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.schedule-event {
+  font-size: 14px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.schedule-location {
+  font-size: 13px;
+  line-height: 1.6;
+  opacity: 0.7;
+}
+
+.schedule-footer {
+  margin-top: 60px;
+  margin-bottom: 60px;
+  text-align: center;
+  font-size: 13px;
+  font-style: italic;
+  opacity: 0.6;
+}
+
+
+
