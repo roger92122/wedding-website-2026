@@ -521,7 +521,7 @@ body {
 /* Lock nav font size across ALL pages */
 .hero-nav .nav-left a,
 .hero-nav .nav-right a {
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .hero-nav .nav-center {
@@ -810,6 +810,7 @@ body {
     letter-spacing: 0.14em;
   }
 }
+
 
 
 
