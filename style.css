@@ -569,6 +569,50 @@ body {
   }
 }
 
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 22px;
+  height: 2px;
+  background: #fff;
+}
+
+/* Mobile nav */
+@media (max-width: 768px) {
+
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-left {
+    position: absolute;
+    top: 72px;
+    left: 0;
+    width: 100%;
+
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+
+    padding: 20px 0;
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(12px);
+
+    display: none;
+  }
+
+  .nav-left.show {
+    display: flex;
+  }
+}
+
+
 
 
 
