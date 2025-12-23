@@ -862,6 +862,21 @@ body {
   justify-self: end;
 }
 
+.footer-inner {
+  align-items: start;
+}
+
+.footer-center .lang {
+  display: grid;
+  grid-template-rows: auto;
+  row-gap: 12px;
+}
+
+.footer-left,
+.footer-right {
+  padding-top: 0; /* remove previous hacks */
+}
+
 /* MOBILE */
 @media (max-width: 768px) {
   .site-footer {
@@ -880,6 +895,7 @@ body {
     padding-top: 0;
   }
 }
+
 
 
 
