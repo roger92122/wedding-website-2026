@@ -3,26 +3,25 @@
    ============================================================ */
 
 function smoothScrollTo(target, duration = 2200, offset = 80) {
-    const start = window.pageYOffset;
-    const end = target.getBoundingClientRect().top + start - offset;
-    const distance = end - start;
-    let startTime = null;
+  const start = window.pageYOffset;
+  const end = target.getBoundingClientRect().top + start - offset;
+  const distance = end - start;
+  let startTime = null;
 
-    function animate(time) {
-        if (!startTime) startTime = time;
-        const progress = Math.min((time - startTime) / duration, 1);
+  function animate(time) {
+    if (!startTime) startTime = time;
+    const progress = Math.min((time - startTime) / duration, 1);
 
-        const ease = progress < 0.5
-            ? 4 * progress * progress * progress
-            : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+    const ease = progress < 0.5
+      ? 4 * progress * progress * progress
+      : 1 - Math.pow(-2 * progress + 2, 3) / 2;
 
-        window.scrollTo(0, start + distance * ease);
-        if (progress < 1) requestAnimationFrame(animate);
-    }
+    window.scrollTo(0, start + distance * ease);
+    if (progress < 1) requestAnimationFrame(animate);
+  }
 
-    requestAnimationFrame(animate);
+  requestAnimationFrame(animate);
 }
-
 
 /* ============================================================
    ON LOAD
@@ -30,155 +29,125 @@ function smoothScrollTo(target, duration = 2200, offset = 80) {
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    /* --------------------------------------------------------
-       HAMBURGER
-    -------------------------------------------------------- */
-    const hamburger = document.getElementById("hamburger");
-    const navMenu = document.getElementById("navMenu");
+  /* --------------------------------------------------------
+     HAMBURGER MENU (SINGLE SOURCE)
+  -------------------------------------------------------- */
 
-    hamburger?.addEventListener("click", () => {
-        navMenu.classList.toggle("show");
+  const hamburger = document.getElementById("hamburger");
+  const navMenu = document.querySelector(".nav-left");
+
+  if (hamburger && navMenu) {
+    hamburger.addEventListener("click", (e) => {
+      e.stopPropagation();
+      navMenu.classList.toggle("show");
     });
 
-    document.querySelectorAll(".nav-menu a").forEach(link => {
-        link.addEventListener("click", () => {
-            navMenu.classList.remove("show");
-        });
+    // Close menu when clicking a link
+    navMenu.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navMenu.classList.remove("show");
+      });
     });
 
-    /* --------------------------------------------------------
-       NAV BAR BLUR
-    -------------------------------------------------------- */
-    const navbar = document.querySelector(".navbar");
-    window.addEventListener("scroll", () => {
-        navbar?.classList.toggle("scrolled", window.scrollY > 20);
+    // Close menu when clicking outside
+    document.addEventListener("click", (e) => {
+      if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
+        navMenu.classList.remove("show");
+      }
+    });
+  }
+
+  /* --------------------------------------------------------
+     LANGUAGE SWITCHER
+  -------------------------------------------------------- */
+
+  const btnEN = document.getElementById("lang-en");
+  const btnZH = document.getElementById("lang-zh");
+
+  function setLanguage(lang) {
+    const showEN = lang === "en";
+
+    document.querySelectorAll(".lang-en").forEach(el => {
+      el.style.display = showEN ? "" : "none";
     });
 
-    /* --------------------------------------------------------
-       LANGUAGE SWITCHER (FIXED FOR MESSAGE FORM)
-    -------------------------------------------------------- */
-    const btnEN = document.getElementById("lang-en");
-    const btnZH = document.getElementById("lang-zh");
-
-    function setLanguage(lang) {
-        const showEN = lang === "en";
-
-        // Toggle text visibility
-        document.querySelectorAll(".lang-en").forEach(el => {
-            el.style.display = showEN ? "block" : "none";
-        });
-
-        document.querySelectorAll(".lang-zh").forEach(el => {
-            el.style.display = showEN ? "none" : "block";
-        });
-
-        // Toggle language buttons
-        if (btnEN && btnZH) {
-            btnEN.style.display = showEN ? "none" : "inline-block";
-            btnZH.style.display = showEN ? "inline-block" : "none";
-        }
-
-        /* 🔑 FIX: enable / disable message textareas */
-        const enTextarea = document.querySelector(".message-card textarea.lang-en");
-        const zhTextarea = document.querySelector(".message-card textarea.lang-zh");
-
-        if (enTextarea && zhTextarea) {
-            if (showEN) {
-                enTextarea.disabled = false;
-                enTextarea.required = true;
-
-                zhTextarea.disabled = true;
-                zhTextarea.required = false;
-            } else {
-                zhTextarea.disabled = false;
-                zhTextarea.required = true;
-
-                enTextarea.disabled = true;
-                enTextarea.required = false;
-            }
-        }
-    }
-
-    // Default language
-    setLanguage("en");
-
-    btnEN?.addEventListener("click", () => setLanguage("en"));
-    btnZH?.addEventListener("click", () => setLanguage("zh"));
-
-    /* --------------------------------------------------------
-       SMOOTH SCROLL LINKS
-    -------------------------------------------------------- */
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
-        link.addEventListener("click", e => {
-            const target = document.querySelector(link.getAttribute("href"));
-            if (!target) return;
-
-            e.preventDefault();
-
-            const isMobile = window.innerWidth < 768;
-
-            smoothScrollTo(
-                target,
-                isMobile ? 5000 : 3800,
-                isMobile ? 30 : 40
-            );
-        });
+    document.querySelectorAll(".lang-zh").forEach(el => {
+      el.style.display = showEN ? "none" : "";
     });
 
-    /* --------------------------------------------------------
-       FADE-IN ON SCROLL
-    -------------------------------------------------------- */
-    const fadeEls = document.querySelectorAll(
-        ".section, .hero-content, .event-image, .faq-item, .rsvp-form"
-    );
+    btnEN && (btnEN.style.display = showEN ? "none" : "inline-block");
+    btnZH && (btnZH.style.display = showEN ? "inline-block" : "none");
+  }
 
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.15 });
+  setLanguage("en");
 
-    fadeEls.forEach(el => {
-        el.classList.add("fade-in");
-        observer.observe(el);
+  btnEN?.addEventListener("click", () => setLanguage("en"));
+  btnZH?.addEventListener("click", () => setLanguage("zh"));
+
+  /* --------------------------------------------------------
+     SMOOTH SCROLL LINKS
+  -------------------------------------------------------- */
+
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener("click", e => {
+      const target = document.querySelector(link.getAttribute("href"));
+      if (!target) return;
+
+      e.preventDefault();
+
+      const isMobile = window.innerWidth < 700;
+
+      smoothScrollTo(
+        target,
+        isMobile ? 5000 : 3800,
+        isMobile ? 30 : 40
+      );
     });
+  });
 
-    /* --------------------------------------------------------
-       RSVP: BRINGING A GUEST TOGGLE (EN + ZH)
-    -------------------------------------------------------- */
+  /* --------------------------------------------------------
+     FADE-IN ON SCROLL
+  -------------------------------------------------------- */
 
-    function setupGuestToggle(checkboxId, inputId) {
-        const checkbox = document.getElementById(checkboxId);
-        const input = document.getElementById(inputId);
+  const fadeEls = document.querySelectorAll(
+    ".section, .hero-content, .event-image, .faq-item, .rsvp-form"
+  );
 
-        if (!checkbox || !input) return;
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
 
-        checkbox.addEventListener("change", function () {
-            if (this.checked) {
-                input.style.display = "block";
-                input.focus();
-            } else {
-                input.style.display = "none";
-                input.value = "";
-            }
-        });
-    }
+  fadeEls.forEach(el => {
+    el.classList.add("fade-in");
+    observer.observe(el);
+  });
 
-    // English
-    setupGuestToggle("bringing-guest-en", "guest-name-en");
+  /* --------------------------------------------------------
+     RSVP: BRINGING A GUEST
+  -------------------------------------------------------- */
 
-    // Chinese
-    setupGuestToggle("bringing-guest-zh", "guest-name-zh");
+  function setupGuestToggle(checkboxId, inputId) {
+    const checkbox = document.getElementById(checkboxId);
+    const input = document.getElementById(inputId);
+    if (!checkbox || !input) return;
 
-   
+    checkbox.addEventListener("change", () => {
+      if (checkbox.checked) {
+        input.style.display = "block";
+        input.focus();
+      } else {
+        input.style.display = "none";
+        input.value = "";
+      }
+    });
+  }
+
+  setupGuestToggle("bringing-guest-en", "guest-name-en");
+  setupGuestToggle("bringing-guest-zh", "guest-name-zh");
 
 });
-
-document.getElementById("hamburger").addEventListener("click", () => {
-  document.querySelector(".nav-left").classList.toggle("show");
-});
-
-
