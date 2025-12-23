@@ -677,6 +677,50 @@ body {
   }
 }
 
+/* ============================================================
+   FLOATING RSVP BUTTON
+   ============================================================ */
+
+.floating-rsvp {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  padding: 14px 36px;
+  font-family: "Libre Baskerville", serif;
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  background: rgba(255, 255, 255, 0.85);
+  color: #000;
+  text-decoration: none;
+
+  border-radius: 999px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.12),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+
+  z-index: 2000;
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    background 0.35s ease;
+}
+
+/* Hover (desktop) */
+.floating-rsvp:hover {
+  transform: translateX(-50%) translateY(-2px);
+  box-shadow:
+    0 14px 40px rgba(0, 0, 0, 0.18),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.15);
+}
+
 
 
 
