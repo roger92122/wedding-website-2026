@@ -529,7 +529,7 @@ body {
    ============================================================ */
 
 @media (max-width: 700px) {
-  .hero-nav a { font-size: 14px; }
+  .hero-nav a { font-size: 20px; }
   .nav-center { font-size: 18px; }
   .rsvp-btn { font-size: 13px; }
   .lang-btn { font-size: 12px; }
@@ -804,6 +804,7 @@ body {
     letter-spacing: 0.14em;
   }
 }
+
 
 
 
