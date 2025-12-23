@@ -11,7 +11,9 @@
 body {
   margin: 0;
   padding-top: 68px;                 /* offset for fixed nav */
-  font-family: "Inter", serif;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
   background-color: #ececef;
   color: #000;
   scroll-behavior: smooth;
@@ -135,18 +137,33 @@ body {
 }
 
 .hero-title {
+  font-family: "Libre Caslon Display", serif;
+  font-size: 80px;        /* ↑ bigger */
   font-weight: 400;
   letter-spacing: 0.02em;
+  line-height: 1.05;
 }
 
+
 .hero-subtitle {
+  font-family: "Libre Caslon Display", serif;
+  font-size: 22px;        /* ↑ from ~18 */
+  font-weight: 400;
   letter-spacing: 0.12em;
+}
+
+.hero-date {
+  font-family: "Libre Caslon Display", serif;
+  font-size: 18px;        /* ↑ slightly */
+  letter-spacing: 0.32em;
 }
 
 .hero-nav a {
   font-family: "Libre Caslon Display", serif;
-  letter-spacing: 0.08em;
+  font-size: 15px;        /* ↑ from 14 */
+  letter-spacing: 0.1em;
 }
+
 
 
 .hero-subtitle {
@@ -179,9 +196,12 @@ body {
 }
 
 .section h2 {
-  font-size: 36px;
-  margin-bottom: 40px;
+  font-family: "Libre Caslon Display", serif;
+  font-size: 40px;        /* ↑ from 36 */
+  font-weight: 400;
+  letter-spacing: 0.08em;
 }
+
 
 /* ============================================================
    EVENT IMAGES — HOME PAGE
@@ -347,9 +367,20 @@ body {
   }
 
   .hero-title {
-    font-size: 40px;
+    font-size: 46px;
+    line-height: 1.1;
+  }
+   
+ .hero-subtitle {
+    font-size: 18px;
+  }
+ .hero-date {
+    font-size: 14px;
   }
 
+  .hero-nav a {
+    font-size: 14px;
+  }
   /* MOBILE EVENT IMAGES — FULL BLEED */
   .event-image {
     width: 100vw;
@@ -379,6 +410,9 @@ body {
 
   .section {
     padding: 60px 20px;
+  }
+  .section h2 {
+    font-size: 30px;
   }
 }
 
@@ -770,6 +804,7 @@ body {
     letter-spacing: 0.14em;
   }
 }
+
 
 
 
