@@ -697,7 +697,9 @@ body {
 
   font-family: "Libre Baskerville", serif;
   font-size: 24px;
-  letter-spacing: 0.14em;
+  font-style: italic;   
+  font-weight: 400;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
 
   background: rgba(20, 20, 22, 0.92); /* deep charcoal */
@@ -736,10 +738,11 @@ body {
     bottom: 20px;          /* thumb-friendly */
     padding: 14px 42px;    /* longer pill on mobile */
     min-height: 48px;      /* prevents jump on lang switch */
-    font-size: 13px;       /* slightly smaller than desktop */
+    font-size: 20px;       /* slightly smaller than desktop */
     letter-spacing: 0.14em;
   }
 }
+
 
 
 
