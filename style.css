@@ -699,8 +699,8 @@ body {
 
   background: linear-gradient(
     to bottom,
-    rgba(36, 36, 38, 0.96),
-    rgba(16, 16, 18, 0.96)
+    rgba(36, 36, 38, 0.88),
+    rgba(16, 16, 18, 0.88)
   );
 
   color: #fff;
@@ -747,6 +747,7 @@ body {
     letter-spacing: 0.14em;
   }
 }
+
 
 
 
