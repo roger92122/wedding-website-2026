@@ -156,10 +156,13 @@ body {
 .section {
   max-width: 900px;
   margin: 0 auto;
-  padding: 80px 30px;
+
+  padding: 40px 30px 80px;  /* top | sides | bottom */
+
   background: #ececef;
   text-align: center;
 }
+
 
 .section:nth-of-type(even) {
   background: #fff;
@@ -757,6 +760,7 @@ body {
     letter-spacing: 0.14em;
   }
 }
+
 
 
 
