@@ -151,3 +151,16 @@ document.addEventListener("DOMContentLoaded", () => {
   setupGuestToggle("bringing-guest-zh", "guest-name-zh");
 
 });
+
+document.addEventListener("scroll", () => {
+  const rsvp = document.querySelector(".floating-rsvp");
+  const footer = document.getElementById("site-footer");
+  if (!rsvp || !footer) return;
+
+  const footerTop = footer.getBoundingClientRect().top;
+  const windowHeight = window.innerHeight;
+
+  rsvp.style.opacity = footerTop < windowHeight ? "0" : "1";
+  rsvp.style.pointerEvents = footerTop < windowHeight ? "none" : "auto";
+});
+
