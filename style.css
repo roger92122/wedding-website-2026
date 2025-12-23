@@ -613,6 +613,70 @@ body {
 }
 
 
+/* ============================================================
+   HAMBURGER (DESKTOP HIDDEN)
+   ============================================================ */
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 22px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+}
+
+/* ============================================================
+   MOBILE NAV — BLURRED DROPDOWN
+   ============================================================ */
+
+@media (max-width: 700px) {
+
+  /* Show hamburger */
+  .hamburger {
+    display: flex;
+    justify-self: start;
+  }
+
+  /* Hide inline links */
+  .nav-left {
+    position: fixed;
+    top: 72px;
+    left: 0;
+    width: 100%;
+
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+
+    padding: 28px 0;
+
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    z-index: 1500;
+  }
+
+  /* Show menu when active */
+  .nav-left.show {
+    display: flex;
+  }
+
+  /* Mobile link style */
+  .nav-left a {
+    font-size: 18px;
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
 
 
 
