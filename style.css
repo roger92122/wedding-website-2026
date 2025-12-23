@@ -359,49 +359,7 @@ body {
   }
 }
 
-/* ============================================================
-   THINGS TO DO — PROPER HANGING BULLETS (FIXED)
-   ============================================================ */
 
-.things-section {
-  text-align: left;
-}
-
-.things-group {
-  max-width: 680px;
-  margin: 0 auto 56px;
-}
-
-.things-group h3 {
-  text-align: left;
-  margin-bottom: 18px;
-  font-size: 14px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-
-/* 🔥 KEY FIX */
-.things-list {
-  list-style-type: disc;
-  list-style-position: outside;
-
-  padding-left: 1.2em;     /* bullet distance from edge */
-  margin: 0;
-
-  font-size: 15px;
-  line-height: 1.7;
-}
-
-/* 🔥 TEXT SNAPS BACK LEFT */
-.things-list li {
-  margin-bottom: 14px;
-  padding-left: 0.2em;     /* pulls text closer to bullet */
-}
-
-/* Optional: slightly lighter bullets */
-.things-list li::marker {
-  font-size: 0.9em;
-}
 
 /* ============================================================
    SCHEDULE — RESTORE ORIGINAL STYLE
@@ -456,45 +414,44 @@ body {
   opacity: 0.6;
 }
 
+
+
 /* ============================================================
-   THINGS TO DO — HARD RESET & HANGING INDENT (FINAL)
+   THINGS TO DO — STRICTLY SCOPED (NO SIDE EFFECTS)
    ============================================================ */
 
-/* Center the section title ONLY */
-.things-section h2,
-.things-section h3 {
+#things-to-do {
+  text-align: left;   /* override section centering */
+}
+
+/* Headings can stay centered */
+#things-to-do h2,
+#things-to-do h3 {
   text-align: center;
 }
 
-/* Left-align the list container */
-.things-section {
-  text-align: left;
-}
-
-/* Reset UL completely */
-.things-list {
+/* Reset only the ULs inside Things To Do */
+#things-to-do .things-list {
   list-style-type: disc;
   list-style-position: outside;
 
-  margin: 0 auto;
-  padding-left: 0;              /* 🔥 reset browser padding */
   max-width: 680px;
+  margin: 0 auto;
 
+  padding-left: 1.2em;     /* bullet column */
   font-size: 15px;
   line-height: 1.7;
 }
 
-/* 🔥 REAL FIX: hanging indent */
-.things-list li {
-  display: list-item;
-
-  margin-left: 1.25em;          /* bullet column */
-  padding-left: 0.25em;         /* text closer to bullet */
+/* Hanging indent — clean and tight */
+#things-to-do .things-list li {
+  margin-left: 0;
+  padding-left: 0.25em;    /* text close to bullet */
   margin-bottom: 14px;
 }
 
-/* Optional: tighten bullet appearance */
-.things-list li::marker {
+/* Optional: subtle bullet polish */
+#things-to-do .things-list li::marker {
   font-size: 0.9em;
 }
 
