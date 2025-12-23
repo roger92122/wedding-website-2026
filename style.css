@@ -813,12 +813,12 @@ body {
 
 
 /* ============================================================
-   FOOTER
+   FOOTER — CLEAN & BALANCED
    ============================================================ */
 
 .site-footer {
-  background: #e5e5e5;
-  padding: 80px 40px;
+  background: #ececef;          /* MATCH PAGE */
+  padding: 48px 40px 96px;      /* ↓ top | ↑ bottom */
 }
 
 .footer-inner {
@@ -827,25 +827,22 @@ body {
 
   display: grid;
   grid-template-columns: 1fr auto 1fr;
-  align-items: start;
-  gap: 40px;
+  align-items: center;          /* vertical alignment FIX */
 }
 
-/* LEFT & RIGHT — SYMMETRICAL */
-.footer-left,
-.footer-right {
+/* LEFT */
+.footer-left {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
 }
 
-/* Titles */
 .footer-title {
   font-family: "Libre Caslon Display", serif;
   font-size: 18px;
   margin: 0;
 }
 
-/* CENTER LINKS */
+/* CENTER */
 .footer-center {
   text-align: center;
 }
@@ -853,7 +850,7 @@ body {
 .footer-center .lang {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
 
 .footer-center a {
@@ -863,12 +860,19 @@ body {
   color: #000;
 }
 
-/* RIGHT LINK */
+/* RIGHT */
+.footer-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
 .footer-right a {
   font-size: 14px;
   text-decoration: none;
   color: #000;
 }
+
 
 /* ------------------------------------------------------------
    MOBILE
@@ -877,13 +881,13 @@ body {
 @media (max-width: 768px) {
 
   .site-footer {
-    padding: 60px 24px;
+    padding: 40px 24px 120px;   /* EXTRA bottom for RSVP */
   }
 
   .footer-inner {
     grid-template-columns: 1fr;
+    gap: 28px;
     text-align: center;
-    gap: 32px;
   }
 
   .footer-left,
@@ -891,6 +895,8 @@ body {
     justify-content: center;
   }
 }
+
+
 
 
 
