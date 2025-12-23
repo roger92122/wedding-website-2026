@@ -26,7 +26,7 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  height: 96px;
+  height: 68px;
   padding: 0 60px;
 
   display: grid;
@@ -747,6 +747,7 @@ body {
     letter-spacing: 0.14em;
   }
 }
+
 
 
 
