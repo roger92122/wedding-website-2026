@@ -721,6 +721,14 @@ body {
     inset 0 0 0 1px rgba(0, 0, 0, 0.15);
 }
 
+@media (max-width: 768px) {
+  .floating-rsvp {
+    bottom: 18px;
+    padding: 12px 28px;
+    font-size: 14px;
+  }
+}
+
 
 
 
