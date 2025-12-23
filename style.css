@@ -227,19 +227,19 @@ body {
 }
 
 .travel-title {
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: 0.28em;
   margin-bottom: 18px;
 }
 
 .travel-info p {
   margin: 0 0 6px;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .travel-note {
   margin-top: 24px;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.6;
 }
 
@@ -248,7 +248,7 @@ body {
   margin-top: 28px;
   padding: 10px 22px;
   border: 1px solid #000;
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.18em;
   text-decoration: none;
   color: #000;
@@ -757,6 +757,7 @@ body {
     letter-spacing: 0.14em;
   }
 }
+
 
 
 
