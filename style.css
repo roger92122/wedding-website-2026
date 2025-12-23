@@ -360,11 +360,11 @@ body {
 }
 
 /* ============================================================
-   THINGS TO DO — FIX BULLETS & ALIGNMENT
+   THINGS TO DO — PROPER HANGING BULLETS (FIXED)
    ============================================================ */
 
 .things-section {
-  text-align: left;               /* override global centering */
+  text-align: left;
 }
 
 .things-group {
@@ -374,23 +374,33 @@ body {
 
 .things-group h3 {
   text-align: left;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
   font-size: 14px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 
+/* 🔥 KEY FIX */
 .things-list {
-  list-style-position: outside;   /* 🔥 bullets on the left */
-  padding-left: 20px;
+  list-style-type: disc;
+  list-style-position: outside;
+
+  padding-left: 1.2em;     /* bullet distance from edge */
   margin: 0;
 
   font-size: 15px;
   line-height: 1.7;
 }
 
+/* 🔥 TEXT SNAPS BACK LEFT */
 .things-list li {
-  margin-bottom: 12px;
+  margin-bottom: 14px;
+  padding-left: 0.2em;     /* pulls text closer to bullet */
+}
+
+/* Optional: slightly lighter bullets */
+.things-list li::marker {
+  font-size: 0.9em;
 }
 
 /* ============================================================
@@ -445,6 +455,7 @@ body {
   font-style: italic;
   opacity: 0.6;
 }
+
 
 
 
