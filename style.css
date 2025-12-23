@@ -11,7 +11,7 @@
 body {
   margin: 0;
   padding-top: 68px;                 /* offset for fixed nav */
-  font-family: "Libre Baskerville", serif;
+  font-family: "Playfair Display", serif;
   background-color: #ececef;
   color: #000;
   scroll-behavior: smooth;
@@ -703,7 +703,7 @@ body {
   align-items: center;
   justify-content: center;
 
-  font-family: "Libre Baskerville", serif;
+  font-family: "Playfair Display", serif;
   font-size: 24px;
   font-style: italic;
   font-weight: 400;
@@ -760,6 +760,7 @@ body {
     letter-spacing: 0.14em;
   }
 }
+
 
 
 
