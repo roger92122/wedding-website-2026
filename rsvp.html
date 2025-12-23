@@ -1,41 +1,90 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>RSVP - Haoran & Chi</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RSVP</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
+<nav class="navbar">…(same navbar)…</nav>
 
-<nav class="navbar">
-    <div class="logo">Haoran & Chi</div>
-    <ul class="nav-menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="our-story.html">Our Story</a></li>
-        <li><a href="accommodations.html">Accommodations</a></li>
-        <li><a href="registry.html">The Registry</a></li>
-        <li><a href="rsvp.html">RSVP</a></li>
-    </ul>
-</nav>
-
-<div class="page-content">
-    <h2>RSVP</h2>
-
-    <form id="rsvp-form">
-        <input type="text" id="name" placeholder="Your Name" required>
-        <input type="email" id="email" placeholder="Your Email" required>
-
-        <select id="attendance">
-            <option value="yes">Will attend</option>
-            <option value="no">Cannot attend</option>
-        </select>
-
-        <button type="submit">Submit</button>
-    </form>
-
-    <p id="confirmation"></p>
-</div>
-
-<footer class="footer">© 2026 Haoran & Chi</footer>
+<section class="section rsvp-section">
+  <!-- YOUR RSVP FORMS (EN + ZH) EXACTLY AS BEFORE -->
+<section id="rsvp" class="section rsvp-section">
+    
+        <!-- ENGLISH FORM -->
+        <div class="lang lang-en">
+            <h2>RSVP</h2>
+    
+            <form id="rsvp-form-en" action="https://formspree.io/f/mblnbpgq" method="POST">
+    
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+    
+                <select name="attendance" required>
+                    <option value="">— Will you attend? —</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+    
+                <label class="checkbox-row">
+                    <input type="checkbox" id="bringing-guest-en">
+                    <span>Bringing a guest?</span>
+                </label>
+    
+                <input
+                    type="text"
+                    id="guest-name-en"
+                    name="guestName"
+                    placeholder="Guest Name"
+                    style="display:none;"
+                >
+    
+                <button type="submit">Submit</button>
+                <p id="form-success-en" style="display:none;color:green;margin-top:15px;">
+                    ✔ Thank you! Your RSVP has been sent.
+                </p>
+            </form>
+        </div>
+    
+        <!-- CHINESE FORM -->
+        <div class="lang lang-zh" style="display:none;">
+            <h2>敬请回复</h2>
+    
+            <form id="rsvp-form-zh" action="https://formspree.io/f/mblnbpgq" method="POST">
+    
+                <input type="text" name="name" placeholder="您的姓名" required>
+                <input type="email" name="email" placeholder="您的邮箱" required>
+    
+                <select name="attendance" required>
+                    <option value="">— 您会参加吗？ —</option>
+                    <option value="Yes">会参加</option>
+                    <option value="No">不参加</option>
+                </select>
+    
+                <label class="checkbox-row">
+                    <input type="checkbox" id="bringing-guest-zh">
+                    <span>携带嘉宾？</span>
+                </label>
+    
+                <input
+                    type="text"
+                    id="guest-name-zh"
+                    name="guestName"
+                    placeholder="嘉宾姓名"
+                    style="display:none;"
+                >
+    
+                <button type="submit">提交</button>
+                <p id="form-success-zh" style="display:none;color:green;margin-top:15px;">
+                    ✔ 感谢您的回复！
+                </p>
+            </form>
+        </div>
+    
+</section>
 
 <script src="script.js"></script>
 </body>
