@@ -10,7 +10,7 @@
 
 body {
   margin: 0;
-  padding-top: 96px;                 /* 🔥 OFFSET FOR FIXED NAV */
+  padding-top: 96px;                 /* offset for fixed nav */
   font-family: "Libre Baskerville", serif;
   background-color: #ececef;
   color: #000;
@@ -18,7 +18,7 @@ body {
 }
 
 /* ============================================================
-   HERO NAV (SINGLE SOURCE OF TRUTH)
+   HERO NAV — SINGLE SOURCE OF TRUTH
    ============================================================ */
 
 .hero-nav {
@@ -35,7 +35,7 @@ body {
 
   z-index: 2000;
 
-  background: rgba(0, 0, 0, 0.18);
+  background: rgba(0,0,0,0.18);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
 
@@ -49,7 +49,7 @@ body {
   font-size: 14px;
 }
 
-/* LEFT / CENTER / RIGHT */
+/* NAV AREAS */
 
 .nav-left {
   display: flex;
@@ -102,13 +102,13 @@ body {
 }
 
 /* ============================================================
-   HERO (HOME PAGE ONLY)
+   HERO (HOME PAGE)
    ============================================================ */
 
 .hero {
   position: relative;
   height: 100vh;
-  margin-top: -96px; /* 🔥 cancel body padding */
+  margin-top: -96px; /* cancel body padding */
   background:
     linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.35)),
     url("hero.jpg") center 55% / cover no-repeat;
@@ -140,7 +140,7 @@ body {
 }
 
 /* ============================================================
-   SECTIONS (ALL PAGES)
+   SECTIONS (GENERAL)
    ============================================================ */
 
 .section {
@@ -158,6 +158,90 @@ body {
 .section h2 {
   font-size: 36px;
   margin-bottom: 40px;
+}
+
+/* ============================================================
+   EVENT IMAGES — HOME PAGE
+   ============================================================ */
+
+.event-image {
+  width: 360px;
+  height: 360px;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 40px;
+}
+
+@media (min-width: 1024px) {
+  .event-image {
+    width: 520px;
+    height: 520px;
+  }
+}
+
+.proposal-image {
+  object-position: center 60%;
+}
+
+/* ============================================================
+   TRAVEL & STAY
+   ============================================================ */
+
+.travel-section {
+  background: #fff;
+  padding: 100px 24px;
+  text-align: left;
+}
+
+.travel-card {
+  max-width: 900px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 48px;
+
+  align-items: center;
+}
+
+.travel-image img {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+.travel-content {
+  max-width: 520px;
+}
+
+.travel-title {
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  margin-bottom: 18px;
+}
+
+.travel-info p {
+  margin: 0 0 6px;
+  font-size: 14px;
+}
+
+.travel-note {
+  margin-top: 24px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.travel-button {
+  display: inline-block;
+  margin-top: 28px;
+  padding: 10px 22px;
+  border: 1px solid #000;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-decoration: none;
+  color: #000;
 }
 
 /* ============================================================
@@ -198,7 +282,7 @@ body {
 .sage       { background: #c9d6b8; }
 
 /* ============================================================
-   MOBILE (FIXED + CLEAN)
+   MOBILE (FINAL, FIXED)
    ============================================================ */
 
 @media (max-width: 768px) {
@@ -213,7 +297,7 @@ body {
   }
 
   .nav-left {
-    display: none;          /* hide left links */
+    display: none;
   }
 
   .nav-center {
@@ -243,77 +327,17 @@ body {
     font-size: 40px;
   }
 
-  .section {
-    padding: 60px 20px;
+  /* MOBILE EVENT IMAGES — FULL BLEED */
+  .event-image {
+    width: 100vw;
+    height: 70vh;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    margin-bottom: 32px;
+    object-fit: cover;
   }
-}
-/* ============================================================
-   TRAVEL PAGE — RESTORE ORIGINAL LAYOUT
-   ============================================================ */
 
-.travel-section {
-  background: #ffffff;
-  padding: 100px 24px;
-  text-align: left;
-}
-
-.travel-card {
-  max-width: 900px;
-  margin: 0 auto;
-
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 48px;
-
-  align-items: center;
-}
-
-/* IMAGE — FIX SIZE */
-.travel-image img {
-  width: 260px;
-  height: 260px;
-  border-radius: 50%;
-  object-fit: cover;
-  display: block;
-}
-
-/* CONTENT */
-.travel-content {
-  max-width: 520px;
-}
-
-.travel-title {
-  font-size: 12px;
-  letter-spacing: 0.28em;
-  font-weight: 500;
-  margin-bottom: 18px;
-}
-
-.travel-info p {
-  margin: 0 0 6px;
-  font-size: 14px;
-}
-
-.travel-note {
-  margin-top: 24px;
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-/* BUTTON */
-.travel-button {
-  display: inline-block;
-  margin-top: 28px;
-  padding: 10px 22px;
-  border: 1px solid #000;
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  text-decoration: none;
-  color: #000;
-}
-
-@media (max-width: 768px) {
-
+  /* MOBILE TRAVEL */
   .travel-card {
     grid-template-columns: 1fr;
     gap: 32px;
@@ -321,14 +345,16 @@ body {
   }
 
   .travel-image img {
-    margin: 0 auto;
     width: 220px;
     height: 220px;
+    margin: 0 auto;
   }
 
   .travel-content {
     margin: 0 auto;
   }
+
+  .section {
+    padding: 60px 20px;
+  }
 }
-
-
