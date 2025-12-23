@@ -173,4 +173,12 @@ document.addEventListener("DOMContentLoaded", () => {
     // Chinese
     setupGuestToggle("bringing-guest-zh", "guest-name-zh");
 
+   
+
 });
+
+document.getElementById("hamburger").addEventListener("click", () => {
+  document.querySelector(".nav-left").classList.toggle("show");
+});
+
+
