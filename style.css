@@ -924,7 +924,7 @@ body {
 
 .event-image img {
   width: 100%;
-  max-width: 620px;        /* controls elegance */
+  max-width: 760px;        /* controls elegance */
   aspect-ratio: 3 / 4;   
   height: auto;
   object-fit: cover;
@@ -991,6 +991,7 @@ body {
     font-size: 48px;
   }
 }
+
 
 
 
