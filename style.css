@@ -924,8 +924,8 @@ body {
 /* PORTRAIT FRAME */
 .image-frame {
   width: 100%;
-  max-width: 600px;      /* elegant desktop width */
-  max-height: 800px;     /* 🔒 prevents explosion */
+  max-width: 400px;      /* elegant desktop width */
+  max-height: 600px;     /* 🔒 prevents explosion */
   aspect-ratio: 3 / 4;
   overflow: hidden;
 }
@@ -999,6 +999,7 @@ body {
     font-size: 48px;
   }
 }
+
 
 
 
