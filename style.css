@@ -917,8 +917,9 @@ body {
   display: flex;
   align-items: center;     /* vertical center */
   justify-content: center; /* horizontal center */
-  padding: 120px;
-  padding-bottom: 20px;
+  padding: 80px;
+
+  transform: translateY(40px);
 }
 
 .event-image img {
@@ -989,6 +990,7 @@ body {
     font-size: 48px;
   }
 }
+
 
 
 
