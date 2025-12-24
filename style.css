@@ -898,6 +898,86 @@ body {
 
 
 
+/* ============================================================
+   CEREMONY & RECEPTION — EDITORIAL LAYOUT
+   ============================================================ */
+
+.event-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 650px;
+  background: #e6e6e4;
+}
+
+.event-section.reverse {
+  direction: ltr;
+}
+
+.event-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* TEXT PANEL */
+.event-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 90px 110px;
+  font-family: "Cormorant Garamond", serif;
+  color: #000;
+}
+
+/* TITLES */
+.event-content h2 {
+  font-size: 64px;
+  font-weight: 400;
+  margin-bottom: 28px;
+}
+
+/* TIME */
+.event-time {
+  font-size: 26px;
+  letter-spacing: 1px;
+  margin-bottom: 32px;
+}
+
+/* LOCATION + ADDRESS */
+.event-location,
+.event-address {
+  font-size: 22px;
+  line-height: 1.8;
+  margin-bottom: 22px;
+}
+
+/* MAP LINK */
+.map-link {
+  font-size: 20px;
+  text-decoration: underline;
+  color: #000;
+  margin-top: 10px;
+}
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 900px) {
+  .event-section {
+    grid-template-columns: 1fr;
+  }
+
+  .event-content {
+    padding: 60px 40px;
+    text-align: center;
+  }
+
+  .event-content h2 {
+    font-size: 48px;
+  }
+}
+
 
 
 
