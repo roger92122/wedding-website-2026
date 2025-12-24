@@ -917,16 +917,18 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 120px;           /* equal top & bottom */
+  padding: 80px;           /* equal top & bottom */
 }
 
 /* PORTRAIT FRAME */
 .image-frame {
   width: 100%;
-  max-width: 760px;         /* BIG but elegant */
-  aspect-ratio: 3 / 4;     /* portrait */
+  max-width: 600px;      /* elegant desktop width */
+  max-height: 800px;     /* 🔒 prevents explosion */
+  aspect-ratio: 3 / 4;
   overflow: hidden;
 }
+
 
 /* IMAGE FILLS FRAME */
 .image-frame img {
@@ -996,6 +998,7 @@ body {
     font-size: 48px;
   }
 }
+
 
 
 
