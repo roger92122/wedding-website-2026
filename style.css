@@ -917,7 +917,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 80px;           /* equal top & bottom */
+  padding-bottom: 80px;
+  padding-top: 160px;          
 }
 
 /* PORTRAIT FRAME */
@@ -998,6 +999,7 @@ body {
     font-size: 48px;
   }
 }
+
 
 
 
