@@ -915,18 +915,23 @@ body {
 
 .event-image {
   display: flex;
-  align-items: center;     /* vertical center */
-  justify-content: center; /* horizontal center */
-  padding: 120px;
-
-  transform: translateY(60px);
+  align-items: center;
+  justify-content: center;
+  padding: 120px;           /* equal top & bottom */
 }
 
-.event-image img {
+/* PORTRAIT FRAME */
+.image-frame {
   width: 100%;
-  max-width: 760px;        /* controls elegance */
-  aspect-ratio: 3 / 4;   
-  height: auto;
+  max-width: 760px;         /* BIG but elegant */
+  aspect-ratio: 3 / 4;     /* portrait */
+  overflow: hidden;
+}
+
+/* IMAGE FILLS FRAME */
+.image-frame img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
@@ -991,6 +996,7 @@ body {
     font-size: 48px;
   }
 }
+
 
 
 
