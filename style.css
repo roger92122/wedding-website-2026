@@ -24,6 +24,7 @@ body {
    ============================================================ */
 
 .hero-nav {
+  font-family: "Cormorant Garamond", serif;
   position: fixed;
   top: 0;
   left: 0;
@@ -149,14 +150,14 @@ body {
 
 .hero-subtitle {
   font-family: "Libre Caslon Display", serif;
-  font-size: 22px;        /* ↑ from ~18 */
+  font-size: 26px;        /* ↑ from ~18 */
   font-weight: 400;
   letter-spacing: 0.12em;
 }
 
 .hero-date {
   font-family: "Libre Caslon Display", serif;
-  font-size: 18px;        /* ↑ slightly */
+  font-size: 20px;        /* ↑ slightly */
   letter-spacing: 0.32em;
 }
 
@@ -1001,6 +1002,7 @@ body {
     font-size: 48px;
   }
 }
+
 
 
 
