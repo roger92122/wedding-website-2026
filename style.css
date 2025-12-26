@@ -996,6 +996,21 @@ body {
   }
 }
 
+@media (max-width: 900px) {
+  .event-section {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .event-image {
+    order: 1;
+  }
+
+  .event-content {
+    order: 2;
+  }
+}
+
 
 
 
