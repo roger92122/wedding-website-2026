@@ -870,24 +870,45 @@ body {
 
 
 /* MOBILE */
+/* ============================================================
+   FOOTER — MOBILE ONLY (KEEP DESKTOP UNCHANGED)
+   ============================================================ */
+
 @media (max-width: 768px) {
-  .site-footer {
-    padding: 40px 24px 140px;
+
+  /* Keep the 3-column grid on mobile */
+  .footer-inner {
+    display: grid;                         /* ensure grid stays */
+    grid-template-columns: 1fr auto 1fr;   /* same as desktop */
+    align-items: start;                    /* align to first line */
   }
 
-  .footer-inner {
-    display: flex;          /* 🔑 override grid */
-    flex-direction: column;
-    gap: 28px;
+  /* Slightly tighter horizontal padding for phones */
+  .site-footer {
+    padding: 40px 20px 140px;
+  }
+
+  /* Center column text remains centered */
+  .footer-center {
     text-align: center;
   }
 
-  .footer-left,
-  .footer-center,
-  .footer-right {
-    justify-self: center;
+  /* Normalize text so baselines line up */
+  .site-footer p,
+  .site-footer a {
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    font-size: 15px;       /* optional: slightly smaller on mobile */
   }
+
+  /* Keep vertical nav compact */
+  .footer-center .lang {
+    gap: 10px;
+  }
+
 }
+
 
 
 
@@ -1008,6 +1029,7 @@ body {
     order: 2;
   }
 }
+
 
 
 
