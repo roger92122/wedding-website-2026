@@ -54,6 +54,7 @@ body {
 /* NAV AREAS */
 
 .nav-left {
+  font-family: "Cormorant Garamond", serif;
   display: flex;
   gap: 24px;
   justify-self: start;
@@ -1000,6 +1001,7 @@ body {
     font-size: 48px;
   }
 }
+
 
 
 
