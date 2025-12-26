@@ -60,9 +60,9 @@ body {
 }
 
 .nav-center {
-  font-family: "Canela", serif;
+  font-family: "Cormorant Garamond", serif;
   justify-self: center;
-  font-size: 20px;
+  font-size: 24px;
   letter-spacing: 0.05em;
 }
 
@@ -1000,6 +1000,7 @@ body {
     font-size: 48px;
   }
 }
+
 
 
 
