@@ -1048,6 +1048,7 @@ body {
 
   .event-content h2 {
     font-size: 48px;
+    margin-top: 12px;
   }
 }
 
@@ -1155,6 +1156,7 @@ body {
   font-weight: 400;
   letter-spacing: 0.015em;
 }
+
 
 
 
