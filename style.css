@@ -951,7 +951,7 @@ body {
 }
 
 .ceremony-image {
-  margin-top: 48px;   /* adjust: 32–64px */
+  margin-top: 80px;   /* adjust: 32–64px */
 }
 
 /* PORTRAIT FRAME */
@@ -1128,6 +1128,7 @@ body {
     font-size: 16px;
   }
 }
+
 
 
 
