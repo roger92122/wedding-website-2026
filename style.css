@@ -489,7 +489,7 @@ body {
 
 .schedule-footer {
   margin-top: 60px;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   text-align: center;
   font-size: 13px;
   font-style: italic;
@@ -1155,6 +1155,7 @@ body {
   font-weight: 400;
   letter-spacing: 0.015em;
 }
+
 
 
 
