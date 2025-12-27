@@ -933,13 +933,12 @@ body {
    ============================================================ */
 
 .event-section {
-  /* display: grid; */
+  display: grid;
   grid-template-columns: 1fr 1fr;
-  min-height: 650px;
   background: #e6e6e4;
-
-   align-items: start;
+  padding: 140px 0;
 }
+
 
 .event-section.reverse {
   direction: ltr;
@@ -947,11 +946,12 @@ body {
 
 .event-image {
   display: flex;
-  align-items: flex-start;     /* 🔑 */
   justify-content: center;
-  padding-top: 120px;          /* MATCH text */
-  padding-bottom: 80px;
+  align-items: flex-start;
+
+  padding-top: 60px;     /* 🔑 creates stagger */
 }
+
 
 
 /* PORTRAIT FRAME */
@@ -976,16 +976,16 @@ body {
 .event-content {
   display: flex;
   flex-direction: column;
-  /* justify-content: center;   /* vertical center */ */
-  align-items: center;       /* horizontal center */
+  align-items: center;
   text-align: center;
 
-  padding: 80px;
+  margin-top: -40px;     /* 🔑 pulls text upward */
+  padding: 0 80px;
+
   font-family: "Cormorant Garamond", serif;
-  color: #000;
-  max-width: 520px;          /* THIS is critical */
-  margin: 0 auto;            /* centers the block */
+  max-width: 520px;
 }
+
 
 
 /* TITLES */
@@ -1128,6 +1128,7 @@ body {
     font-size: 16px;
   }
 }
+
 
 
 
