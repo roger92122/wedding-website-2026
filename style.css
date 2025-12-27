@@ -12,7 +12,7 @@
   font-family: "Austin";
   src: url("/fonts/Austin-Roman-Trial.otf") format("opentype");
   font-weight: 300;
-  font-style: italic;
+  /* font-style: italic; */
   font-display: swap;
 }
 
@@ -1143,6 +1143,7 @@ body {
     font-size: 16px;
   }
 }
+
 
 
 
