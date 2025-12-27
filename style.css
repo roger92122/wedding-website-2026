@@ -216,6 +216,11 @@ body {
   font-weight: 600; 
 }
 
+@media (max-width: 768px) {
+  .hero {
+    background-position: 38% center;
+  }
+}
 
 /* ============================================================
    EVENT IMAGES — HOME PAGE
@@ -1119,6 +1124,7 @@ body {
     font-size: 16px;
   }
 }
+
 
 
 
