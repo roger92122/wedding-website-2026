@@ -952,20 +952,20 @@ body {
 
 /* Default (mobile-first): NO offset */
 .ceremony-image {
-  margin-top: 0;
+  margin-top: 20px;
 }
 
 /* Desktop only */
 @media (min-width: 901px) {
   .ceremony-image {
-    margin-top: 100px;   /* adjust as needed */
+    margin-top: 140px;   /* adjust as needed */
   }
 }
 
 /* Desktop only */
 @media (min-width: 901px) {
   .reception-image {
-    margin-top: 100px;   /* adjust as needed */
+    margin-top: 120px;   /* adjust as needed */
   }
 }
 
@@ -1143,6 +1143,7 @@ body {
     font-size: 16px;
   }
 }
+
 
 
 
