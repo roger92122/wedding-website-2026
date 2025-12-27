@@ -170,23 +170,62 @@ document.addEventListener("scroll", () => {
   -------------------------------------------------------- */
 document.addEventListener("DOMContentLoaded", () => {
   const music = document.getElementById("bg-music");
-  const button = document.getElementById("music-toggle");
+  const toggle = document.getElementById("music-toggle");
 
   let isPlaying = false;
+  let hasInteracted = false;
 
-  button.addEventListener("click", () => {
-    if (!isPlaying) {
-      music.volume = 0.4;   // soft background volume
-      music.play();
+  function fadeInAudio(audio, targetVolume = 0.4, duration = 1500) {
+    audio.volume = 0;
+    audio.play();
+
+    const stepTime = 50;
+    const steps = duration / stepTime;
+    const volumeStep = targetVolume / steps;
+
+    let currentStep = 0;
+
+    const fade = setInterval(() => {
+      currentStep++;
+      audio.volume = Math.min(targetVolume, audio.volume + volumeStep);
+
+      if (currentStep >= steps) {
+        audio.volume = targetVolume;
+        clearInterval(fade);
+      }
+    }, stepTime);
+  }
+
+  function startMusic() {
+    if (!hasInteracted) {
+      fadeInAudio(music, 0.4, 1800);
       isPlaying = true;
-      button.classList.remove("muted");
-      button.textContent = "❚❚";
+      toggle.classList.remove("muted");
+      toggle.textContent = "❚❚";
+      hasInteracted = true;
+    }
+  }
+
+  // Start on first interaction
+  document.addEventListener("click", startMusic, { once: true });
+
+  // Manual toggle
+  toggle.addEventListener("click", (e) => {
+    e.stopPropagation();
+
+    if (!isPlaying) {
+      fadeInAudio(music, 0.4, 1200);
+      isPlaying = true;
+      toggle.classList.remove("muted");
+      toggle.textContent = "❚❚";
     } else {
       music.pause();
       isPlaying = false;
-      button.classList.add("muted");
-      button.textContent = "♪";
+      toggle.classList.add("muted");
+      toggle.textContent = "♪";
     }
   });
 });
+
+
 
