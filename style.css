@@ -1060,7 +1060,7 @@ body {
 
   .event-image {
     order: 1;
-    padding-bottom: 32px;
+    padding-bottom: 12px;
   }
 
   .event-content {
@@ -1157,6 +1157,7 @@ body {
   font-weight: 400;
   letter-spacing: 0.015em;
 }
+
 
 
 
