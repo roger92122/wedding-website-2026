@@ -164,3 +164,29 @@ document.addEventListener("scroll", () => {
   rsvp.style.pointerEvents = footerTop < windowHeight ? "none" : "auto";
 });
 
+
+  /* --------------------------------------------------------
+     MUSIC
+  -------------------------------------------------------- */
+document.addEventListener("DOMContentLoaded", () => {
+  const music = document.getElementById("bg-music");
+  const button = document.getElementById("music-toggle");
+
+  let isPlaying = false;
+
+  button.addEventListener("click", () => {
+    if (!isPlaying) {
+      music.volume = 0.4;   // soft background volume
+      music.play();
+      isPlaying = true;
+      button.classList.remove("muted");
+      button.textContent = "❚❚";
+    } else {
+      music.pause();
+      isPlaying = false;
+      button.classList.add("muted");
+      button.textContent = "♪";
+    }
+  });
+});
+
