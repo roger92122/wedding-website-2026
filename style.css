@@ -1094,6 +1094,8 @@ body {
   font-style: italic;
   font-size: clamp(42px, 7vw, 96px);
   letter-spacing: -0.015em;
+  word-spacing: 0.12em;
+
 }
 
 
@@ -1117,6 +1119,7 @@ body {
     font-size: 16px;
   }
 }
+
 
 
 
