@@ -159,7 +159,7 @@ body {
 
 .hero-subtitle {
   font-family: "Libre Caslon Display", serif;
-  font-size: 26px;        /* ↑ from ~18 */
+  font-size: 22px;        /* ↑ from ~18 */
   font-weight: 400;
   letter-spacing: 0.12em;
 }
@@ -180,7 +180,7 @@ body {
 
 
 .hero-subtitle {
-  font-size: 18px;
+  font-size: 22px;
   margin-bottom: 20px;
 }
 
@@ -393,7 +393,7 @@ body {
   }
    
  .hero-subtitle {
-    font-size: 18px;
+    font-size: 22px;
   }
  .hero-date {
     font-size: 14px;
@@ -1124,6 +1124,7 @@ body {
     font-size: 16px;
   }
 }
+
 
 
 
