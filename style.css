@@ -452,6 +452,7 @@ body {
   max-width: 720px;
   margin: 0 auto;
   text-align: center;
+  margin-bottom: 40px; 
 }
 
 .schedule-section h2 {
@@ -1154,6 +1155,7 @@ body {
   font-weight: 400;
   letter-spacing: 0.015em;
 }
+
 
 
 
