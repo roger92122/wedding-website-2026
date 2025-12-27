@@ -10,7 +10,7 @@
 
 @font-face {
   font-family: "Austin";
-  src: url("/fonts/Austin-Roman-Trial.otf") format("opentype");
+  src: url("/fonts/SacrificeDemo-8Ox1B.ttf") format("opentype");
   font-weight: 300;
   /* font-style: italic; */
   font-display: swap;
@@ -1153,6 +1153,7 @@ body {
   font-weight: 300;
   letter-spacing: 0.02em;
 }
+
 
 
 
