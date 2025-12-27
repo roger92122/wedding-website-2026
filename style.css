@@ -937,6 +937,8 @@ body {
   grid-template-columns: 1fr 1fr;
   min-height: 650px;
   background: #e6e6e4;
+
+   align-items: start;
 }
 
 .event-section.reverse {
@@ -973,7 +975,7 @@ body {
 .event-content {
   display: flex;
   flex-direction: column;
-  justify-content: center;   /* vertical center */
+  /* justify-content: center;   /* vertical center */ */
   align-items: center;       /* horizontal center */
   text-align: center;
 
@@ -1125,6 +1127,7 @@ body {
     font-size: 16px;
   }
 }
+
 
 
 
