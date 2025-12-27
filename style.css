@@ -931,71 +931,68 @@ body {
 /* ============================================================
    CEREMONY & RECEPTION — EDITORIAL LAYOUT
    ============================================================ */
+/* ============================================================
+   CEREMONY & RECEPTION — EDITORIAL LAYOUT (FIXED)
+============================================================ */
 
 .event-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
   background: #e6e6e4;
   padding: 140px 0;
+  align-items: start;
 }
 
-
-.event-section.reverse {
-  direction: ltr;
-}
-
+/* DEFAULT ORDER: IMAGE LEFT, TEXT RIGHT */
 .event-image {
+  grid-column: 1;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-
-  padding-top: 60px;     /* 🔑 creates stagger */
+  padding-top: 60px;           /* stagger */
 }
 
-
-
-/* PORTRAIT FRAME */
-.image-frame {
-  width: 100%;
-  max-width: 400px;      /* elegant desktop width */
-  max-height: 600px;     /* 🔒 prevents explosion */
-  aspect-ratio: 3 / 4;
-  overflow: hidden;
-}
-
-
-/* IMAGE FILLS FRAME */
-.image-frame img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-
-/* TEXT PANEL */
 .event-content {
+  grid-column: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
 
-  margin-top: -40px;     /* 🔑 pulls text upward */
+  margin-top: -40px;           /* stagger */
   padding: 0 80px;
 
   font-family: "Cormorant Garamond", serif;
   max-width: 520px;
 }
 
+/* REVERSE: IMAGE RIGHT, TEXT LEFT */
 .event-section.reverse .event-image {
-  padding-top: 140px;    /* image lower */
+  grid-column: 2;
+  padding-top: 140px;          /* deeper stagger */
 }
 
 .event-section.reverse .event-content {
-  margin-top: -80px;     /* text higher */
+  grid-column: 1;
+  margin-top: -80px;           /* stronger pull⤴ */
 }
 
+/* PORTRAIT FRAME */
+.image-frame {
+  width: 100%;
+  max-width: 400px;
+  max-height: 600px;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+}
 
-/* TITLES */
+.image-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* TYPOGRAPHY */
 .event-content h2 {
   font-size: 60px;
   font-weight: 400;
@@ -1019,6 +1016,7 @@ body {
   font-size: 18px;
   margin-top: 16px;
 }
+
 
 
 /* ============================================================
@@ -1135,6 +1133,7 @@ body {
     font-size: 16px;
   }
 }
+
 
 
 
