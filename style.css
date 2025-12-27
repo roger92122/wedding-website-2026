@@ -218,7 +218,7 @@ body {
 
 @media (max-width: 768px) {
   .hero {
-    background-position: 38% center;
+    background-position: 45% center;
   }
 }
 
@@ -1124,6 +1124,7 @@ body {
     font-size: 16px;
   }
 }
+
 
 
 
