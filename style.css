@@ -834,6 +834,7 @@ body {
 .site-footer {
   background: #ececef;
   padding: 48px 40px 120px;
+  margin-bottom: 120px;
 }
 
 .footer-inner {
@@ -1143,6 +1144,7 @@ body {
     font-size: 16px;
   }
 }
+
 
 
 
