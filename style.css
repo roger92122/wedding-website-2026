@@ -1092,7 +1092,7 @@ body {
   font-family: "Austin", serif;
   font-weight: 300;
   font-style: italic;
-  font-size: clamp(42px, 7vw, 82px);
+  font-size: clamp(42px, 7vw, 96px);
   letter-spacing: -0.015em;
 }
 
@@ -1117,6 +1117,7 @@ body {
     font-size: 16px;
   }
 }
+
 
 
 
