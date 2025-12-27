@@ -10,7 +10,7 @@
 
 @font-face {
   font-family: "Austin";
-  src: url("/fonts/SacrificeDemo-8Ox1B.ttf") format("opentype");
+  src: url("/fonts/Magic Bright Serif Regular.otf") format("opentype");
   font-weight: 300;
   /* font-style: italic; */
   font-display: swap;
@@ -1184,6 +1184,7 @@ body {
 #music-toggle.muted {
   opacity: 0.55;
 }
+
 
 
 
