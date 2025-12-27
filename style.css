@@ -933,7 +933,7 @@ body {
    ============================================================ */
 
 .event-section {
-  display: grid;
+  /* display: grid; */
   grid-template-columns: 1fr 1fr;
   min-height: 650px;
   background: #e6e6e4;
@@ -947,11 +947,12 @@ body {
 
 .event-image {
   display: flex;
-  align-items: center;
+  align-items: flex-start;     /* 🔑 */
   justify-content: center;
+  padding-top: 120px;          /* MATCH text */
   padding-bottom: 80px;
-  padding-top: 140px;          
 }
+
 
 /* PORTRAIT FRAME */
 .image-frame {
@@ -1127,6 +1128,7 @@ body {
     font-size: 16px;
   }
 }
+
 
 
 
