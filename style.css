@@ -986,6 +986,13 @@ body {
   max-width: 520px;
 }
 
+.event-section.reverse .event-image {
+  padding-top: 140px;    /* image lower */
+}
+
+.event-section.reverse .event-content {
+  margin-top: -80px;     /* text higher */
+}
 
 
 /* TITLES */
@@ -1128,6 +1135,7 @@ body {
     font-size: 16px;
   }
 }
+
 
 
 
