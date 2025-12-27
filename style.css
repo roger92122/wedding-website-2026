@@ -958,14 +958,14 @@ body {
 /* Desktop only */
 @media (min-width: 901px) {
   .ceremony-image {
-    margin-top: 140px;   /* adjust as needed */
+    margin-top: 160px;   /* adjust as needed */
   }
 }
 
 /* Desktop only */
 @media (min-width: 901px) {
   .reception-image {
-    margin-top: 120px;   /* adjust as needed */
+    margin-top: 140px;   /* adjust as needed */
   }
 }
 
@@ -995,7 +995,7 @@ body {
   align-items: center;       /* horizontal center */
   text-align: center;
 
-  padding: 80px;
+  padding: 60px;
   font-family: "Cormorant Garamond", serif;
   color: #000;
   max-width: 520px;          /* THIS is critical */
@@ -1143,6 +1143,7 @@ body {
     font-size: 16px;
   }
 }
+
 
 
 
