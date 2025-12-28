@@ -207,7 +207,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Start on first interaction
-  document.addEventListener("click", startMusic, { once: true });
+  // document.addEventListener("click", startMusic, { once: true });
 
   // Start on first scroll (touchpad / mouse / swipe)
   window.addEventListener("scroll", startMusic, { once: true });
@@ -245,6 +245,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   items.forEach(item => observer.observe(item));
 });
+
 
 
 
