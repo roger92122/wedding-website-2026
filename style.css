@@ -506,6 +506,9 @@ body {
   text-align: left;   /* override section centering */
 }
 
+#things-to-do .travel-note {
+  text-align: left;
+}
 /* Headings can stay centered */
 #things-to-do h2,
 #things-to-do h3 {
@@ -1268,6 +1271,7 @@ body {
     background-position: center 50%;
   }
 }
+
 
 
 
