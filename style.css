@@ -1243,24 +1243,25 @@ body {
 /* ============================================================
    N A N J I N G
 ============================================================ */
-.things-bg {
+#things-to-do {
   position: relative;
-  overflow: hidden;
+  padding: 140px 60px;
+
+  background-image:
+    linear-gradient(
+      rgba(255,255,255,0.82),
+      rgba(255,255,255,0.88)
+    ),
+    url("/pics/nanjing.jpg");
+
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  /* 🔑 Key for THIS photo */
+  background-position: center 65%;
 }
 
-.things-bg-image {
-  position: absolute;
-  inset: 0;
 
-  background: url("/pics/nanjing.jpg") center / cover no-repeat;
-  opacity: 0.18;
-  z-index: 0;
-}
-
-.things-bg > * {
-  position: relative;
-  z-index: 1;
-}
 
 
 
