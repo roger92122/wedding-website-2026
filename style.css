@@ -267,8 +267,8 @@ body {
 }
 
 .travel-image img {
-  width: 360px;
-  height: 360px;
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
   object-fit: cover;
   display: block;
@@ -1273,6 +1273,7 @@ body {
     background-position: center 50%;
   }
 }
+
 
 
 
