@@ -209,7 +209,7 @@ body {
 }
 
 .section h2 {
-  font-family: "Libre Caslon Display", serif;
+  font-family: "Austin", serif;
   font-size: 40px;        /* ↑ from 36 */
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -1237,6 +1237,7 @@ body {
     grid-row: auto;
   }
 }
+
 
 
 
