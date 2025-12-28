@@ -175,8 +175,9 @@ document.addEventListener("DOMContentLoaded", () => {
   let isPlaying = false;
   let hasInteracted = false;
 
-  function fadeInAudio(audio, targetVolume = 0.4, duration = 1500) {
-    audio.volume = 0;
+  function fadeInAudio(audio, targetVolume = 0.4, duration = 1200) {
+    audio.muted = false; 
+    // audio.volume = 0;
     audio.play();
 
     const stepTime = 50;
@@ -245,6 +246,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   items.forEach(item => observer.observe(item));
 });
+
 
 
 
