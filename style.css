@@ -1240,6 +1240,27 @@ body {
 
 
 
+/* ============================================================
+   N A N J I N G
+============================================================ */
+.things-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.things-bg-image {
+  position: absolute;
+  inset: 0;
+
+  background: url("/pics/nanjing.jpg") center / cover no-repeat;
+  opacity: 0.18;
+  z-index: 0;
+}
+
+.things-bg > * {
+  position: relative;
+  z-index: 1;
+}
 
 
 
