@@ -197,21 +197,47 @@ document.addEventListener("DOMContentLoaded", () => {
     }, stepTime);
   }
 
+  // function startMusic() {
+  //   if (!hasInteracted) {
+  //     fadeInAudio(music, 0.4, 1800);
+  //     isPlaying = true;
+  //     toggle.classList.remove("muted");
+  //     toggle.textContent = "❚❚";
+  //     hasInteracted = true;
+  //   }
+  // }
   function startMusic() {
-    if (!hasInteracted) {
-      fadeInAudio(music, 0.4, 1800);
-      isPlaying = true;
-      toggle.classList.remove("muted");
-      toggle.textContent = "❚❚";
-      hasInteracted = true;
-    }
-  }
+     if (hasInteracted) return;
+   
+     music.muted = false;
+     music.volume = 0;
+   
+     music.play().then(() => {
+       // ✅ ONLY set state after successful play
+       fadeInAudio(music, 0.4, 1800);
+   
+       isPlaying = true;
+       hasInteracted = true;
+   
+       toggle.classList.remove("muted");
+       toggle.textContent = "❚❚";
+     }).catch(err => {
+       // ❌ play blocked (likely from scroll)
+       console.warn("Audio play blocked:", err);
+     });
+   }
+
 
   // Start on first interaction
-  document.addEventListener("click", startMusic, { once: true });
+  // document.addEventListener("click", startMusic, { once: true });
 
   // Start on first scroll (touchpad / mouse / swipe)
   // window.addEventListener("scroll", startMusic, { once: true });
+
+  document.addEventListener("click", startMusic, { once: true });
+  document.addEventListener("touchstart", startMusic, { once: true });
+  window.addEventListener("scroll", startMusic, { once: true });
+
 
 
   // Manual toggle
@@ -246,6 +272,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   items.forEach(item => observer.observe(item));
 });
+
 
 
 
