@@ -267,8 +267,8 @@ body {
 }
 
 .travel-image img {
-  width: 260px;
-  height: 260px;
+  width: 360px;
+  height: 360px;
   border-radius: 50%;
   object-fit: cover;
   display: block;
@@ -293,6 +293,7 @@ body {
   margin-top: 24px;
   font-size: 16px;
   line-height: 1.6;
+  text-align: left;
 }
 
 .travel-button {
@@ -422,8 +423,8 @@ body {
   }
 
   .travel-image img {
-    width: 360px;
-    height: 360px;
+    width: 220px;
+    height: 220px;
     margin: 0 auto;
   }
 
@@ -431,8 +432,6 @@ body {
     margin: 0 auto;
   }
 
-  .travel-note {
-  text-align: left;
      
   .section {
     padding: 60px 20px;
@@ -1274,6 +1273,7 @@ body {
     background-position: center 50%;
   }
 }
+
 
 
 
