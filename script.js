@@ -399,5 +399,28 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+ /* --------------------------------------------------------
+     QR CODE
+  -------------------------------------------------------- */
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const modal = document.getElementById("registry-modal");
+  const openEn = document.getElementById("open-registry");
+  const openZh = document.getElementById("open-registry-zh");
+  const closeBtn = document.querySelector(".registry-close");
+  const backdrop = document.querySelector(".registry-backdrop");
+
+  function openModal(e) {
+    e.preventDefault();
+    modal.style.display = "block";
+  }
+
+  openEn?.addEventListener("click", openModal);
+  openZh?.addEventListener("click", openModal);
+
+  closeBtn.addEventListener("click", () => modal.style.display = "none");
+  backdrop.addEventListener("click", () => modal.style.display = "none");
+});
 
 
