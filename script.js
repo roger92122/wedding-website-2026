@@ -274,6 +274,25 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+ /* --------------------------------------------------------
+     Message Button
+  -------------------------------------------------------- */
+const msgBtn = document.getElementById("floating-message-btn");
+const modal = document.getElementById("message-modal");
+const closeBtn = document.querySelector(".modal-close");
+const backdrop = document.querySelector(".modal-backdrop");
+
+msgBtn.addEventListener("click", () => {
+  modal.classList.add("active");
+});
+
+closeBtn.addEventListener("click", () => {
+  modal.classList.remove("active");
+});
+
+backdrop.addEventListener("click", () => {
+  modal.classList.remove("active");
+});
 
 
 
