@@ -1284,7 +1284,7 @@ body {
 
 #floating-message-btn {
   position: fixed;
-  bottom: 28px;
+  bottom: 64px;
   right: 28px;
   z-index: 9999;
 
@@ -1534,6 +1534,7 @@ body {
     font-size: 20px;
   }
 }
+
 
 
 
