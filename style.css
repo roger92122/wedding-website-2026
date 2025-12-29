@@ -460,7 +460,7 @@ body {
   position: absolute;
   inset: 0;
 
-  background-image: url("/images/bus.jpg");
+  background-image: url("/bus.jpg");
   background-repeat: no-repeat;
 
   /* 🔑 THIS is the key change */
@@ -1585,6 +1585,7 @@ body {
 #floating-message-btn.dragging {
   cursor: grabbing;
 }
+
 
 
 
