@@ -277,22 +277,30 @@ document.addEventListener("DOMContentLoaded", () => {
  /* --------------------------------------------------------
      Message Button
   -------------------------------------------------------- */
-const msgBtn = document.getElementById("floating-message-btn");
-const modal = document.getElementById("message-modal");
-const closeBtn = document.querySelector(".modal-close");
-const backdrop = document.querySelector(".modal-backdrop");
+document.addEventListener("DOMContentLoaded", () => {
+  const msgBtn = document.getElementById("floating-message-btn");
+  const modal = document.getElementById("message-modal");
+  const closeBtn = document.querySelector(".modal-close");
+  const backdrop = document.querySelector(".modal-backdrop");
 
-msgBtn.addEventListener("click", () => {
-  modal.classList.add("active");
+  if (!msgBtn || !modal) {
+    console.error("Floating message button or modal not found");
+    return;
+  }
+
+  msgBtn.addEventListener("click", () => {
+    modal.classList.add("active");
+  });
+
+  closeBtn?.addEventListener("click", () => {
+    modal.classList.remove("active");
+  });
+
+  backdrop?.addEventListener("click", () => {
+    modal.classList.remove("active");
+  });
 });
 
-closeBtn.addEventListener("click", () => {
-  modal.classList.remove("active");
-});
-
-backdrop.addEventListener("click", () => {
-  modal.classList.remove("active");
-});
 
 
 
