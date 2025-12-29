@@ -444,25 +444,38 @@ body {
 
 .travel-note.bus {
   position: relative;
-
   padding: 28px 28px;
   border-radius: 14px;
 
-  background-color: rgba(255, 255, 255, 0.65);
+  background-color: rgba(255, 255, 255, 0.75);
+  line-height: 1.7;
+
+  /* ensures text is above the background image */
+  z-index: 0;
+}
+
+/* faded background image layer */
+.travel-note.bus::before {
+  content: "";
+  position: absolute;
+  inset: 0;
 
   background-image: url("/bus.jpg"); /* adjust path */
   background-repeat: no-repeat;
-  background-position: right 20px bottom 16px;
-  background-size: 120px auto;
+  background-position: right 20px center;
+  background-size: 140px auto;
 
-  line-height: 1.7;
+  opacity: 0.18;              /* 🔑 controls fading */
+  pointer-events: none;
+
+  z-index: -1;
 }
 
 @media (max-width: 768px) {
-  .travel-note.bus {
-    background-size: 80px auto;
+  .travel-note.bus::before {
+    background-size: 100px auto;
     background-position: right 12px bottom 12px;
-    padding: 22px;
+    opacity: 0.14;
   }
 }
 
@@ -1568,6 +1581,7 @@ body {
 #floating-message-btn.dragging {
   cursor: grabbing;
 }
+
 
 
 
