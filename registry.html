@@ -72,9 +72,12 @@
   </p>
 
   <div style="margin-top: 30px;">
-    <a href="#" class="map-link lang lang-en">View Our Registry</a>
-    <a href="#" class="map-link lang lang-zh" style="display:none;">查看礼物登记</a>
+    <a href="#" id="open-registry" class="map-link lang lang-en">View Our Registry</a>
+    <a href="#" id="open-registry-zh" class="map-link lang lang-zh" style="display:none;">
+      查看礼物登记
+    </a>
   </div>
+
 
 </main>
 
@@ -234,5 +237,39 @@
     </div>
   </div>
 </div>
+
+<!-- Registry Image Modal -->
+<div id="registry-modal" style="display:none;">
+  <div class="registry-backdrop"></div>
+
+  <div class="registry-card">
+    <button class="registry-close">×</button>
+
+    <img
+      src="/qr.jpg"
+      alt="Wedding Registry"
+      id="registry-image"
+    />
+
+    <div class="registry-actions">
+      <a
+        href="/qr.jpg"
+        download
+        class="download-btn lang lang-en"
+      >
+        Download Image
+      </a>
+      <a
+        href="/qr.jpg"
+        download
+        class="download-btn lang lang-zh"
+        style="display:none;"
+      >
+        下载图片
+      </a>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
