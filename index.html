@@ -352,7 +352,7 @@
 
 
 <!-- Floating Message Button -->
-<button id="floating-message-btn" aria-label="Send a message">
+<button id="floating-message-btn" aria-label="Send a message~">
   ✉
 </button>
 
@@ -362,30 +362,50 @@
 
   <div class="modal-card">
     <button class="modal-close">×</button>
-
-    <h3>Leave Us a Message</h3>
-
+  
+    <h3 class="lang lang-en">Leave Us a Message</h3>
+    <h3 class="lang lang-zh">给我们留言</h3>
+  
     <form
       action="https://formspree.io/f/xzdbobgg"
       method="POST"
     >
       <input
+        class="lang lang-en"
         type="text"
         name="name"
         placeholder="Your name"
         required
       />
-
+      <input
+        class="lang lang-zh"
+        type="text"
+        name="name"
+        placeholder="您的姓名"
+        required
+      />
+  
       <textarea
+        class="lang lang-en"
         name="message"
         placeholder="Your message"
         rows="4"
         required
       ></textarea>
-
-      <button type="submit">Send</button>
+  
+      <textarea
+        class="lang lang-zh"
+        name="message"
+        placeholder="想对我们说的话"
+        rows="4"
+        required
+      ></textarea>
+  
+      <button class="lang lang-en" type="submit">Send</button>
+      <button class="lang lang-zh" type="submit">发送</button>
     </form>
   </div>
+
 </div>
 
 </body>
