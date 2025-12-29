@@ -333,6 +333,70 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
+ /* --------------------------------------------------------
+     GRABBING Message Button
+  -------------------------------------------------------- */
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.getElementById("floating-message-btn");
+  if (!btn) return;
+
+  let isDragging = false;
+  let startX, startY, startLeft, startTop;
+
+  const onPointerDown = (e) => {
+    isDragging = false;
+    btn.classList.add("dragging");
+
+    const rect = btn.getBoundingClientRect();
+    startX = e.clientX;
+    startY = e.clientY;
+    startLeft = rect.left;
+    startTop = rect.top;
+
+    btn.setPointerCapture(e.pointerId);
+  };
+
+  const onPointerMove = (e) => {
+    if (!btn.hasPointerCapture(e.pointerId)) return;
+
+    const dx = e.clientX - startX;
+    const dy = e.clientY - startY;
+
+    // Mark as dragging only after slight movement (prevents click conflict)
+    if (Math.abs(dx) > 4 || Math.abs(dy) > 4) {
+      isDragging = true;
+    }
+
+    if (isDragging) {
+      btn.style.left = `${startLeft + dx}px`;
+      btn.style.top = `${startTop + dy}px`;
+      btn.style.right = "auto";
+      btn.style.bottom = "auto";
+      btn.style.transform = "none";
+    }
+  };
+
+  const onPointerUp = (e) => {
+    btn.releasePointerCapture(e.pointerId);
+    btn.classList.remove("dragging");
+  };
+
+  btn.addEventListener("pointerdown", onPointerDown);
+  btn.addEventListener("pointermove", onPointerMove);
+  btn.addEventListener("pointerup", onPointerUp);
+  btn.addEventListener("pointercancel", onPointerUp);
+
+  // Prevent accidental click after dragging
+  btn.addEventListener("click", (e) => {
+    if (isDragging) {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      isDragging = false;
+    }
+  });
+});
 
 
 
