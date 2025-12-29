@@ -1322,6 +1322,26 @@ body {
    MODAL
    ============================================================ */
 
+
+/* ---------- Font & Box Reset (CRITICAL) ---------- */
+.modal-card,
+.modal-card * {
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+/* ---------- Backdrop (page blur) ---------- */
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.25);
+
+  backdrop-filter: blur(8px) saturate(120%);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+}
+
+/* ---------- Modal Container ---------- */
 #message-modal {
   position: fixed;
   inset: 0;
@@ -1333,26 +1353,14 @@ body {
   display: block;
 }
 
-.modal-backdrop {
-  position: absolute;
-  inset: 0;
-
-  background: rgba(0, 0, 0, 0.25);
-
-  backdrop-filter: blur(8px) saturate(120%);
-  -webkit-backdrop-filter: blur(8px) saturate(120%);
-
-  transition: opacity 0.45s ease;
-}
-
-
+/* ---------- Modal Card (glass) ---------- */
 .modal-card {
   position: absolute;
   bottom: 110px;
   right: 28px;
 
   width: 320px;
-  padding: 24px;
+  padding: 26px 24px 24px;
 
   background: rgba(255, 255, 255, 0.82);
   backdrop-filter: blur(18px) saturate(160%);
@@ -1368,6 +1376,7 @@ body {
   animation: modalIn 0.5s cubic-bezier(0.22,1,0.36,1);
 }
 
+/* ---------- Animation ---------- */
 @keyframes modalIn {
   from {
     opacity: 0;
@@ -1379,52 +1388,132 @@ body {
   }
 }
 
+/* ---------- Close Button ---------- */
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
 
+  background: none;
+  border: none;
+
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+/* ---------- Title ---------- */
 .modal-card h3 {
+  margin: 0 0 18px;
+  font-size: 22px;
   font-weight: 500;
   letter-spacing: 0.02em;
 }
 
-.modal-card input,
-.modal-card textarea {
-  background: rgba(255,255,255,0.75);
-  backdrop-filter: blur(6px);
-  border: 1px solid rgba(0,0,0,0.12);
+/* ---------- Form Layout ---------- */
+.modal-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
-
-.modal-card button[type="submit"] {
+/* ---------- Inputs ---------- */
+.modal-card input,
+.modal-card textarea {
   width: 100%;
-  padding: 10px;
+  padding: 12px 14px;
+
+  font-size: 15px;
+  line-height: 1.4;
+
   border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.12);
+
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  color: #000;
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.modal-card textarea {
+  resize: vertical;
+}
+
+.modal-card input::placeholder,
+.modal-card textarea::placeholder {
+  color: rgba(0,0,0,0.45);
+}
+
+/* ---------- Focus ---------- */
+.modal-card input:focus,
+.modal-card textarea:focus {
+  outline: none;
+  border-color: rgba(0,0,0,0.4);
+  box-shadow: 0 0 0 3px rgba(0,0,0,0.06);
+}
+
+/* ---------- Submit Button ---------- */
+.modal-card button[type="submit"] {
+  margin-top: 6px;
+  padding: 12px 0;
+
+  border-radius: 12px;
   border: none;
+
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
 
   background: #000;
   color: #fff;
-  font-size: 14px;
+
   cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
-.modal-close {
-  position: absolute;
-  top: 10px;
-  right: 14px;
-  background: none;
-  border: none;
-  font-size: 22px;
-  cursor: pointer;
+.modal-card button[type="submit"]:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.18);
 }
 
-/* Mobile */
+.modal-card button[type="submit"]:active {
+  transform: scale(0.98);
+}
+
+/* ============================================================
+   MOBILE OPTIMIZATION
+   ============================================================ */
+
 @media (max-width: 768px) {
+
   .modal-backdrop {
     backdrop-filter: blur(6px);
   }
 
   .modal-card {
-    backdrop-filter: blur(14px);
+    right: 16px;
+    left: 16px;
+    bottom: 90px;
+    width: auto;
+
+    padding: 24px 20px 22px;
+    backdrop-filter: blur(14px) saturate(150%);
+  }
+
+  .modal-card h3 {
+    font-size: 20px;
   }
 }
+
+
 
 
 
