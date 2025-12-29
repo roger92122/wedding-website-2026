@@ -1336,9 +1336,15 @@ body {
 .modal-backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.35);
-  backdrop-filter: blur(4px);
+
+  background: rgba(0, 0, 0, 0.25);
+
+  backdrop-filter: blur(8px) saturate(120%);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+
+  transition: opacity 0.45s ease;
 }
+
 
 .modal-card {
   position: absolute;
@@ -1348,42 +1354,44 @@ body {
   width: 320px;
   padding: 24px;
 
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 30px 60px rgba(0,0,0,0.25);
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
 
-  animation: modalIn 0.45s cubic-bezier(0.22,1,0.36,1);
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.45);
+
+  box-shadow:
+    0 30px 60px rgba(0,0,0,0.18),
+    inset 0 1px 0 rgba(255,255,255,0.4);
+
+  animation: modalIn 0.5s cubic-bezier(0.22,1,0.36,1);
 }
 
 @keyframes modalIn {
   from {
     opacity: 0;
-    transform: translateY(20px) scale(0.96);
+    transform: translateY(18px) scale(0.97);
   }
   to {
     opacity: 1;
-    transform: none;
+    transform: translateY(0) scale(1);
   }
 }
 
+
 .modal-card h3 {
-  margin-top: 0;
-  margin-bottom: 16px;
-  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
 }
 
 .modal-card input,
 .modal-card textarea {
-  width: 100%;
-  margin-bottom: 12px;
-  padding: 10px 12px;
-
-  font-family: inherit;
-  font-size: 14px;
-
-  border-radius: 8px;
-  border: 1px solid #ddd;
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(0,0,0,0.12);
 }
+
 
 .modal-card button[type="submit"] {
   width: 100%;
@@ -1409,17 +1417,16 @@ body {
 
 /* Mobile */
 @media (max-width: 768px) {
-  .modal-card {
-    right: 16px;
-    bottom: 90px;
-    width: calc(100% - 32px);
+  .modal-backdrop {
+    backdrop-filter: blur(6px);
   }
 
-  #floating-message-btn {
-    right: 16px;
-    bottom: 20px;
+  .modal-card {
+    backdrop-filter: blur(14px);
   }
 }
+
+
 
 
 
