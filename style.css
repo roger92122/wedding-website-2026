@@ -1330,7 +1330,7 @@ body {
 /* Mobile */
 @media (max-width: 768px) {
   #floating-message-btn {
-    bottom: 64px;
+    bottom: 124px;
     right: 20px;
     width: 52px;
     height: 52px;
@@ -1534,6 +1534,7 @@ body {
     font-size: 20px;
   }
 }
+
 
 
 
