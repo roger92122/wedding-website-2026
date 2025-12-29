@@ -442,6 +442,29 @@ body {
   }
 }
 
+.travel-note.bus {
+  position: relative;
+
+  padding: 28px 28px;
+  border-radius: 14px;
+
+  background-color: rgba(255, 255, 255, 0.65);
+
+  background-image: url("/images/bus.jpg"); /* adjust path */
+  background-repeat: no-repeat;
+  background-position: right 20px bottom 16px;
+  background-size: 120px auto;
+
+  line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+  .travel-note.bus {
+    background-size: 80px auto;
+    background-position: right 12px bottom 12px;
+    padding: 22px;
+  }
+}
 
 
 /* ============================================================
@@ -1545,6 +1568,7 @@ body {
 #floating-message-btn.dragging {
   cursor: grabbing;
 }
+
 
 
 
