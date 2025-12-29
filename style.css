@@ -1537,6 +1537,15 @@ body {
 
 
 
+#floating-message-btn {
+  touch-action: none;   /* 🔑 required for mobile drag */
+  cursor: grab;
+}
+
+#floating-message-btn.dragging {
+  cursor: grabbing;
+}
+
 
 
 
