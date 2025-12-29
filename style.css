@@ -1277,6 +1277,150 @@ body {
 
 
 
+/* ============================================================
+   FLOATING MESSAGE BUTTON — BOTTOM RIGHT
+   ============================================================ */
+
+#floating-message-btn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 9999;
+
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+
+  background: rgba(255,255,255,0.88);
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.14);
+
+  font-size: 20px;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition:
+    transform 0.35s cubic-bezier(0.22,1,0.36,1),
+    box-shadow 0.35s ease;
+}
+
+#floating-message-btn:hover {
+  transform: translateY(-4px) scale(1.05);
+}
+
+#floating-message-btn:active {
+  transform: scale(0.96);
+}
+
+/* ============================================================
+   MODAL
+   ============================================================ */
+
+#message-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: none;
+}
+
+#message-modal.active {
+  display: block;
+}
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(4px);
+}
+
+.modal-card {
+  position: absolute;
+  bottom: 110px;
+  right: 28px;
+
+  width: 320px;
+  padding: 24px;
+
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.25);
+
+  animation: modalIn 0.45s cubic-bezier(0.22,1,0.36,1);
+}
+
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.modal-card h3 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 20px;
+}
+
+.modal-card input,
+.modal-card textarea {
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 10px 12px;
+
+  font-family: inherit;
+  font-size: 14px;
+
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.modal-card button[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+
+  background: #000;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .modal-card {
+    right: 16px;
+    bottom: 90px;
+    width: calc(100% - 32px);
+  }
+
+  #floating-message-btn {
+    right: 16px;
+    bottom: 20px;
+  }
+}
+
 
 
 
