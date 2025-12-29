@@ -302,6 +302,36 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+document.addEventListener("DOMContentLoaded", () => {
+
+  function wireMessageForm(formId, successId) {
+    const form = document.getElementById(formId);
+    const success = document.getElementById(successId);
+
+    if (!form) return;
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const data = new FormData(form);
+
+      const res = await fetch(form.action, {
+        method: "POST",
+        body: data,
+        headers: { "Accept": "application/json" }
+      });
+
+      if (res.ok) {
+        form.reset();
+        success.style.display = "block";
+      }
+    });
+  }
+
+  wireMessageForm("message-form-en", "message-success-en");
+  wireMessageForm("message-form-zh", "message-success-zh");
+
+});
 
 
 
