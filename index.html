@@ -350,5 +350,43 @@
   <source src="music.mp3" type="audio/mpeg">
 </audio>
 
+
+<!-- Floating Message Button -->
+<button id="floating-message-btn" aria-label="Send a message">
+  ✉
+</button>
+
+<!-- Message Modal -->
+<div id="message-modal">
+  <div class="modal-backdrop"></div>
+
+  <div class="modal-card">
+    <button class="modal-close">×</button>
+
+    <h3>Leave Us a Message</h3>
+
+    <form
+      action="https://formspree.io/f/xzdbobgg"
+      method="POST"
+    >
+      <input
+        type="text"
+        name="name"
+        placeholder="Your name"
+        required
+      />
+
+      <textarea
+        name="message"
+        placeholder="Your message"
+        rows="4"
+        required
+      ></textarea>
+
+      <button type="submit">Send</button>
+    </form>
+  </div>
+</div>
+
 </body>
 </html>
