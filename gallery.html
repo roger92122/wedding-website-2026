@@ -157,5 +157,87 @@
 <audio id="bg-music" loop>
   <source src="music.mp3" type="audio/mpeg">
 </audio>
+
+<!-- Floating Message Button -->
+<button id="floating-message-btn" aria-label="Send a message">
+  💌
+</button>
+
+<!-- Message Modal -->
+<div id="message-modal">
+  <div class="modal-backdrop"></div>
+
+  <div class="modal-card">
+    <button class="modal-close">×</button>
+  
+    <!-- ================= ENGLISH FORM ================= -->
+    <div class="lang lang-en">
+      <h3>Leave Us a Message❤️</h3>
+
+      <form
+        id="message-form-en"
+        action="https://formspree.io/f/xzdbobgg"
+        method="POST"
+      >
+        <input
+          type="text"
+          name="name"
+          placeholder="Your name"
+          required
+        />
+
+        <textarea
+          name="message"
+          placeholder="Your message"
+          rows="4"
+          required
+        ></textarea>
+
+        <button type="submit">Send</button>
+
+        <p
+          id="message-success-en"
+          style="display:none;color:green;margin-top:12px;"
+        >
+          ✔ Thank you! Your message has been sent.
+        </p>
+      </form>
+    </div>
+
+    <!-- ================= CHINESE FORM ================= -->
+    <div class="lang lang-zh" style="display:none;">
+      <h3>给我们留言❤️</h3>
+
+      <form
+        id="message-form-zh"
+        action="https://formspree.io/f/xzdbobgg"
+        method="POST"
+      >
+        <input
+          type="text"
+          name="name"
+          placeholder="您的姓名"
+          required
+        />
+
+        <textarea
+          name="message"
+          placeholder="想对我们说的话"
+          rows="4"
+          required
+        ></textarea>
+
+        <button type="submit">发送</button>
+
+        <p
+          id="message-success-zh"
+          style="display:none;color:green;margin-top:12px;"
+        >
+          ✔ 谢谢你，我们已收到留言！
+        </p>
+      </form>
+    </div>
+  </div>
+</div>
 </body>
 </html>
