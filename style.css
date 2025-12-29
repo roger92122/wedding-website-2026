@@ -1279,7 +1279,7 @@ body {
 
 
 /* ============================================================
-   FLOATING MESSAGE BUTTON — EMOJI ONLY
+   FLOATING MESSAGE BUTTON — BLURRY GLASS
    ============================================================ */
 
 #floating-message-btn {
@@ -1292,11 +1292,16 @@ body {
   height: 56px;
   border-radius: 50%;
 
-  background: transparent;
-  border: none;
-  box-shadow: none;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
 
-  font-size: 28px;          /* 🔑 emoji size */
+  border: 1px solid rgba(255,255,255,0.5);
+  box-shadow:
+    0 12px 28px rgba(0,0,0,0.18),
+    inset 0 1px 0 rgba(255,255,255,0.4);
+
+  font-size: 26px;
   line-height: 1;
 
   cursor: pointer;
@@ -1305,15 +1310,21 @@ body {
   align-items: center;
   justify-content: center;
 
-  transition: transform 0.3s cubic-bezier(0.22,1,0.36,1);
+  transition:
+    transform 0.3s cubic-bezier(0.22,1,0.36,1),
+    box-shadow 0.3s ease,
+    background 0.3s ease;
 }
 
 #floating-message-btn:hover {
-  transform: scale(1.12);
+  transform: translateY(-3px) scale(1.08);
+  box-shadow:
+    0 18px 40px rgba(0,0,0,0.22),
+    inset 0 1px 0 rgba(255,255,255,0.5);
 }
 
 #floating-message-btn:active {
-  transform: scale(0.95);
+  transform: scale(0.96);
 }
 
 /* Mobile */
@@ -1321,9 +1332,12 @@ body {
   #floating-message-btn {
     bottom: 20px;
     right: 20px;
-    font-size: 26px;
+    width: 52px;
+    height: 52px;
+    font-size: 24px;
   }
 }
+
 
 
 /* ============================================================
@@ -1520,6 +1534,7 @@ body {
     font-size: 20px;
   }
 }
+
 
 
 
