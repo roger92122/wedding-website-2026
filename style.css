@@ -460,24 +460,28 @@ body {
   position: absolute;
   inset: 0;
 
-  background-image: url("/bus.jpg"); /* adjust path */
+  background-image: url("/images/bus.jpg");
   background-repeat: no-repeat;
-  background-position: right 20px center;
-  background-size: 140px auto;
 
-  opacity: 0.18;              /* 🔑 controls fading */
+  /* 🔑 THIS is the key change */
+  background-size: 55% auto;          /* fills the section */
+  background-position: right center;
+
+  opacity: 0.12;                      /* faded enough for text */
   pointer-events: none;
 
   z-index: -1;
 }
 
+
 @media (max-width: 768px) {
   .travel-note.bus::before {
-    background-size: 100px auto;
-    background-position: right 12px bottom 12px;
-    opacity: 0.14;
+    background-size: 70% auto;
+    background-position: center bottom;
+    opacity: 0.10;
   }
 }
+
 
 
 /* ============================================================
@@ -1581,6 +1585,7 @@ body {
 #floating-message-btn.dragging {
   cursor: grabbing;
 }
+
 
 
 
