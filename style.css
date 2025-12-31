@@ -1805,6 +1805,14 @@ body {
   color: rgba(0,0,0,0.55);
 }
 
+@media (max-width: 600px) {
+  .gratitude-line {
+    margin: 80px 20px 32px;
+    font-size: 13px;
+    letter-spacing: 1px;
+  }
+}
+
 
 
 
