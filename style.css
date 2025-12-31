@@ -879,7 +879,7 @@ body {
 /* ⬆️ FOOTER */
 .site-footer {
   background: #ececef;
-  padding: 48px 40px 120px;
+  padding: 48px 40px 60px;
   margin-bottom: 20px;
   margin-top: 20px;
 }
@@ -948,7 +948,7 @@ body {
 
   /* Slightly tighter horizontal padding for phones */
   .site-footer {
-    padding: 40px 20px 80px;
+    padding: 40px 20px 60px;
   }
 
   /* Center column text remains centered */
@@ -1812,6 +1812,7 @@ body {
     letter-spacing: 1px;
   }
 }
+
 
 
 
