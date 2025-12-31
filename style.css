@@ -1660,7 +1660,55 @@ body {
 
 
 
+/* ============================================================
+   COUNTDOWN
+   ============================================================ */
 
+.hero-countdown {
+  margin-top: 16px;
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 18px;
+
+  font-family: "Libre Baskerville", serif;
+  font-size: 13px;                /* smaller than date */
+  letter-spacing: 3px;
+  color: rgba(255,255,255,0.9);
+
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 999px;
+
+  box-shadow:
+    0 8px 20px rgba(0,0,0,0.18),
+    inset 0 1px 0 rgba(255,255,255,0.25);
+
+  animation: heroFadeUp 1.2s ease both;
+}
+
+.hero-countdown span {
+  min-width: 18px;
+  text-align: center;
+}
+
+.hero-countdown .sep {
+  margin: 0 6px;
+  opacity: 0.6;
+}
+
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 
 
