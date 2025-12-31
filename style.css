@@ -948,7 +948,7 @@ body {
 
   /* Slightly tighter horizontal padding for phones */
   .site-footer {
-    padding: 40px 20px 140px;
+    padding: 40px 20px 80px;
   }
 
   /* Center column text remains centered */
@@ -1812,6 +1812,7 @@ body {
     letter-spacing: 1px;
   }
 }
+
 
 
 
