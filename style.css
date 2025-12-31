@@ -1790,7 +1790,20 @@ body {
 
 
 
+/* ============================================================
+   Special Thanks
+   ============================================================ */
 
+.gratitude-line {
+  margin: 120px auto 40px;
+  text-align: center;
+  max-width: 800px;
+
+  font-family: "Libre Baskerville", serif;
+  font-size: 14px;
+  letter-spacing: 1.2px;
+  color: rgba(0,0,0,0.55);
+}
 
 
 
