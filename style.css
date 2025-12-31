@@ -1761,6 +1761,33 @@ body {
   }
 }
 
+@media (max-width: 600px) {
+
+  .hero-countdown {
+    margin-top: 12px;
+    padding: 6px 14px;
+    gap: 8px;
+  }
+
+  .cd-item {
+    min-width: 36px;
+  }
+
+  .cd-num {
+    font-size: 12px;
+    letter-spacing: 1.5px;
+  }
+
+  .cd-unit {
+    font-size: 8px;
+    letter-spacing: 1.5px;
+  }
+
+  .cd-sep {
+    font-size: 12px;
+  }
+}
+
 
 
 
