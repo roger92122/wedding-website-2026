@@ -1699,6 +1699,57 @@ body {
   opacity: 0.6;
 }
 
+
+.hero-countdown {
+  margin-top: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 10px 20px;
+
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 999px;
+
+  box-shadow:
+    0 8px 20px rgba(0,0,0,0.18),
+    inset 0 1px 0 rgba(255,255,255,0.25);
+
+  animation: heroFadeUp 1.2s ease both;
+}
+
+.cd-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 44px;
+}
+
+.cd-num {
+  font-family: "Libre Baskerville", serif;
+  font-size: 15px;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.95);
+}
+
+.cd-unit {
+  margin-top: 2px;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+}
+
+.cd-sep {
+  font-size: 14px;
+  opacity: 0.4;
+  transform: translateY(-2px);
+}
+
 @keyframes heroFadeUp {
   from {
     opacity: 0;
@@ -1709,6 +1760,7 @@ body {
     transform: translateY(0);
   }
 }
+
 
 
 
