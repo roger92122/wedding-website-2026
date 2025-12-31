@@ -880,7 +880,7 @@ body {
 .site-footer {
   background: #ececef;
   padding: 48px 40px 120px;
-  margin-bottom: 120px;
+  margin-bottom: 20px;
   margin-top: 20px;
 }
 
@@ -1812,6 +1812,7 @@ body {
     letter-spacing: 1px;
   }
 }
+
 
 
 
